@@ -7,7 +7,11 @@
 */
 
 "layouts.main.title" = "Projects";
-"layouts.project.add.title" = "Add Project";
 
+"layouts.project.add.title" = "Add Project";
 "layouts.project.add.name.hint" = "Name of the project:";
 "layouts.project.add.name.field.placeholder" = "Insert project name";
+
+"layouts.testcase.add.title" = "Add Test Case";
+"layouts.testcase.add.name.hint" = "Title of the test case:";
+"layouts.testcase.add.name.field.placeholder" = "Insert test case title";

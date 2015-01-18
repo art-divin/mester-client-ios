@@ -14,11 +14,13 @@ class TestCase: NSObject, Mapping {
 	let kFieldIdentifier = "id"
 	let kFieldCreationDate = "creationDate"
 	let kFieldSteps = "steps"
+	let kFieldProjectID = "projectId"
 	
 	var title: String?
 	var creationDate: NSDate?
 	var identifier: String?
 	var steps: [TestStep] = []
+	var project: Project?
 	
 	func deserialize(dic: [String : AnyObject?]) {
 		self.title = dic[kFieldTitle] as? String
@@ -33,12 +35,16 @@ class TestCase: NSObject, Mapping {
 			for stepDic in stepArr! {
 				var step = TestStep()
 				step.deserialize(stepDic)
+				step.testCase = self
 				self.steps.append(step)
 			}
 		}
 	}
 	
 	func serialize() -> [String : String] {
-		return [:]
+		var testCaseDic = [String : String]()
+		testCaseDic[kFieldProjectID] = self.project?.identifier
+		testCaseDic[kFieldTitle] = self.title
+		return testCaseDic
 	}
 }

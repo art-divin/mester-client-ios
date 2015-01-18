@@ -19,19 +19,25 @@ class TestsViewController: UITableViewController {
 		}
 	}
 	
-	func configureView() {
-		// Update the user interface for the detail item.
+	func fetchTestCases() {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
-		if let project = self.project {
-			ObjectManager.fetchTestCases(project) { [weak self] (result, error) in
-				dispatch_async(dispatch_get_main_queue(), { () -> Void in
-					ErrorHandler.handleError(error);
-					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+		ObjectManager.fetchTestCases(project) { [weak self] (result, error) in
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				ErrorHandler.handleError(error);
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+				if error == nil {
 					self?.objects.removeAll(keepCapacity: false)
 					self?.objects.extend(result as [TestCase])
 					self?.tableView.reloadData()
-				});
-			}
+				}
+			});
+		}
+	}
+	
+	func configureView() {
+		// Update the user interface for the detail item.
+		if let project = self.project {
+			self.fetchTestCases()
 		}
 		self.navigationItem.title = self.project?.name
 	}
@@ -40,6 +46,17 @@ class TestsViewController: UITableViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		self.configureView()
+		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showTestCaseDetails:")
+		self.navigationItem.rightBarButtonItem = addButton
+	}
+	
+	func showTestCaseDetails(sender: AnyObject?) {
+		var testCaseVC = self.storyboard?.instantiateViewControllerWithIdentifier("TestCaseViewController") as TestCaseViewController
+		testCaseVC.project = self.project
+		testCaseVC.callback = { [unowned self] (testCase) -> Void in
+			self.fetchTestCases()
+		}
+		self.navigationController?.pushViewController(testCaseVC, animated: true)
 	}
 	
 	override func didReceiveMemoryWarning() {

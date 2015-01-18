@@ -13,10 +13,12 @@ class TestStep: NSObject, Mapping {
 	let kFieldIdentifier = "id"
 	let kFieldText = "text"
 	let kFieldNumber = "number"
+	let kFieldTestCaseID = "testCaseId"
 	
 	var text: String?
 	var number: Int?
 	var identifier: String?
+	var testCase: TestCase?
 	
 	func deserialize(dic: [String : AnyObject?]) {
 		self.identifier = dic[kFieldIdentifier] as String?

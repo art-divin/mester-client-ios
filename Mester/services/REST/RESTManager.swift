@@ -21,13 +21,13 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			var result: AnyObject? = responseObj?["result"]
+			var result: AnyObject? = responseObj?["result"]?
 			if !(result is NSArray) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)
 				return;
 			} else {
-				let status: AnyObject? = responseObj["status"]
+				let status: AnyObject? = responseObj?["status"]?
 				let statusStr = status as? NSString
 				if statusStr != "ok" {
 					error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
@@ -46,13 +46,13 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			var result: AnyObject? = responseObj?["result"]
+			var result: AnyObject? = responseObj?["result"]?
 			if !(result is NSArray) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)
 				return;
 			} else {
-				let status: AnyObject? = responseObj["status"]
+				let status: AnyObject? = responseObj?["status"]?
 				let statusStr = status as? String
 				if statusStr != "ok" {
 					error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
@@ -71,7 +71,7 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			let status: AnyObject? = responseObj["status"]
+			let status: AnyObject? = responseObj?["status"]?
 			let statusStr = status as? String
 			if statusStr != "ok" {
 				error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
@@ -89,7 +89,25 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			let status: AnyObject? = responseObj["status"]
+			let status: AnyObject? = responseObj?["status"]?
+			let statusStr = status as? String
+			if statusStr != "ok" {
+				error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
+			}
+			completionBlock(nil, error)
+		}
+		RESTManager.scheduleOperation(operation);
+	}
+	
+	class func createTestCase(testCase testCaseDic: [String: String]!, completionBlock: CompletionBlock!) {
+		let comps: NSURLComponents = RESTManager.URLComponents()
+		comps.path = "/testcase"
+		let operation = XTRequestOperation(URL: comps.URL, type: .POST, dataDic: testCaseDic, contentType: "application/json") { responseObj, responseError in
+			var error: XTResponseError? = nil;
+			if let err = responseError {
+				error = XTResponseError(code: err.code, message: err.localizedDescription)
+			}
+			let status: AnyObject? = responseObj?["status"]?
 			let statusStr = status as? String
 			if statusStr != "ok" {
 				error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")

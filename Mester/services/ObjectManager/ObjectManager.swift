@@ -56,13 +56,14 @@ class ObjectManager: NSObject {
 				let dic = testCaseDic as Dictionary<String, AnyObject>
 				let testCase = TestCase()
 				testCase.deserialize(dic)
+				testCase.project = project
 				testCaseArr.append(testCase)
 			}
 			completionBlock(testCaseArr, error)
 		}
 	}
 	
-	class func createProject(project: Project!, completionBlock: DictionaryCompletionBlock!) {
+	class func createProject(project: Project!, completionBlock: ArrayCompletionBlock!) {
 		ObjectManager.setup()
 		var projectDic = project.serialize()
 		RESTManager.createProject(project: projectDic) { (result, error) -> () in
@@ -70,18 +71,30 @@ class ObjectManager: NSObject {
 				completionBlock(nil, error)
 				return
 			}
-			completionBlock(result as Dictionary<String, AnyObject>?, error)
+			completionBlock(result as [AnyObject]?, error)
 		}
 	}
 	
-	class func deleteProject(project: Project!, completionBlock: DictionaryCompletionBlock!) {
+	class func deleteProject(project: Project!, completionBlock: ArrayCompletionBlock!) {
 		ObjectManager.setup()
 		RESTManager.deleteProject(project.identifier) { (result, error) -> () in
 			if let err = error {
 				completionBlock(nil, error)
 				return
 			}
-			completionBlock(result as Dictionary<String, AnyObject>?, error)
+			completionBlock(result as [AnyObject]?, error)
+		}
+	}
+	
+	class func createTestCase(testCase: TestCase!, completionBlock: ArrayCompletionBlock!) {
+		ObjectManager.setup()
+		var testCaseDic = testCase.serialize()
+		RESTManager.createTestCase(testCase: testCaseDic) { (result, error) -> () in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			completionBlock(result as [AnyObject]?, error)
 		}
 	}
 }
