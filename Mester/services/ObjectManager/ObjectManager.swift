@@ -44,7 +44,7 @@ class ObjectManager: NSObject {
 		})
 	}
 	
-	class func fetchTestCases(project: Project, completionBlock: ArrayCompletionBlock!) {
+	class func fetchTestCases(project: Project!, completionBlock: ArrayCompletionBlock!) {
 		ObjectManager.setup()
 		RESTManager.fetchTestCases(project.identifier!) { result, error in
 			if let err = error {
@@ -62,7 +62,7 @@ class ObjectManager: NSObject {
 		}
 	}
 	
-	class func createProject(project: Project, completionBlock: DictionaryCompletionBlock!) {
+	class func createProject(project: Project!, completionBlock: DictionaryCompletionBlock!) {
 		ObjectManager.setup()
 		var projectDic = project.serialize()
 		RESTManager.createProject(project: projectDic) { (result, error) -> () in
@@ -70,7 +70,18 @@ class ObjectManager: NSObject {
 				completionBlock(nil, error)
 				return
 			}
-			completionBlock(result as Dictionary<String, AnyObject>, error)
+			completionBlock(result as Dictionary<String, AnyObject>?, error)
+		}
+	}
+	
+	class func deleteProject(project: Project!, completionBlock: DictionaryCompletionBlock!) {
+		ObjectManager.setup()
+		RESTManager.deleteProject(project.identifier) { (result, error) -> () in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			completionBlock(result as Dictionary<String, AnyObject>?, error)
 		}
 	}
 }

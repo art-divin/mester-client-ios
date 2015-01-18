@@ -35,8 +35,11 @@ class ProjectViewController: UIViewController {
 				dispatch_async(dispatch_get_main_queue(), { () -> Void in
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 					ErrorHandler.handleError(error)
-					self.navigationController?.popViewControllerAnimated(true)
-					self.callback?(project)
+					if error == nil {
+						self.navigationController?.popViewControllerAnimated(true)
+						self.callback?(project)
+					}
+					// TODO: handle error
 				});
 			})
 		}
