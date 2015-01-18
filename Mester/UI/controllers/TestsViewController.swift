@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  TestsViewController.swift
 //  Mester
 //
 //  Created by Ruslan Alikhamov on 17/01/15.
@@ -8,37 +8,38 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class TestsViewController: UITableViewController {
 	
-	var objects: [Project] = []
+	var objects: [TestCase] = []
 	
-	override func awakeFromNib() {
-		super.awakeFromNib()
+	var project: Project? {
+		didSet {
+			// Update the view.
+			self.configureView()
+		}
+	}
+	
+	func configureView() {
+		// Update the user interface for the detail item.
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+		if let project = self.project {
+			ObjectManager.fetchTestCases(project) { [weak self] (result, error) in
+				dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					ErrorHandler.handleError(error);
+					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+					self?.objects.removeAll(keepCapacity: false)
+					self?.objects.extend(result as [TestCase])
+					self?.tableView.reloadData()
+				});
+			}
+		}
+		self.navigationItem.title = self.project?.name
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-		self.navigationItem.leftBarButtonItem = self.editButtonItem()
-		self.navigationItem.title = NSLocalizedString("layouts.main.title", comment: "main view title")
-		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showProjectDetails:")
-		self.navigationItem.rightBarButtonItem = addButton
-		self.fetchProjectList()
-	}
-	
-	func fetchProjectList() {
-		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
-		ObjectManager.fetchProjects({ [unowned self] (result, error) in
-			dispatch_async(dispatch_get_main_queue(), { () -> Void in
-				ErrorHandler.handleError(error);
-				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
-				if result != nil {
-					self.objects.removeAll(keepCapacity: false)
-					self.objects.extend(result as [Project])
-					self.tableView.reloadData()
-				}
-			});
-		});
+		self.configureView()
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -46,21 +47,13 @@ class MasterViewController: UITableViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	func showProjectDetails(sender: AnyObject) {
-		var projectVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProjectViewController") as ProjectViewController
-		projectVC.callback = { [unowned self] (project) in
-			self.fetchProjectList()
-		}
-		self.navigationController?.pushViewController(projectVC, animated: true);
-	}
-	
-	// MARK: - Segues
+	// MARK: - Navigation
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if segue.identifier == "TestsViewController" {
+		if segue.identifier == "StepsViewController" {
 			if let indexPath = self.tableView.indexPathForSelectedRow() {
-				let project = objects[indexPath.row] as Project
-				(segue.destinationViewController as TestsViewController).project = project
+				let testCase = objects[indexPath.row]
+				(segue.destinationViewController as StepsViewController).testCase = testCase
 			}
 		}
 	}
@@ -78,8 +71,8 @@ class MasterViewController: UITableViewController {
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 		
-		let object = objects[indexPath.row] as Project
-		cell.textLabel!.text = object.name
+		let object = objects[indexPath.row]
+		cell.textLabel!.text = object.title
 		return cell
 	}
 	
@@ -96,5 +89,6 @@ class MasterViewController: UITableViewController {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
 		}
 	}
+	
 }
 

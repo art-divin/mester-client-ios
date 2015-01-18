@@ -47,7 +47,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="5CY-Rz-A9e" kind="show" identifier="showDetail" id="0f3-gX-bv4"/>
+                                    <segue destination="5CY-Rz-A9e" kind="show" identifier="TestsViewController" id="0f3-gX-bv4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -109,10 +109,37 @@
             </objects>
             <point key="canvasLocation" x="605" y="750"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Steps View Controller-->
+        <scene sceneID="uNh-fP-ciJ">
+            <objects>
+                <tableViewController storyboardIdentifier="StepsViewController" id="uRb-pA-fab" customClass="StepsViewController" customModule="Mester" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="AEu-OG-5K5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="oVV-GN-KSB">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oVV-GN-KSB" id="WD7-G4-3EW">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uRb-pA-fab" id="Q19-Zq-G3T"/>
+                            <outlet property="delegate" destination="uRb-pA-fab" id="tCh-kU-Rrj"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N0d-Su-Hs2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1278" y="750"/>
+        </scene>
+        <!--Tests View Controller-->
         <scene sceneID="hmT-4o-h0F">
             <objects>
-                <tableViewController storyboardIdentifier="showDetail" id="5CY-Rz-A9e" customClass="DetailViewController" customModule="Mester" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TestsViewController" id="5CY-Rz-A9e" customClass="TestsViewController" customModule="Mester" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ySu-Ry-HJ1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,6 +150,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cjP-ks-jCe" id="6Gx-Ai-eg3">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="uRb-pA-fab" kind="show" identifier="StepsViewController" id="Fbg-4C-7h0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

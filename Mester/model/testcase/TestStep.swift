@@ -10,8 +10,18 @@ import UIKit
 
 class TestStep: NSObject, Mapping {
 	
+	let kFieldIdentifier = "id"
+	let kFieldText = "text"
+	let kFieldNumber = "number"
+	
+	var text: String?
+	var number: Int?
+	var identifier: String?
+	
 	func deserialize(dic: [String : AnyObject?]) {
-		
+		self.identifier = dic[kFieldIdentifier] as String?
+		self.number = dic[kFieldNumber] as Int?
+		self.text = dic[kFieldText] as String?
 	}
 	
 	func serialize() -> [String : String] {
