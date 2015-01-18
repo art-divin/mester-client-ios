@@ -28,4 +28,7 @@ class TestCase: NSObject, Mapping {
 		}
 	}
 	
+	func serialize() -> [String : String] {
+		return [:]
+	}
 }

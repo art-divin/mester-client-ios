@@ -13,6 +13,8 @@ class ProjectViewController: UIViewController {
 	@IBOutlet var nameHintLbl: UILabel!
 	@IBOutlet var nameField: UITextField!
 	
+	var callback: ((Project!) -> Void)?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.navigationItem.title = NSLocalizedString("layouts.project.add.title", comment: "add project view title")
@@ -25,7 +27,19 @@ class ProjectViewController: UIViewController {
 	}
 	
 	func done(sender: AnyObject?) {
-		self.navigationController?.popViewControllerAnimated(true)
+		if !self.nameField.text.isEmpty {
+			var project = Project()
+			project.name = self.nameField.text;
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+			ObjectManager.createProject(project, completionBlock: { [unowned self] (result, error) -> Void in
+				dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+					ErrorHandler.handleError(error)
+					self.navigationController?.popViewControllerAnimated(true)
+					self.callback?(project)
+				});
+			})
+		}
 	}
 	
 	override func didReceiveMemoryWarning() {

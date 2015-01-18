@@ -23,7 +23,10 @@ class MasterViewController: UITableViewController {
 		self.navigationItem.title = NSLocalizedString("layouts.main.title", comment: "main view title")
 		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showProjectDetails:")
 		self.navigationItem.rightBarButtonItem = addButton
-		
+		self.fetchProjectList()
+	}
+	
+	func fetchProjectList() {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
 		ObjectManager.fetchProjects({ [unowned self] (result, error) in
 			dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -45,6 +48,9 @@ class MasterViewController: UITableViewController {
 	
 	func showProjectDetails(sender: AnyObject) {
 		var projectVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProjectViewController") as ProjectViewController
+		projectVC.callback = { [unowned self] (project) in
+			self.fetchProjectList()
+		}
 		self.navigationController?.pushViewController(projectVC, animated: true);
 	}
 	

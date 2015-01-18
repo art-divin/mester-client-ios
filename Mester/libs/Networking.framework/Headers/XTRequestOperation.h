@@ -33,6 +33,7 @@ typedef NS_ENUM(NSUInteger, XTOperationType) {
 + (instancetype)operationWithURL:(NSURL *)URL
 							type:(XTOperationType)type
 						 dataDic:(NSDictionary *)dataDic
+					 contentType:(NSString *)contentType
 					 finishBlock:(XTOperationCompletion)finishBlock;
 
 @end

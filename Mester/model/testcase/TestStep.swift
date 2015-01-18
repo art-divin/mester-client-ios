@@ -8,6 +8,13 @@
 
 import UIKit
 
-class TestStep: NSObject {
-   
+class TestStep: NSObject, Mapping {
+	
+	func deserialize(dic: [String : AnyObject?]) {
+		
+	}
+	
+	func serialize() -> [String : String] {
+		return [:]
+	}
 }

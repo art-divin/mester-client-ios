@@ -27,4 +27,10 @@ class Project: NSObject, Mapping {
 			self.creationDate = dateFormatter.dateFromString(dateStr)
 		}
 	}
+	
+	func serialize() -> [String : String] {
+		var projectDic = [String : String]()
+		projectDic[kFieldName] = self.name
+		return projectDic
+	}
 }

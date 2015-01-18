@@ -61,4 +61,16 @@ class ObjectManager: NSObject {
 			completionBlock(testCaseArr, error)
 		}
 	}
+	
+	class func createProject(project: Project, completionBlock: DictionaryCompletionBlock!) {
+		ObjectManager.setup()
+		var projectDic = project.serialize()
+		RESTManager.createProject(project: projectDic) { (result, error) -> () in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			completionBlock(result as Dictionary<String, AnyObject>, error)
+		}
+	}
 }
