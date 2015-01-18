@@ -8,6 +8,7 @@
 
 #import "XTGlobals.h"
 #import "XTConfiguration.h"
+#import "XTRequestOperation.h"
 
 @import Foundation;
 
@@ -17,6 +18,10 @@
  * \brief Use this class to perform networking tasks
  */
 @interface XTOperationManager : NSObject
+
++ (NSURLComponents *)URLComponents;
++ (void)scheduleOperation:(XTRequestOperation *)operation;
++ (id)URLQueryWithParams:(NSDictionary *)paramsDic;
 
 + (void)setupWithConfiguration:(XTConfiguration *(^)())configurationBlock;
 

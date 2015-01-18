@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import Networking
 
 class MasterViewController: UITableViewController {
 
     var objects = NSMutableArray()
-
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +24,15 @@ class MasterViewController: UITableViewController {
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
+		
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+		RESTManager.fetchProjects({ result, error in
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+			});
+			println(error)
+			println(result)
+		});
     }
 
     override func didReceiveMemoryWarning() {

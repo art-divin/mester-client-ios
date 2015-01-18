@@ -9,12 +9,22 @@
 @import Foundation;
 
 typedef NS_ENUM(NSUInteger, XTConfigurationType) {
-	XTConfigurationTypeDev = 0,
+    XTConfigurationTypeNone = 0,
+	XTConfigurationTypeDev,
 	XTConfigurationTypeProd
 };
 
+@interface XTConfigurationPair : NSObject
+
+@property (nonatomic, readonly, assign) XTConfigurationType type;
+@property (nonatomic, readonly, strong) NSURL *url;
+
++ (instancetype)pairWithType:(XTConfigurationType)type URL:(NSURL *)url;
+
+@end
+
 @interface XTConfiguration : NSObject
 
-+ (instancetype)configurationWithType:(XTConfigurationType)type;
++ (instancetype)configurationWithPairs:(NSArray * (^)())pairBlock type:(XTConfigurationType)type;
 
 @end

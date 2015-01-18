@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, XTResponseErrorCode) {
 @interface XTResponseError : NSError
 
 + (instancetype)errorWithCode:(NSInteger)code message:(NSString *)message;
++ (instancetype)errorWithErrorCode:(XTResponseErrorCode)code message:(NSString *)message;
 
 @property (nonatomic, strong) NSString *message;
 

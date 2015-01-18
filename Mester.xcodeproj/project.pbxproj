@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C94E254B1A6AA4D500C9985A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E254A1A6AA4D500C9985A /* Networking.framework */; };
+		C9F3327B1A6AD7A80086DDB4 /* RESTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3327A1A6AD7A80086DDB4 /* RESTManager.swift */; };
+		C9F332811A6AE15F0086DDB4 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F332801A6AE15F0086DDB4 /* UIManager.swift */; };
 		C9FCF2461A6A9EDE00896B10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCF2451A6A9EDE00896B10 /* AppDelegate.swift */; };
 		C9FCF2481A6A9EDE00896B10 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCF2471A6A9EDE00896B10 /* MasterViewController.swift */; };
 		C9FCF24A1A6A9EDE00896B10 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCF2491A6A9EDE00896B10 /* DetailViewController.swift */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		C94E254A1A6AA4D500C9985A /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
+		C9F3327A1A6AD7A80086DDB4 /* RESTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RESTManager.swift; path = services/REST/RESTManager.swift; sourceTree = "<group>"; };
+		C9F332801A6AE15F0086DDB4 /* UIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIManager.swift; path = UI/UIManager/UIManager.swift; sourceTree = "<group>"; };
 		C9FCF2401A6A9EDD00896B10 /* Mester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FCF2441A6A9EDE00896B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9FCF2451A6A9EDE00896B10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9F332781A6AD7810086DDB4 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				C9F332791A6AD7890086DDB4 /* REST */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
+		C9F332791A6AD7890086DDB4 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				C9F3327A1A6AD7A80086DDB4 /* RESTManager.swift */,
+			);
+			name = REST;
+			sourceTree = "<group>";
+		};
+		C9F3327C1A6AE12F0086DDB4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C9F3327D1A6AE1330086DDB4 /* UIManager */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		C9F3327D1A6AE1330086DDB4 /* UIManager */ = {
+			isa = PBXGroup;
+			children = (
+				C9F332801A6AE15F0086DDB4 /* UIManager.swift */,
+			);
+			name = UIManager;
+			sourceTree = "<group>";
+		};
 		C9FCF2371A6A9EDD00896B10 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +118,8 @@
 		C9FCF2421A6A9EDD00896B10 /* Mester */ = {
 			isa = PBXGroup;
 			children = (
+				C9F3327C1A6AE12F0086DDB4 /* UI */,
+				C9F332781A6AD7810086DDB4 /* services */,
 				C9FCF2671A6A9F1A00896B10 /* libs */,
 				C9FCF2451A6A9EDE00896B10 /* AppDelegate.swift */,
 				C9FCF2471A6A9EDE00896B10 /* MasterViewController.swift */,
@@ -227,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F332811A6AE15F0086DDB4 /* UIManager.swift in Sources */,
 				C9FCF24A1A6A9EDE00896B10 /* DetailViewController.swift in Sources */,
+				C9F3327B1A6AD7A80086DDB4 /* RESTManager.swift in Sources */,
 				C9FCF2481A6A9EDE00896B10 /* MasterViewController.swift in Sources */,
 				C9FCF2461A6A9EDE00896B10 /* AppDelegate.swift in Sources */,
 			);
