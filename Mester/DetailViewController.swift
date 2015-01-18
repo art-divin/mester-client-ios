@@ -33,6 +33,11 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+		
+		RESTManager.fetchTestCases("1") { result, error in
+			println(result)
+			println(error)
+		}
     }
 
     override func didReceiveMemoryWarning() {

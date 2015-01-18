@@ -10,6 +10,7 @@ import UIKit
 import Networking
 
 class RESTManager: XTOperationManager {
+	
 	class func fetchProjects(completionBlock: (AnyObject?, XTResponseError?) -> ()) {
         let comps: NSURLComponents = RESTManager.URLComponents()
 		comps.path = "/projects"
@@ -19,7 +20,7 @@ class RESTManager: XTOperationManager {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
 			var result: AnyObject? = responseObj?["result"]
-			if result is NSDictionary {
+			if !(result is NSArray) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)
 				return;
@@ -34,4 +35,29 @@ class RESTManager: XTOperationManager {
 		}
 		RESTManager.scheduleOperation(operation);
     }
+	
+	class func fetchTestCases(projectID: NSString, completionBlock: (AnyObject?, XTResponseError?) -> ()) {
+		let comps: NSURLComponents = RESTManager.URLComponents()
+		comps.path = "/project/\(projectID)/testcases"
+		let operation = XTRequestOperation(URL: comps.URL, type: .GET, dataDic: nil) { responseObj, responseError in
+			var error: XTResponseError? = nil;
+			if let err = responseError {
+				error = XTResponseError(code: err.code, message: err.localizedDescription)
+			}
+			var result: AnyObject? = responseObj?["result"]
+			if !(result is NSArray) {
+				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
+				completionBlock(nil, error)
+				return;
+			} else {
+				let status: AnyObject? = responseObj["status"]
+				let statusStr = status as? NSString
+				if statusStr != "ok" {
+					error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
+				}
+			}
+			completionBlock(result, error)
+		}
+		RESTManager.scheduleOperation(operation);
+	}
 }
