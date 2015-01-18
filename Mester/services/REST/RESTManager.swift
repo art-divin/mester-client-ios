@@ -36,7 +36,7 @@ class RESTManager: XTOperationManager {
 		RESTManager.scheduleOperation(operation);
     }
 	
-	class func fetchTestCases(projectID: NSString, completionBlock: (AnyObject?, XTResponseError?) -> ()) {
+	class func fetchTestCases(projectID: String, completionBlock: (AnyObject?, XTResponseError?) -> ()) {
 		let comps: NSURLComponents = RESTManager.URLComponents()
 		comps.path = "/project/\(projectID)/testcases"
 		let operation = XTRequestOperation(URL: comps.URL, type: .GET, dataDic: nil) { responseObj, responseError in
@@ -51,7 +51,7 @@ class RESTManager: XTOperationManager {
 				return;
 			} else {
 				let status: AnyObject? = responseObj["status"]
-				let statusStr = status as? NSString
+				let statusStr = status as? String
 				if statusStr != "ok" {
 					error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
 				}

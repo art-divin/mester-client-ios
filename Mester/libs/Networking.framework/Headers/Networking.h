@@ -18,3 +18,4 @@ FOUNDATION_EXPORT const unsigned char NetworkingVersionString[];
 #import "XTGlobals.h"
 #import "XTResponseError.h"
 #import "XTRequestOperation.h"
+#import "XTLogger.h"

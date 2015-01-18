@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C94E254B1A6AA4D500C9985A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E254A1A6AA4D500C9985A /* Networking.framework */; };
+		C970E3621A6BF112004EF36D /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970E3611A6BF112004EF36D /* Common.swift */; };
+		C9EDD53C1A6BB80E00624B5D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53B1A6BB80E00624B5D /* Project.swift */; };
+		C9EDD53F1A6BB82200624B5D /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53E1A6BB82200624B5D /* TestCase.swift */; };
+		C9EDD5411A6BB83400624B5D /* TestStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5401A6BB83400624B5D /* TestStep.swift */; };
+		C9EDD5431A6BC1AD00624B5D /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5421A6BC1AD00624B5D /* Mapping.swift */; };
+		C9EDD5461A6BC9D800624B5D /* ObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5451A6BC9D800624B5D /* ObjectManager.swift */; };
+		C9EDD5491A6BE31E00624B5D /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5481A6BE31E00624B5D /* ErrorHandler.swift */; };
 		C9F3327B1A6AD7A80086DDB4 /* RESTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3327A1A6AD7A80086DDB4 /* RESTManager.swift */; };
 		C9F332811A6AE15F0086DDB4 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F332801A6AE15F0086DDB4 /* UIManager.swift */; };
 		C9FCF2461A6A9EDE00896B10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCF2451A6A9EDE00896B10 /* AppDelegate.swift */; };
@@ -31,6 +38,13 @@
 
 /* Begin PBXFileReference section */
 		C94E254A1A6AA4D500C9985A /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
+		C970E3611A6BF112004EF36D /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = common/Common.swift; sourceTree = "<group>"; };
+		C9EDD53B1A6BB80E00624B5D /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = model/project/Project.swift; sourceTree = "<group>"; };
+		C9EDD53E1A6BB82200624B5D /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCase.swift; path = model/testcase/TestCase.swift; sourceTree = "<group>"; };
+		C9EDD5401A6BB83400624B5D /* TestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStep.swift; path = model/testcase/TestStep.swift; sourceTree = "<group>"; };
+		C9EDD5421A6BC1AD00624B5D /* Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mapping.swift; path = model/Mapping.swift; sourceTree = "<group>"; };
+		C9EDD5451A6BC9D800624B5D /* ObjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectManager.swift; path = services/ObjectManager/ObjectManager.swift; sourceTree = "<group>"; };
+		C9EDD5481A6BE31E00624B5D /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandler.swift; path = services/ErrorHandler/ErrorHandler.swift; sourceTree = "<group>"; };
 		C9F3327A1A6AD7A80086DDB4 /* RESTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RESTManager.swift; path = services/REST/RESTManager.swift; sourceTree = "<group>"; };
 		C9F332801A6AE15F0086DDB4 /* UIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIManager.swift; path = UI/UIManager/UIManager.swift; sourceTree = "<group>"; };
 		C9FCF2401A6A9EDD00896B10 /* Mester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mester.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,9 +79,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C970E3601A6BF103004EF36D /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C970E3611A6BF112004EF36D /* Common.swift */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		C9EDD5391A6BB7EC00624B5D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C9EDD53D1A6BB81200624B5D /* testcase */,
+				C9EDD53A1A6BB7FA00624B5D /* project */,
+				C9EDD5421A6BC1AD00624B5D /* Mapping.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		C9EDD53A1A6BB7FA00624B5D /* project */ = {
+			isa = PBXGroup;
+			children = (
+				C9EDD53B1A6BB80E00624B5D /* Project.swift */,
+			);
+			name = project;
+			sourceTree = "<group>";
+		};
+		C9EDD53D1A6BB81200624B5D /* testcase */ = {
+			isa = PBXGroup;
+			children = (
+				C9EDD53E1A6BB82200624B5D /* TestCase.swift */,
+				C9EDD5401A6BB83400624B5D /* TestStep.swift */,
+			);
+			name = testcase;
+			sourceTree = "<group>";
+		};
+		C9EDD5441A6BC9BC00624B5D /* ObjectManager */ = {
+			isa = PBXGroup;
+			children = (
+				C9EDD5451A6BC9D800624B5D /* ObjectManager.swift */,
+			);
+			name = ObjectManager;
+			sourceTree = "<group>";
+		};
+		C9EDD5471A6BE30A00624B5D /* ErrorHandler */ = {
+			isa = PBXGroup;
+			children = (
+				C9EDD5481A6BE31E00624B5D /* ErrorHandler.swift */,
+			);
+			name = ErrorHandler;
+			sourceTree = "<group>";
+		};
 		C9F332781A6AD7810086DDB4 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				C9EDD5471A6BE30A00624B5D /* ErrorHandler */,
+				C9EDD5441A6BC9BC00624B5D /* ObjectManager */,
 				C9F332791A6AD7890086DDB4 /* REST */,
 			);
 			name = services;
@@ -118,6 +185,8 @@
 		C9FCF2421A6A9EDD00896B10 /* Mester */ = {
 			isa = PBXGroup;
 			children = (
+				C970E3601A6BF103004EF36D /* common */,
+				C9EDD5391A6BB7EC00624B5D /* model */,
 				C9F3327C1A6AE12F0086DDB4 /* UI */,
 				C9F332781A6AD7810086DDB4 /* services */,
 				C9FCF2671A6A9F1A00896B10 /* libs */,
@@ -265,11 +334,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9EDD5431A6BC1AD00624B5D /* Mapping.swift in Sources */,
 				C9F332811A6AE15F0086DDB4 /* UIManager.swift in Sources */,
+				C9EDD5461A6BC9D800624B5D /* ObjectManager.swift in Sources */,
 				C9FCF24A1A6A9EDE00896B10 /* DetailViewController.swift in Sources */,
+				C970E3621A6BF112004EF36D /* Common.swift in Sources */,
+				C9EDD5491A6BE31E00624B5D /* ErrorHandler.swift in Sources */,
+				C9EDD53F1A6BB82200624B5D /* TestCase.swift in Sources */,
 				C9F3327B1A6AD7A80086DDB4 /* RESTManager.swift in Sources */,
 				C9FCF2481A6A9EDE00896B10 /* MasterViewController.swift in Sources */,
+				C9EDD5411A6BB83400624B5D /* TestStep.swift in Sources */,
 				C9FCF2461A6A9EDE00896B10 /* AppDelegate.swift in Sources */,
+				C9EDD53C1A6BB80E00624B5D /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,11 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-		RESTManager.setupWithConfiguration { () -> XTConfiguration! in
-			return XTConfiguration(pairs: { () -> [AnyObject]! in
-				return [ XTConfigurationPair(type: .Dev, URL: NSURL(string: "http://localhost:8080")) ]
-			}, type: .Dev)
-		}
+		XTLogger.setupWithConfiguration(.Dev)
         return true
     }
 

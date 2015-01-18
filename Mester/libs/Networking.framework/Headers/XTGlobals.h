@@ -14,11 +14,4 @@
 
 typedef void (^XTCompletionBlock)(NSDictionary *responseDic, XTResponseError *responseError);
 
-NS_INLINE void XTLog(NSString *fmt, ...) {
-	va_list list;
-	va_start(list, fmt);
-	NSLogv(fmt, list);
-	va_end(list);
-};
-
 #endif
