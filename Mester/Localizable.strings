@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Mester
+
+  Created by Ruslan Alikhamov on 18/01/15.
+  Copyright (c) 2015 Ruslan Alikhamov. All rights reserved.
+*/
+
+"layouts.main.title" = "Projects";
+"layouts.project.add.title" = "Add Project";
+
+"layouts.project.add.name.hint" = "Name of the project:";
+"layouts.project.add.name.field.placeholder" = "Insert project name";

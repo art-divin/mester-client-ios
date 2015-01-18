@@ -20,8 +20,8 @@ class MasterViewController: UITableViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		self.navigationItem.leftBarButtonItem = self.editButtonItem()
-		
-		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+		self.navigationItem.title = NSLocalizedString("layouts.main.title", comment: "main view title")
+		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showProjectDetails:")
 		self.navigationItem.rightBarButtonItem = addButton
 		
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
@@ -43,10 +43,9 @@ class MasterViewController: UITableViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	func insertNewObject(sender: AnyObject) {
-//		objects.insertObject(NSDate(), atIndex: 0)
-//		let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-//		self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+	func showProjectDetails(sender: AnyObject) {
+		var projectVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProjectViewController") as ProjectViewController
+		self.navigationController?.pushViewController(projectVC, animated: true);
 	}
 	
 	// MARK: - Segues
