@@ -23,7 +23,7 @@ class StepsViewController: UITableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		self.navigationItem.title = NSLocalizedString("layouts.teststep.list.title", comment: "test step list view title")
 		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showTestStepDetails:")
 		self.navigationItem.rightBarButtonItem = addButton
     }
@@ -82,6 +82,9 @@ class StepsViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		if editingStyle == .Delete {
+			let testCase = objects[indexPath.row] as TestStep
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+			
 			objects.removeAtIndex(indexPath.row)
 			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
 		} else if editingStyle == .Insert {

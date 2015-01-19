@@ -95,13 +95,23 @@ class TestsViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 		// Return false if you do not want the specified item to be editable.
-		return false
+		return true
 	}
 	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		if editingStyle == .Delete {
-			objects.removeAtIndex(indexPath.row)
-			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+			let testCase = objects[indexPath.row] as TestCase
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+			ObjectManager.deleteTestCase(testCase, completionBlock: { [unowned self] (result, error) -> Void in
+				dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					ErrorHandler.handleError(error)
+					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+					if error == nil {
+						self.objects.removeAtIndex(indexPath.row)
+						self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+					}
+				});
+			})
 		} else if editingStyle == .Insert {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
 		}

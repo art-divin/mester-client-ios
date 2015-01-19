@@ -117,6 +117,24 @@ class RESTManager: XTOperationManager {
 		RESTManager.scheduleOperation(operation);
 	}
 	
+	class func deleteTestCase(testCaseID: String!, completionBlock: CompletionBlock!) {
+		let comps: NSURLComponents = RESTManager.URLComponents()
+		comps.path = "/testcase/\(testCaseID)"
+		let operation = XTRequestOperation(URL: comps.URL, type: .DELETE, dataDic: nil, contentType: "application/json") { responseObj, responseError in
+			var error: XTResponseError? = nil;
+			if let err = responseError {
+				error = XTResponseError(code: err.code, message: err.localizedDescription)
+			}
+			let status: AnyObject? = responseObj?["status"]?
+			let statusStr = status as? String
+			if statusStr != "ok" {
+				error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
+			}
+			completionBlock(nil, error)
+		}
+		RESTManager.scheduleOperation(operation);
+	}
+	
 	class func createTestStep(testStep testStepDic: [String: AnyObject]!, completionBlock: CompletionBlock!) {
 		let comps: NSURLComponents = RESTManager.URLComponents()
 		comps.path = "/step"

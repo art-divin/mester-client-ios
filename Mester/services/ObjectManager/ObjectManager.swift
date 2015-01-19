@@ -98,6 +98,18 @@ class ObjectManager: NSObject {
 		}
 	}
 	
+	class func deleteTestCase(testCase: TestCase!, completionBlock: ArrayCompletionBlock!) {
+		ObjectManager.setup()
+		RESTManager.deleteTestCase(testCase.identifier, completionBlock: { (result, error) -> () in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			// TODO: proper error handling
+			completionBlock(result as [AnyObject]?, error)
+		})
+	}
+	
 	class func createTestStep(testStep: TestStep!, completionBlock: ArrayCompletionBlock!) {
 		ObjectManager.setup()
 		var testStepDic = testStep.serialize()
