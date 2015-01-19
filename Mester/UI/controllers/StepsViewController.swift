@@ -77,16 +77,24 @@ class StepsViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 		// Return false if you do not want the specified item to be editable.
-		return false
+		return true
 	}
 	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		if editingStyle == .Delete {
-			let testCase = objects[indexPath.row] as TestStep
+			let testStep = objects[indexPath.row] as TestStep
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
-			
-			objects.removeAtIndex(indexPath.row)
-			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+			ObjectManager.deleteTestStep(testStep, completionBlock: { [unowned self] (result, error) -> Void in
+				dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+					ErrorHandler.handleError(error)
+					if error == nil {
+						self.objects.removeAtIndex(indexPath.row)
+						self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+						self.fetchTestCases()
+					}
+				})
+			})
 		} else if editingStyle == .Insert {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
 		}
