@@ -63,7 +63,7 @@ class RESTManager: XTOperationManager {
 		RESTManager.scheduleOperation(operation);
 	}
 	
-	class func createProject(project projectDic: [String: String]!, completionBlock: CompletionBlock!) {
+	class func createProject(project projectDic: [String: AnyObject]!, completionBlock: CompletionBlock!) {
 		let comps: NSURLComponents = RESTManager.URLComponents()
 		comps.path = "/project"
 		let operation = XTRequestOperation(URL: comps.URL, type: .POST, dataDic: projectDic, contentType: "application/json") { responseObj, responseError in
@@ -99,7 +99,7 @@ class RESTManager: XTOperationManager {
 		RESTManager.scheduleOperation(operation);
 	}
 	
-	class func createTestCase(testCase testCaseDic: [String: String]!, completionBlock: CompletionBlock!) {
+	class func createTestCase(testCase testCaseDic: [String: AnyObject]!, completionBlock: CompletionBlock!) {
 		let comps: NSURLComponents = RESTManager.URLComponents()
 		comps.path = "/testcase"
 		let operation = XTRequestOperation(URL: comps.URL, type: .POST, dataDic: testCaseDic, contentType: "application/json") { responseObj, responseError in
@@ -116,4 +116,48 @@ class RESTManager: XTOperationManager {
 		}
 		RESTManager.scheduleOperation(operation);
 	}
+	
+	class func createTestStep(testStep testStepDic: [String: AnyObject]!, completionBlock: CompletionBlock!) {
+		let comps: NSURLComponents = RESTManager.URLComponents()
+		comps.path = "/step"
+		let operation = XTRequestOperation(URL: comps.URL, type: .POST, dataDic: testStepDic, contentType: "application/json") { responseObj, responseError in
+			var error: XTResponseError? = nil;
+			if let err = responseError {
+				error = XTResponseError(code: err.code, message: err.localizedDescription)
+			}
+			let status: AnyObject? = responseObj?["status"]?
+			let statusStr = status as? String
+			if statusStr != "ok" {
+				error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
+			}
+			completionBlock(nil, error)
+		}
+		RESTManager.scheduleOperation(operation);
+	}
+	
+	class func fetchTestSteps(testCaseID: String!, completionBlock: CompletionBlock!) {
+		let comps: NSURLComponents = RESTManager.URLComponents()
+		comps.path = "/testcase/\(testCaseID)/steps"
+		let operation = XTRequestOperation(URL: comps.URL, type: .GET, dataDic: nil, contentType: "application/json") { responseObj, responseError in
+			var error: XTResponseError? = nil;
+			if let err = responseError {
+				error = XTResponseError(code: err.code, message: err.localizedDescription)
+			}
+			var result: AnyObject? = responseObj?["result"]?
+			if !(result is NSArray) {
+				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
+				completionBlock(nil, error)
+				return;
+			} else {
+				let status: AnyObject? = responseObj?["status"]?
+				let statusStr = status as? String
+				if statusStr != "ok" {
+					error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
+				}
+			}
+			completionBlock(result, error)
+		}
+		RESTManager.scheduleOperation(operation);
+	}
+	
 }

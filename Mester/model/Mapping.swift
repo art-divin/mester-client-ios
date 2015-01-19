@@ -10,5 +10,5 @@ import UIKit
 
 protocol Mapping {
 	func deserialize(dic: [String: AnyObject?])
-	func serialize() -> [String: String]
+	func serialize() -> [String : AnyObject]
 }

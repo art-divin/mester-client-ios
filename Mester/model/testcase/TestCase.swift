@@ -16,19 +16,19 @@ class TestCase: NSObject, Mapping {
 	let kFieldSteps = "steps"
 	let kFieldProjectID = "projectId"
 	
-	var title: String?
-	var creationDate: NSDate?
-	var identifier: String?
+	var title: String = ""
+	var creationDate: NSDate = NSDate()
+	var identifier: String = ""
 	var steps: [TestStep] = []
 	var project: Project?
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.title = dic[kFieldTitle] as? String
-		self.identifier = dic[kFieldIdentifier] as? String
-		if let dateStr = dic[kFieldCreationDate] as? String {
+		self.title = dic[kFieldTitle] as String!
+		self.identifier = dic[kFieldIdentifier] as String!
+		if let dateStr = dic[kFieldCreationDate] as String! {
 			var dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-			self.creationDate = dateFormatter.dateFromString(dateStr)
+			self.creationDate = dateFormatter.dateFromString(dateStr)!
 		}
 		let stepArr = dic[kFieldSteps] as? [Dictionary<String, AnyObject>]
 		if stepArr != nil {
@@ -41,8 +41,8 @@ class TestCase: NSObject, Mapping {
 		}
 	}
 	
-	func serialize() -> [String : String] {
-		var testCaseDic = [String : String]()
+	func serialize() -> [String : AnyObject] {
+		var testCaseDic = [String : AnyObject]()
 		testCaseDic[kFieldProjectID] = self.project?.identifier
 		testCaseDic[kFieldTitle] = self.title
 		return testCaseDic

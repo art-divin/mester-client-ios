@@ -15,6 +15,7 @@
 		C93695A11A6C1CFC00B06232 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C93695A01A6C1CFC00B06232 /* Localizable.strings */; };
 		C93695A31A6C43A700B06232 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695A21A6C43A700B06232 /* StepsViewController.swift */; };
 		C94E254B1A6AA4D500C9985A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E254A1A6AA4D500C9985A /* Networking.framework */; };
+		C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C962BA071A6C7771003DDE87 /* TestStepViewController.swift */; };
 		C970E3621A6BF112004EF36D /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970E3611A6BF112004EF36D /* Common.swift */; };
 		C9EDD53C1A6BB80E00624B5D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53B1A6BB80E00624B5D /* Project.swift */; };
 		C9EDD53F1A6BB82200624B5D /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53E1A6BB82200624B5D /* TestCase.swift */; };
@@ -49,6 +50,7 @@
 		C93695A01A6C1CFC00B06232 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C93695A21A6C43A700B06232 /* StepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
 		C94E254A1A6AA4D500C9985A /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
+		C962BA071A6C7771003DDE87 /* TestStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStepViewController.swift; sourceTree = "<group>"; };
 		C970E3611A6BF112004EF36D /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = common/Common.swift; sourceTree = "<group>"; };
 		C9EDD53B1A6BB80E00624B5D /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = model/project/Project.swift; sourceTree = "<group>"; };
 		C9EDD53E1A6BB82200624B5D /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCase.swift; path = model/testcase/TestCase.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				C93695981A6C1A1E00B06232 /* TestsViewController.swift */,
 				C93695A21A6C43A700B06232 /* StepsViewController.swift */,
 				C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */,
+				C962BA071A6C7771003DDE87 /* TestStepViewController.swift */,
 			);
 			name = controllers;
 			path = UI/controllers;
@@ -366,6 +369,7 @@
 			files = (
 				C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */,
 				C9EDD5431A6BC1AD00624B5D /* Mapping.swift in Sources */,
+				C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */,
 				C9F332811A6AE15F0086DDB4 /* UIManager.swift in Sources */,
 				C9EDD5461A6BC9D800624B5D /* ObjectManager.swift in Sources */,
 				C936959E1A6C1A4500B06232 /* ProjectViewController.swift in Sources */,

@@ -24,8 +24,33 @@ class StepsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showTestStepDetails:")
+		self.navigationItem.rightBarButtonItem = addButton
     }
+	
+	func fetchTestCases() {
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+		ObjectManager.fetchTestSteps(testCase) { [weak self] (result, error) in
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				ErrorHandler.handleError(error);
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+				if error == nil {
+					self?.objects.removeAll(keepCapacity: false)
+					self?.objects.extend(result as [TestStep])
+					self?.tableView.reloadData()
+				}
+			});
+		}
+	}
+	
+	func showTestStepDetails(sender: AnyObject?) {
+		var stepVC = self.storyboard?.instantiateViewControllerWithIdentifier("TestStepViewController") as TestStepViewController
+		stepVC.testCase = self.testCase
+		stepVC.callback = { [unowned self] testStep in
+			self.fetchTestCases()
+		}
+		self.navigationController?.pushViewController(stepVC, animated: true)
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

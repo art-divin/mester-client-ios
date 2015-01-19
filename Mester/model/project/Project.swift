@@ -14,22 +14,22 @@ class Project: NSObject, Mapping {
 	let kFieldIdentifier = "id"
 	let kFieldDate = "creationDate"
 	
-	var name: String?
-	var identifier: String?
-	var creationDate: NSDate?
+	var name: String = ""
+	var identifier: String = ""
+	var creationDate: NSDate = NSDate()
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.name = dic[kFieldName] as? String
-		self.identifier = dic[kFieldIdentifier] as? String
-		if let dateStr = dic[kFieldDate] as? String {
+		self.name = dic[kFieldName] as String!
+		self.identifier = dic[kFieldIdentifier] as String!
+		if let dateStr = dic[kFieldDate] as String! {
 			var dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-			self.creationDate = dateFormatter.dateFromString(dateStr)
+			self.creationDate = dateFormatter.dateFromString(dateStr)!
 		}
 	}
 	
-	func serialize() -> [String : String] {
-		var projectDic = [String : String]()
+	func serialize() -> [String : AnyObject] {
+		var projectDic = [String : AnyObject]()
 		projectDic[kFieldName] = self.name
 		return projectDic
 	}

@@ -46,7 +46,7 @@ class ObjectManager: NSObject {
 	
 	class func fetchTestCases(project: Project!, completionBlock: ArrayCompletionBlock!) {
 		ObjectManager.setup()
-		RESTManager.fetchTestCases(project.identifier!) { result, error in
+		RESTManager.fetchTestCases(project.identifier) { result, error in
 			if let err = error {
 				completionBlock(nil, error)
 				return
@@ -95,6 +95,38 @@ class ObjectManager: NSObject {
 				return
 			}
 			completionBlock(result as [AnyObject]?, error)
+		}
+	}
+	
+	class func createTestStep(testStep: TestStep!, completionBlock: ArrayCompletionBlock!) {
+		ObjectManager.setup()
+		var testStepDic = testStep.serialize()
+		RESTManager.createTestStep(testStep: testStepDic) { (result, error) -> () in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			completionBlock(result as [AnyObject]?, error)
+		}
+	}
+	
+	class func fetchTestSteps(testCase: TestCase!, completionBlock: ArrayCompletionBlock!) {
+		ObjectManager.setup()
+		RESTManager.fetchTestSteps(testCase.identifier) { result, error in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			var testStepArr: [TestStep] = []
+			for testStepDic in (result as NSArray) as Array {
+				let dic = testStepDic as Dictionary<String, AnyObject>
+				let testStep = TestStep()
+				testStep.deserialize(dic)
+				testStep.testCase = testCase
+				testStepArr.append(testStep)
+			}
+			testCase.steps = testStepArr
+			completionBlock(testStepArr, error)
 		}
 	}
 }

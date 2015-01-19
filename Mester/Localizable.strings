@@ -15,3 +15,8 @@
 "layouts.testcase.add.title" = "Add Test Case";
 "layouts.testcase.add.name.hint" = "Title of the test case:";
 "layouts.testcase.add.name.field.placeholder" = "Insert test case title";
+
+"layouts.teststep.add.title" = "Add Test Step";
+"layouts.teststep.add.text.hint" = "Text of the test step:";
+"layouts.teststep.add.text.field.placeholder" = "Insert text";
+"layouts.teststep.add.number.hint" = "Number of step:";
