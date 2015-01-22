@@ -16,16 +16,16 @@ class TestStep: NSObject, Mapping {
 	let kFieldTestCaseID = "testCaseId"
 	let kFieldCreationDate = "creationDate"
 	
-	var text: String = ""
+	var text: String? = ""
 	var number: Int = 0
-	var identifier: String = ""
+	var identifier: String? = ""
 	var creationDate: NSDate? = NSDate()
 	var testCase: TestCase?
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.identifier = dic[kFieldIdentifier] as String!
+		self.identifier = dic[kFieldIdentifier] as String?
 		self.number = dic[kFieldNumber] as Int!
-		self.text = dic[kFieldText] as String!
+		self.text = dic[kFieldText] as String?
 		if let dateStr = dic[kFieldCreationDate] as String! {
 			var dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

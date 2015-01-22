@@ -14,6 +14,10 @@
 		C936959E1A6C1A4500B06232 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C936959D1A6C1A4500B06232 /* ProjectViewController.swift */; };
 		C93695A11A6C1CFC00B06232 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C93695A01A6C1CFC00B06232 /* Localizable.strings */; };
 		C93695A31A6C43A700B06232 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695A21A6C43A700B06232 /* StepsViewController.swift */; };
+		C93FAD361A7192BB0081390E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD351A7192BB0081390E /* Test.swift */; };
+		C93FAD3A1A71933A0081390E /* CaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD391A71933A0081390E /* CaseTest.swift */; };
+		C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3B1A71936F0081390E /* StepTest.swift */; };
+		C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3D1A719A4C0081390E /* TestStatus.swift */; };
 		C94E254B1A6AA4D500C9985A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E254A1A6AA4D500C9985A /* Networking.framework */; };
 		C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C962BA071A6C7771003DDE87 /* TestStepViewController.swift */; };
 		C970E3621A6BF112004EF36D /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970E3611A6BF112004EF36D /* Common.swift */; };
@@ -49,6 +53,10 @@
 		C936959D1A6C1A4500B06232 /* ProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		C93695A01A6C1CFC00B06232 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C93695A21A6C43A700B06232 /* StepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
+		C93FAD351A7192BB0081390E /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		C93FAD391A71933A0081390E /* CaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaseTest.swift; path = model/testing/CaseTest/CaseTest.swift; sourceTree = "<group>"; };
+		C93FAD3B1A71936F0081390E /* StepTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepTest.swift; path = model/testing/StepTest/StepTest.swift; sourceTree = "<group>"; };
+		C93FAD3D1A719A4C0081390E /* TestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStatus.swift; path = model/testing/TestStatus.swift; sourceTree = "<group>"; };
 		C94E254A1A6AA4D500C9985A /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
 		C962BA071A6C7771003DDE87 /* TestStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStepViewController.swift; sourceTree = "<group>"; };
 		C970E3611A6BF112004EF36D /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = common/Common.swift; sourceTree = "<group>"; };
@@ -112,6 +120,42 @@
 			name = localization;
 			sourceTree = "<group>";
 		};
+		C93FAD311A7192910081390E /* testing */ = {
+			isa = PBXGroup;
+			children = (
+				C93FAD381A7193230081390E /* StepTest */,
+				C93FAD371A7192DE0081390E /* CaseTest */,
+				C93FAD341A7192BB0081390E /* Test */,
+				C93FAD3D1A719A4C0081390E /* TestStatus.swift */,
+			);
+			name = testing;
+			sourceTree = "<group>";
+		};
+		C93FAD341A7192BB0081390E /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				C93FAD351A7192BB0081390E /* Test.swift */,
+			);
+			name = Test;
+			path = model/testing/Test;
+			sourceTree = "<group>";
+		};
+		C93FAD371A7192DE0081390E /* CaseTest */ = {
+			isa = PBXGroup;
+			children = (
+				C93FAD391A71933A0081390E /* CaseTest.swift */,
+			);
+			name = CaseTest;
+			sourceTree = "<group>";
+		};
+		C93FAD381A7193230081390E /* StepTest */ = {
+			isa = PBXGroup;
+			children = (
+				C93FAD3B1A71936F0081390E /* StepTest.swift */,
+			);
+			name = StepTest;
+			sourceTree = "<group>";
+		};
 		C970E3601A6BF103004EF36D /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +167,7 @@
 		C9EDD5391A6BB7EC00624B5D /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C93FAD311A7192910081390E /* testing */,
 				C9EDD53D1A6BB81200624B5D /* testcase */,
 				C9EDD53A1A6BB7FA00624B5D /* project */,
 				C9EDD5421A6BC1AD00624B5D /* Mapping.swift */,
@@ -184,6 +229,7 @@
 		C9F3327C1A6AE12F0086DDB4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C9F677241A6D9C68002630B0 /* cells */,
 				C93695961A6C1A1E00B06232 /* controllers */,
 				C9F3327D1A6AE1330086DDB4 /* UIManager */,
 			);
@@ -196,6 +242,13 @@
 				C9F332801A6AE15F0086DDB4 /* UIManager.swift */,
 			);
 			name = UIManager;
+			sourceTree = "<group>";
+		};
+		C9F677241A6D9C68002630B0 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 		C9FCF2371A6A9EDD00896B10 = {
@@ -370,13 +423,17 @@
 				C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */,
 				C9EDD5431A6BC1AD00624B5D /* Mapping.swift in Sources */,
 				C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */,
+				C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */,
 				C9F332811A6AE15F0086DDB4 /* UIManager.swift in Sources */,
+				C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */,
 				C9EDD5461A6BC9D800624B5D /* ObjectManager.swift in Sources */,
 				C936959E1A6C1A4500B06232 /* ProjectViewController.swift in Sources */,
 				C970E3621A6BF112004EF36D /* Common.swift in Sources */,
 				C936959C1A6C1A1E00B06232 /* MasterViewController.swift in Sources */,
 				C9EDD5491A6BE31E00624B5D /* ErrorHandler.swift in Sources */,
+				C93FAD3A1A71933A0081390E /* CaseTest.swift in Sources */,
 				C9EDD53F1A6BB82200624B5D /* TestCase.swift in Sources */,
+				C93FAD361A7192BB0081390E /* Test.swift in Sources */,
 				C9F3327B1A6AD7A80086DDB4 /* RESTManager.swift in Sources */,
 				C936959A1A6C1A1E00B06232 /* AppDelegate.swift in Sources */,
 				C93695A31A6C43A700B06232 /* StepsViewController.swift in Sources */,

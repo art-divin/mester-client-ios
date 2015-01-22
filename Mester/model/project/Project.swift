@@ -14,13 +14,13 @@ class Project: NSObject, Mapping {
 	let kFieldIdentifier = "id"
 	let kFieldDate = "creationDate"
 	
-	var name: String = ""
-	var identifier: String = ""
+	var name: String? = ""
+	var identifier: String? = ""
 	var creationDate: NSDate = NSDate()
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.name = dic[kFieldName] as String!
-		self.identifier = dic[kFieldIdentifier] as String!
+		self.name = dic[kFieldName] as String?
+		self.identifier = dic[kFieldIdentifier] as String?
 		if let dateStr = dic[kFieldDate] as String! {
 			var dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
