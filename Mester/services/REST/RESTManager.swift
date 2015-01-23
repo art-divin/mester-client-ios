@@ -196,4 +196,104 @@ class RESTManager: XTOperationManager {
 		RESTManager.scheduleOperation(operation);
 	}
 	
+	class func fetchTests(projectID: String!, completionBlock: CompletionBlock!) {
+		let comps: NSURLComponents = RESTManager.URLComponents()
+		comps.path = "/project/\(projectID)/tests"
+		let operation = XTRequestOperation(URL: comps.URL, type: .GET, dataDic: nil, contentType: "application/json") { responseObj, responseError in
+			var error: XTResponseError? = nil;
+			if let err = responseError {
+				error = XTResponseError(code: err.code, message: err.localizedDescription)
+			}
+			var result: AnyObject? = responseObj?["result"]?
+			if !(result is NSArray) {
+				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
+				completionBlock(nil, error)
+				return;
+			} else {
+				let status: AnyObject? = responseObj?["status"]?
+				let statusStr = status as? String
+				if statusStr != "ok" {
+					error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
+				}
+			}
+			completionBlock(result, error)
+		}
+		RESTManager.scheduleOperation(operation);
+	}
+	
+	class func createTest(projectID: String!, completionBlock: CompletionBlock!) {
+		let comps: NSURLComponents = RESTManager.URLComponents()
+		comps.path = "/project/\(projectID)/test"
+		let operation = XTRequestOperation(URL: comps.URL, type: .POST, dataDic: nil, contentType: "application/json") { responseObj, responseError in
+			var error: XTResponseError? = nil;
+			if let err = responseError {
+				error = XTResponseError(code: err.code, message: err.localizedDescription)
+			}
+			var result: AnyObject? = responseObj?["result"]?
+			if !(result is NSDictionary) {
+				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
+				completionBlock(nil, error)
+				return;
+			} else {
+				let status: AnyObject? = responseObj?["status"]?
+				let statusStr = status as? String
+				if statusStr != "ok" {
+					error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
+				}
+			}
+			completionBlock(result, error)
+		}
+		RESTManager.scheduleOperation(operation);
+	}
+	
+	class func startTest(testID: String!, completionBlock: CompletionBlock!) {
+		let comps: NSURLComponents = RESTManager.URLComponents()
+		comps.path = "/test/\(testID)/start"
+		let operation = XTRequestOperation(URL: comps.URL, type: .PUT, dataDic: nil, contentType: "application/json") { responseObj, responseError in
+			var error: XTResponseError? = nil;
+			if let err = responseError {
+				error = XTResponseError(code: err.code, message: err.localizedDescription)
+			}
+			var result: AnyObject? = responseObj?["result"]?
+			if !(result is NSDictionary) {
+				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
+				completionBlock(nil, error)
+				return;
+			} else {
+				let status: AnyObject? = responseObj?["status"]?
+				let statusStr = status as? String
+				if statusStr != "ok" {
+					error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
+				}
+			}
+			completionBlock(result, error)
+		}
+		RESTManager.scheduleOperation(operation);
+	}
+	
+	class func submitTest(test testDic: [String: AnyObject]!, testID: String!, completionBlock: CompletionBlock!) {
+		let comps: NSURLComponents = RESTManager.URLComponents()
+		comps.path = "/test/\(testID)/submit"
+		let operation = XTRequestOperation(URL: comps.URL, type: .PUT, dataDic: testDic, contentType: "application/json") { responseObj, responseError in
+			var error: XTResponseError? = nil;
+			if let err = responseError {
+				error = XTResponseError(code: err.code, message: err.localizedDescription)
+			}
+			var result: AnyObject? = responseObj?["result"]?
+			if !(result is NSDictionary) {
+				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
+				completionBlock(nil, error)
+				return;
+			} else {
+				let status: AnyObject? = responseObj?["status"]?
+				let statusStr = status as? String
+				if statusStr != "ok" {
+					error = XTResponseError(errorCode: .ValidationError, message: "Invalid request format")
+				}
+			}
+			completionBlock(result, error)
+		}
+		RESTManager.scheduleOperation(operation);
+	}
+	
 }

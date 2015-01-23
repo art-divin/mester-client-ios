@@ -17,14 +17,26 @@ class Project: NSObject, Mapping {
 	var name: String? = ""
 	var identifier: String? = ""
 	var creationDate: NSDate = NSDate()
+	var tests: [Test] = []
+	var testCases: [TestCase] = []
+	
+	func updateTest(test: Test!) {
+		var oldTestArr = self.tests.filter { (oldTest) -> Bool in
+			test.identifier == oldTest.identifier
+		}
+		if oldTestArr.count == 1 {
+			let idx = find(self.tests, oldTestArr.first!)
+			self.tests[idx!] = test
+		}
+	}
 	
 	func deserialize(dic: [String : AnyObject?]) {
 		self.name = dic[kFieldName] as String?
 		self.identifier = dic[kFieldIdentifier] as String?
-		if let dateStr = dic[kFieldDate] as String! {
+		if let dateStr = dic[kFieldDate] as? String? {
 			var dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-			self.creationDate = dateFormatter.dateFromString(dateStr)!
+			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}
 	}
 	

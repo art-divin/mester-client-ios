@@ -16,6 +16,7 @@ class Test: NSObject, Mapping {
 	let kFieldEndDate = "endDate";
 	let kFieldCaseTests = "caseTests"
 	let kFieldStatus = "status"
+	let kFieldTestCase = "testCaseId"
 	
 	var identifier: String? = ""
 	var creationDate: NSDate = NSDate()
@@ -29,29 +30,46 @@ class Test: NSObject, Mapping {
 		self.identifier = dic[kFieldIdentifier] as String?
 		var dateFormatter = Common.dateFormatter
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-		if let dateStr = dic[kFieldCreationDate] as String! {
-			self.creationDate = dateFormatter.dateFromString(dateStr)!
+		if let dateStr = dic[kFieldCreationDate] as? String? {
+			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}
-		if let startDateStr = dic[kFieldStartDate] as String! {
-			self.startDate = dateFormatter.dateFromString(startDateStr)!
+		if let startDateStr = dic[kFieldStartDate] as? String? {
+			self.startDate = dateFormatter.dateFromString(startDateStr!)!
 		}
-		if let endDateStr = dic[kFieldEndDate] as String! {
-			self.endDate = dateFormatter.dateFromString(endDateStr)!
+		if let endDateStr = dic[kFieldEndDate] as? String? {
+			self.endDate = dateFormatter.dateFromString(endDateStr!)!
 		}
 		let caseTestArr = dic[kFieldCaseTests] as? [Dictionary<String, AnyObject>]
 		if caseTestArr != nil {
 			for caseTestDic in caseTestArr! {
 				var caseTest = CaseTest()
-				caseTest.deserialize(caseTestDic)
+				var testCaseID = caseTestDic[kFieldTestCase] as String?
+				if testCaseID != nil {
+					var foundArr = self.project?.testCases.filter({ (testCase) -> Bool in
+						testCase.identifier == testCaseID
+					})
+					var testCase = foundArr?.first
+					caseTest.testCase = testCase
+				}
 				caseTest.test = self
+				caseTest.deserialize(caseTestDic)
 				self.caseTests.append(caseTest)
 			}
 		}
 		var status = dic[kFieldStatus] as String?
 		self.status = TestStatus.testStatus(status)
 	}
-	
+
 	func serialize() -> [String : AnyObject] {
+		if self.identifier != nil {
+			var cases: [[String : AnyObject]] = []
+			for caseTest in self.caseTests {
+				var caseDic = caseTest.serialize()
+				cases.append(caseDic)
+			}
+			return [ kFieldCaseTests : cases ]
+		}
+		
 		return [:]
 	}
 	

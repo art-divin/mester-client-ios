@@ -11,7 +11,7 @@ import UIKit
 enum TestStatus : String {
 	case Default = "default"
 	case Failed = "failed"
-	case Succeed = "succeed"
+	case Succeed = "passed"
 	
 	static func testStatus(status: String!) -> TestStatus {
 		switch (status) {

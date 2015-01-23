@@ -35,7 +35,7 @@ class TestStepViewController: UIViewController {
 		self.textField.placeholder = NSLocalizedString("layouts.teststep.add.text.field.placeholder", comment: "teststep text field placeholder")
 		self.numberHintLbl.text = NSLocalizedString("layouts.teststep.add.number.hint", comment: "teststep number hint title")
 		self.numberValueLbl.text = "\(self.testStep.number)"
-		self.numberStepper.value = Double(self.testStep.number)
+		self.numberStepper.value = Double(self.testStep.number!)
 		self.numberStepper.addTarget(self, action: "handleStepper:", forControlEvents: .ValueChanged)
 	}
 	

@@ -11,6 +11,7 @@ import Networking
 
 typealias ArrayCompletionBlock = ([AnyObject]?, XTResponseError?) -> Void
 typealias DictionaryCompletionBlock = ([String: AnyObject?]?, XTResponseError?) -> Void
+typealias ObjectCompletionBlock = (AnyObject?, XTResponseError?) -> Void
 
 class ObjectManager: NSObject {
 	private class func setup() {
@@ -55,10 +56,11 @@ class ObjectManager: NSObject {
 			for testCaseDic in (result as NSArray) as Array {
 				let dic = testCaseDic as Dictionary<String, AnyObject>
 				let testCase = TestCase()
-				testCase.deserialize(dic)
 				testCase.project = project
+				testCase.deserialize(dic)
 				testCaseArr.append(testCase)
 			}
+			project.testCases = testCaseArr
 			completionBlock(testCaseArr, error)
 		}
 	}
@@ -146,12 +148,79 @@ class ObjectManager: NSObject {
 			for testStepDic in (result as NSArray) as Array {
 				let dic = testStepDic as Dictionary<String, AnyObject>
 				let testStep = TestStep()
-				testStep.deserialize(dic)
 				testStep.testCase = testCase
+				testStep.deserialize(dic)
 				testStepArr.append(testStep)
 			}
 			testCase.steps = testStepArr
 			completionBlock(testStepArr, error)
 		}
 	}
+	
+	class func fetchTests(project: Project!, completionBlock: ArrayCompletionBlock!) {
+		ObjectManager.setup()
+		RESTManager.fetchTests(project.identifier) { result, error in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			var testArr: [Test] = []
+			for testDic in (result as NSArray) as Array {
+				let dic = testDic as Dictionary<String, AnyObject>
+				let test = Test()
+				test.project = project
+				test.deserialize(dic)
+				testArr.append(test)
+			}
+			project.tests = testArr
+			completionBlock(testArr, error)
+		}
+	}
+	
+	class func createTest(project: Project!, completionBlock: ArrayCompletionBlock!) {
+		ObjectManager.setup()
+		RESTManager.createTest(project.identifier) { result, error in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			var testArr: [Test] = []
+			// TODO: handle response
+			completionBlock([], error)
+		}
+	}
+	
+	class func startTest(test: Test!, completionBlock: ObjectCompletionBlock!) {
+		ObjectManager.setup()
+		RESTManager.startTest(test.identifier) { result, error in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			var testDic = result as [String : AnyObject]
+			var newTest = Test()
+			newTest.project = test.project
+			newTest.deserialize(testDic)
+			newTest.project?.updateTest(newTest)
+			completionBlock(newTest, error)
+		}
+	}
+	
+	class func submitTest(test: Test!, completionBlock: ObjectCompletionBlock!) {
+		ObjectManager.setup()
+		var testDic = test.serialize()
+		RESTManager.submitTest(test: testDic, testID: test.identifier) { result, error in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			var testDic = result as [String : AnyObject]
+			var newTest = Test()
+			newTest.project = test.project
+			newTest.deserialize(testDic)
+			newTest.project?.updateTest(newTest)
+			completionBlock(newTest, error)
+		}
+	}
+	
 }

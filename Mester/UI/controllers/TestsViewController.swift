@@ -10,12 +10,30 @@ import UIKit
 
 class TestsViewController: UITableViewController {
 	
-	var objects: [TestCase] = []
+	var objects: [AnyObject] = []
+	var testsShown = false
+	var segmentCtrl: UISegmentedControl?
 	
 	var project: Project? {
 		didSet {
 			// Update the view.
 			self.configureView()
+		}
+	}
+	
+	func fetchTests() {
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+		ObjectManager.fetchTests(project) { [weak self] (result, error) in
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				ErrorHandler.handleError(error);
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+				if error == nil {
+					self?.objects.removeAll(keepCapacity: false)
+					self?.objects.extend(result as [AnyObject]!)
+					self?.testsShown = true
+					self?.tableView.reloadData()
+				}
+			});
 		}
 	}
 	
@@ -27,7 +45,23 @@ class TestsViewController: UITableViewController {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 				if error == nil {
 					self?.objects.removeAll(keepCapacity: false)
-					self?.objects.extend(result as [TestCase])
+					self?.objects.extend(result as [AnyObject]!)
+					self?.testsShown = false
+					self?.tableView.reloadData()
+				}
+			});
+		}
+	}
+	
+	func createTest(testCase: TestCase!) {
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+		ObjectManager.createTest(project) { [weak self] (result, error) in
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				ErrorHandler.handleError(error);
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+				if error == nil {
+					self?.segmentCtrl?.selectedSegmentIndex = 1;
+					self?.segmentControlTapped(nil)
 					self?.tableView.reloadData()
 				}
 			});
@@ -36,8 +70,12 @@ class TestsViewController: UITableViewController {
 	
 	func configureView() {
 		// Update the user interface for the detail item.
-		if let project = self.project {
-			self.fetchTestCases()
+		if self.project != nil {
+			if !self.testsShown {
+				self.fetchTestCases()
+			} else {
+				self.fetchTests()
+			}
 		}
 		self.navigationItem.title = self.project?.name
 	}
@@ -48,6 +86,30 @@ class TestsViewController: UITableViewController {
 		self.configureView()
 		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showTestCaseDetails:")
 		self.navigationItem.rightBarButtonItem = addButton
+		self.segmentCtrl = UISegmentedControl(items: [NSLocalizedString("layouts.tests.segment.cases.title", comment: "test cases segment item"), NSLocalizedString("layouts.tests.segment.tests.title", comment: "case test segment item")])
+		segmentCtrl?.selectedSegmentIndex = 0
+		segmentCtrl?.addTarget(self, action: "segmentControlTapped:", forControlEvents: .ValueChanged)
+		self.tableView.tableHeaderView = segmentCtrl
+	}
+	
+	func segmentControlTapped(sender: AnyObject?) {
+		switch ((self.segmentCtrl as UISegmentedControl?)!.selectedSegmentIndex) {
+		case 0: self.testsShown = false
+		case 1: self.testsShown = true
+		default: break
+		}
+		if self.project != nil {
+			self.objects = []
+			self.tableView.reloadData()
+			if !self.testsShown {
+				let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showTestCaseDetails:")
+				self.navigationItem.rightBarButtonItem = addButton
+				self.fetchTestCases()
+			} else {
+				self.navigationItem.rightBarButtonItem = nil
+				self.fetchTests()
+			}
+		}
 	}
 	
 	func showTestCaseDetails(sender: AnyObject?) {
@@ -69,10 +131,25 @@ class TestsViewController: UITableViewController {
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "StepsViewController" {
 			if let indexPath = self.tableView.indexPathForSelectedRow() {
-				let testCase = objects[indexPath.row]
+				let testCase: TestCase = objects[indexPath.row] as TestCase
 				(segue.destinationViewController as StepsViewController).testCase = testCase
 			}
 		}
+	}
+	
+	override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+		if identifier == "StepsViewController" {
+			if self.testsShown {
+				if let indexPath = self.tableView.indexPathForSelectedRow() {
+					let test: Test = objects[indexPath.row] as Test
+					var caseTestVC = self.storyboard?.instantiateViewControllerWithIdentifier("CaseTestViewController") as CaseTestViewController
+					caseTestVC.test = test
+					self.navigationController?.pushViewController(caseTestVC, animated: true)
+				}
+			}
+			return !self.testsShown as Bool
+		}
+		return true
 	}
 	
 	// MARK: - Table View
@@ -86,10 +163,31 @@ class TestsViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-		
-		let object = objects[indexPath.row]
-		cell.textLabel!.text = object.title
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as TestCaseCell
+		var dateFormatter = Common.dateFormatter
+		dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+		if !self.testsShown {
+			let testCase: TestCase = objects[indexPath.row] as TestCase
+			cell.textLabel!.text = testCase.title
+			cell.detailTextLabel!.text = dateFormatter.stringFromDate(testCase.creationDate)
+			cell.button.setTitle(NSLocalizedString("layouts.testcase.cell.button.testcase.title", comment: "start test button title"), forState: .Normal)
+			cell.object = testCase
+			cell.callback = { [weak self] object in
+				var testCase = object as TestCase
+				self?.createTest(testCase)
+			}
+		} else {
+			var test: Test = objects[indexPath.row] as Test
+			// TODO: localization
+			cell.textLabel!.text = "created: \(dateFormatter.stringFromDate(test.creationDate))"
+			var detailStr = "status: \(test.status.rawValue)"
+			if test.startDate != nil && test.endDate == nil {
+				detailStr += "; started: \(dateFormatter.stringFromDate(test.startDate!))"
+			} else if test.endDate != nil {
+				detailStr += "; finished: \(dateFormatter.stringFromDate(test.startDate!))"
+			}
+			cell.detailTextLabel!.text = detailStr
+		}
 		return cell
 	}
 	
@@ -100,18 +198,24 @@ class TestsViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		if editingStyle == .Delete {
-			let testCase = objects[indexPath.row] as TestCase
-			UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
-			ObjectManager.deleteTestCase(testCase, completionBlock: { [unowned self] (result, error) -> Void in
-				dispatch_async(dispatch_get_main_queue(), { () -> Void in
-					ErrorHandler.handleError(error)
-					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
-					if error == nil {
-						self.objects.removeAtIndex(indexPath.row)
-						self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-					}
-				});
-			})
+			if !self.testsShown {
+				let testCase = objects[indexPath.row] as TestCase
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+				ObjectManager.deleteTestCase(testCase, completionBlock: { [unowned self] (result, error) -> Void in
+					dispatch_async(dispatch_get_main_queue(), { () -> Void in
+						ErrorHandler.handleError(error)
+						UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+						if error == nil {
+							self.objects.removeAtIndex(indexPath.row)
+							self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+						}
+					});
+				})
+			} else {
+				let test = objects[indexPath.row] as Test
+				// TODO:
+			}
+			
 		} else if editingStyle == .Insert {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
 		}

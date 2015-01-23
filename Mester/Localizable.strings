@@ -15,6 +15,13 @@
 "layouts.testcase.add.title" = "Add Test Case";
 "layouts.testcase.add.name.hint" = "Title of the test case:";
 "layouts.testcase.add.name.field.placeholder" = "Insert test case title";
+"layouts.testcase.cell.button.testcase.title" = "Start Test";
+
+"layouts.casetest.header.button.start.title" = "Start Test";
+"layouts.casetest.header.button.submit.title" = "Submit Test";
+
+"layouts.tests.segment.cases.title" = "Test Cases";
+"layouts.tests.segment.tests.title" = "Tests";
 
 "layouts.teststep.list.title" = "Test Steps";
 

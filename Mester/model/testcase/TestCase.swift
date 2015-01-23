@@ -25,17 +25,17 @@ class TestCase: NSObject, Mapping {
 	func deserialize(dic: [String : AnyObject?]) {
 		self.title = dic[kFieldTitle] as String?
 		self.identifier = dic[kFieldIdentifier] as String?
-		if let dateStr = dic[kFieldCreationDate] as String! {
+		if let dateStr = dic[kFieldCreationDate] as? String? {
 			var dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-			self.creationDate = dateFormatter.dateFromString(dateStr)!
+			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}
 		let stepArr = dic[kFieldSteps] as? [Dictionary<String, AnyObject>]
 		if stepArr != nil {
 			for stepDic in stepArr! {
 				var step = TestStep()
-				step.deserialize(stepDic)
 				step.testCase = self
+				step.deserialize(stepDic)
 				self.steps.append(step)
 			}
 		}
