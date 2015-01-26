@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */; };
-		C936959A1A6C1A1E00B06232 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695971A6C1A1E00B06232 /* AppDelegate.swift */; };
 		C936959B1A6C1A1E00B06232 /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695981A6C1A1E00B06232 /* TestsViewController.swift */; };
 		C936959C1A6C1A1E00B06232 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695991A6C1A1E00B06232 /* MasterViewController.swift */; };
 		C936959E1A6C1A4500B06232 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C936959D1A6C1A4500B06232 /* ProjectViewController.swift */; };
@@ -20,6 +19,8 @@
 		C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3D1A719A4C0081390E /* TestStatus.swift */; };
 		C94E254B1A6AA4D500C9985A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E254A1A6AA4D500C9985A /* Networking.framework */; };
 		C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C962BA071A6C7771003DDE87 /* TestStepViewController.swift */; };
+		C966D7011A76D131009887AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C966D7001A76D131009887AB /* AppDelegate.swift */; };
+		C966D7031A76E0CC009887AB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C966D7021A76E0CC009887AB /* TableViewCell.swift */; };
 		C96F8F961A71AE5C002FAC35 /* CaseTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96F8F951A71AE5C002FAC35 /* CaseTestViewController.swift */; };
 		C970E3621A6BF112004EF36D /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970E3611A6BF112004EF36D /* Common.swift */; };
 		C9769F161A71B9D200791A5A /* TestCaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9769F151A71B9D200791A5A /* TestCaseCell.swift */; };
@@ -31,7 +32,7 @@
 		C9EDD5461A6BC9D800624B5D /* ObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5451A6BC9D800624B5D /* ObjectManager.swift */; };
 		C9EDD5491A6BE31E00624B5D /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5481A6BE31E00624B5D /* ErrorHandler.swift */; };
 		C9F3327B1A6AD7A80086DDB4 /* RESTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3327A1A6AD7A80086DDB4 /* RESTManager.swift */; };
-		C9F332811A6AE15F0086DDB4 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F332801A6AE15F0086DDB4 /* UIManager.swift */; };
+		C9F332811A6AE15F0086DDB4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F332801A6AE15F0086DDB4 /* Theme.swift */; };
 		C9FCF24D1A6A9EDE00896B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FCF24B1A6A9EDE00896B10 /* Main.storyboard */; };
 		C9FCF24F1A6A9EDE00896B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9FCF24E1A6A9EDE00896B10 /* Images.xcassets */; };
 		C9FCF2521A6A9EDE00896B10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FCF2501A6A9EDE00896B10 /* LaunchScreen.xib */; };
@@ -50,7 +51,6 @@
 
 /* Begin PBXFileReference section */
 		C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCaseViewController.swift; sourceTree = "<group>"; };
-		C93695971A6C1A1E00B06232 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C93695981A6C1A1E00B06232 /* TestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
 		C93695991A6C1A1E00B06232 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		C936959D1A6C1A4500B06232 /* ProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		C93FAD3D1A719A4C0081390E /* TestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStatus.swift; path = model/testing/TestStatus.swift; sourceTree = "<group>"; };
 		C94E254A1A6AA4D500C9985A /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
 		C962BA071A6C7771003DDE87 /* TestStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStepViewController.swift; sourceTree = "<group>"; };
+		C966D7001A76D131009887AB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C966D7021A76E0CC009887AB /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = UI/cells/TableViewCell.swift; sourceTree = "<group>"; };
 		C96F8F951A71AE5C002FAC35 /* CaseTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseTestViewController.swift; sourceTree = "<group>"; };
 		C970E3611A6BF112004EF36D /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = common/Common.swift; sourceTree = "<group>"; };
 		C9769F151A71B9D200791A5A /* TestCaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCaseCell.swift; path = UI/cells/TestCaseCell.swift; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 		C9EDD5451A6BC9D800624B5D /* ObjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectManager.swift; path = services/ObjectManager/ObjectManager.swift; sourceTree = "<group>"; };
 		C9EDD5481A6BE31E00624B5D /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandler.swift; path = services/ErrorHandler/ErrorHandler.swift; sourceTree = "<group>"; };
 		C9F3327A1A6AD7A80086DDB4 /* RESTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RESTManager.swift; path = services/REST/RESTManager.swift; sourceTree = "<group>"; };
-		C9F332801A6AE15F0086DDB4 /* UIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIManager.swift; path = UI/UIManager/UIManager.swift; sourceTree = "<group>"; };
+		C9F332801A6AE15F0086DDB4 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = UI/UIManager/Theme.swift; sourceTree = "<group>"; };
 		C9FCF2401A6A9EDD00896B10 /* Mester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FCF2441A6A9EDE00896B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9FCF24C1A6A9EDE00896B10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,7 +108,6 @@
 		C93695961A6C1A1E00B06232 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C93695971A6C1A1E00B06232 /* AppDelegate.swift */,
 				C93695991A6C1A1E00B06232 /* MasterViewController.swift */,
 				C936959D1A6C1A4500B06232 /* ProjectViewController.swift */,
 				C93695981A6C1A1E00B06232 /* TestsViewController.swift */,
@@ -238,17 +239,17 @@
 			children = (
 				C9F677241A6D9C68002630B0 /* cells */,
 				C93695961A6C1A1E00B06232 /* controllers */,
-				C9F3327D1A6AE1330086DDB4 /* UIManager */,
+				C9F3327D1A6AE1330086DDB4 /* Theme */,
 			);
 			name = UI;
 			sourceTree = "<group>";
 		};
-		C9F3327D1A6AE1330086DDB4 /* UIManager */ = {
+		C9F3327D1A6AE1330086DDB4 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				C9F332801A6AE15F0086DDB4 /* UIManager.swift */,
+				C9F332801A6AE15F0086DDB4 /* Theme.swift */,
 			);
-			name = UIManager;
+			name = Theme;
 			sourceTree = "<group>";
 		};
 		C9F677241A6D9C68002630B0 /* cells */ = {
@@ -256,6 +257,7 @@
 			children = (
 				C9769F151A71B9D200791A5A /* TestCaseCell.swift */,
 				C9769F171A71CF9400791A5A /* StepCell.swift */,
+				C966D7021A76E0CC009887AB /* TableViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -286,6 +288,7 @@
 				C9F3327C1A6AE12F0086DDB4 /* UI */,
 				C9F332781A6AD7810086DDB4 /* services */,
 				C9FCF2671A6A9F1A00896B10 /* libs */,
+				C966D7001A76D131009887AB /* AppDelegate.swift */,
 				C9FCF24B1A6A9EDE00896B10 /* Main.storyboard */,
 				C9FCF24E1A6A9EDE00896B10 /* Images.xcassets */,
 				C9FCF2501A6A9EDE00896B10 /* LaunchScreen.xib */,
@@ -338,6 +341,7 @@
 				C9FCF23C1A6A9EDD00896B10 /* Sources */,
 				C9FCF23D1A6A9EDD00896B10 /* Frameworks */,
 				C9FCF23E1A6A9EDD00896B10 /* Resources */,
+				C9A151BB1A73E3DA00D5280B /* TODO markup */,
 			);
 			buildRules = (
 			);
@@ -424,19 +428,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C9A151BB1A73E3DA00D5280B /* TODO markup */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "TODO markup";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO|FIXME|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C9FCF23C1A6A9EDD00896B10 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C966D7011A76D131009887AB /* AppDelegate.swift in Sources */,
 				C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */,
 				C9EDD5431A6BC1AD00624B5D /* Mapping.swift in Sources */,
 				C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */,
 				C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */,
-				C9F332811A6AE15F0086DDB4 /* UIManager.swift in Sources */,
+				C9F332811A6AE15F0086DDB4 /* Theme.swift in Sources */,
 				C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */,
 				C9EDD5461A6BC9D800624B5D /* ObjectManager.swift in Sources */,
 				C936959E1A6C1A4500B06232 /* ProjectViewController.swift in Sources */,
+				C966D7031A76E0CC009887AB /* TableViewCell.swift in Sources */,
 				C970E3621A6BF112004EF36D /* Common.swift in Sources */,
 				C936959C1A6C1A1E00B06232 /* MasterViewController.swift in Sources */,
 				C9EDD5491A6BE31E00624B5D /* ErrorHandler.swift in Sources */,
@@ -444,7 +467,6 @@
 				C9EDD53F1A6BB82200624B5D /* TestCase.swift in Sources */,
 				C93FAD361A7192BB0081390E /* Test.swift in Sources */,
 				C9F3327B1A6AD7A80086DDB4 /* RESTManager.swift in Sources */,
-				C936959A1A6C1A1E00B06232 /* AppDelegate.swift in Sources */,
 				C9769F181A71CF9400791A5A /* StepCell.swift in Sources */,
 				C93695A31A6C43A700B06232 /* StepsViewController.swift in Sources */,
 				C9769F161A71B9D200791A5A /* TestCaseCell.swift in Sources */,

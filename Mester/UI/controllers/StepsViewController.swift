@@ -111,6 +111,10 @@ class StepsViewController: UITableViewController {
 		return cell
 	}
 	
+	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return ThemeDefault.heightForCell()
+	}
+	
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 		// Return false if you do not want the specified item to be editable.
 		return true

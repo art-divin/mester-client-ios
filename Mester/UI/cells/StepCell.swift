@@ -20,8 +20,8 @@ class StepCell: UITableViewCell {
         // Initialization code
 		buttonSucceed.addTarget(self, action: "buttonTapped:", forControlEvents: .TouchUpInside)
 		buttonFail.addTarget(self, action: "buttonTapped:", forControlEvents: .TouchUpInside)
-		buttonSucceed.setTitleColor(UIColor.blackColor(), forState: .Normal)
-		buttonFail.setTitleColor(UIColor.blackColor(), forState: .Normal)
+		buttonSucceed.setTitleColor(ThemeDefault.colorForButtonTitle(.Success), forState: .Normal)
+		buttonFail.setTitleColor(ThemeDefault.colorForButtonTitle(.Failure), forState: .Normal)
 		self.contentView.addSubview(buttonSucceed);
 		self.contentView.addSubview(buttonFail);
 		buttonSucceed.setTranslatesAutoresizingMaskIntoConstraints(false)

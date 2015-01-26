@@ -17,8 +17,10 @@ class TestCaseCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 		button.addTarget(self, action: "buttonTapped:", forControlEvents: .TouchUpInside)
-		button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-		self.contentView.addSubview(button);
+		button.setTitleColor(ThemeDefault.colorForButtonTitle(.Active), forState: .Normal)
+		button.setTitleColor(ThemeDefault.colorForButtonTitle(.Selected), forState: .Highlighted)
+		button.setTitleColor(ThemeDefault.colorForButtonTitle(.Inactive), forState: .Disabled)
+		self.contentView.addSubview(button)
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[button]-|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "button" : button ]))
 		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[button]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "button" : button ]))

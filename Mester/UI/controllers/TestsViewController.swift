@@ -112,6 +112,10 @@ class TestsViewController: UITableViewController {
 		}
 	}
 	
+	override func viewWillAppear(animated: Bool) {
+		configureView()
+	}
+	
 	func showTestCaseDetails(sender: AnyObject?) {
 		var testCaseVC = self.storyboard?.instantiateViewControllerWithIdentifier("TestCaseViewController") as TestCaseViewController
 		testCaseVC.project = self.project
@@ -189,6 +193,10 @@ class TestsViewController: UITableViewController {
 			cell.detailTextLabel!.text = detailStr
 		}
 		return cell
+	}
+	
+	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return ThemeDefault.heightForCell()
 	}
 	
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
