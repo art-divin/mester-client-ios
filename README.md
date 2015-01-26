@@ -13,12 +13,15 @@ Mester is a suite for Quality Assurance testing (QA). Mester consists of 3 parts
 * Create test cases
 * List test cases
 * List test steps
+* Create tests
+* Start tests
+* Update tests with new statuses
 
 ### Build & Run ###
 
 * Project requires Xcode 6 and later
 * Project runs on iOS 8 and later
-* Project uses [Mester REST API](https://bitbucket.org/art-divin/mester-rest-api/overview)
+* Project uses [Mester REST API](https://github.com/art-divin/mester-rest-api)
 
 ### Contribution guidelines ###
 
