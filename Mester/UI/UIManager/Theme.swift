@@ -53,8 +53,8 @@ class ThemeDefault: Theme {
 		case .Active: return colorFromHEX(0x669966, alpha: 1.0)
 		case .Selected: return colorFromHEX(0x669966, alpha: 0.5)
 		case .Inactive: return colorFromHEX(0x669966, alpha: 0.5)
-		case .Failure: return colorFromHEX(0x8C001A, alpha: 1.0)
-		case .Success: return colorFromHEX(0x006699, alpha: 1.0)
+		case .Failure: return colorFromHEX(0xffffff, alpha: 1.0)
+		case .Success: return colorFromHEX(0xffffff, alpha: 1.0)
 		}
 	}
 	

@@ -62,7 +62,6 @@ class TestsViewController: UITableViewController {
 				if error == nil {
 					self?.segmentCtrl?.selectedSegmentIndex = 1;
 					self?.segmentControlTapped(nil)
-					self?.tableView.reloadData()
 				}
 			});
 		}
@@ -149,6 +148,7 @@ class TestsViewController: UITableViewController {
 					var caseTestVC = self.storyboard?.instantiateViewControllerWithIdentifier("CaseTestViewController") as CaseTestViewController
 					caseTestVC.test = test
 					self.navigationController?.pushViewController(caseTestVC, animated: true)
+					self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 				}
 			}
 			return !self.testsShown as Bool

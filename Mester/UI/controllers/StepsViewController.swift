@@ -84,6 +84,7 @@ class StepsViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as StepCell
+		cell.selectionStyle = .None
 		if self.testCase != nil {
 			let object = objects[indexPath.row] as TestStep
 			cell.textLabel!.text = object.text
@@ -91,9 +92,10 @@ class StepsViewController: UITableViewController {
 			cell.setButtonVisibility(false)
 		} else {
 			let object = objects[indexPath.row] as StepTest
-			cell.textLabel!.text = object.testStep?.text
+			cell.textLbl.text = object.testStep?.text
+			cell.statusLbl.text = object.status.rawValue
 			// TODO: localization
-			cell.detailTextLabel!.text = "status: \(object.status.rawValue)"
+//			cell.detailTextLabel!.text = "status: \(object.status.rawValue)"
 			cell.buttonSucceed.setTitle("succeed", forState: .Normal)
 			cell.buttonFail.setTitle("fail", forState: .Normal)
 			
@@ -112,12 +114,13 @@ class StepsViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		// TODO: implement dynamic row height
 		return ThemeDefault.heightForCell()
 	}
 	
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 		// Return false if you do not want the specified item to be editable.
-		return true
+		return self.testCase != nil
 	}
 	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -136,8 +139,6 @@ class StepsViewController: UITableViewController {
 						}
 					})
 				})
-			} else {
-				// TODO:
 			}
 		} else if editingStyle == .Insert {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

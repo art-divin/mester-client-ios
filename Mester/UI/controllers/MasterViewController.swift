@@ -61,6 +61,7 @@ class MasterViewController: UITableViewController {
 			if let indexPath = self.tableView.indexPathForSelectedRow() {
 				let project = objects[indexPath.row] as Project
 				(segue.destinationViewController as TestsViewController).project = project
+				self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 			}
 		}
 	}

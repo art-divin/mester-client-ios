@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90BB4B81A7AE7C300FE8C6B /* SwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */; };
 		C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */; };
 		C936959B1A6C1A1E00B06232 /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695981A6C1A1E00B06232 /* TestsViewController.swift */; };
 		C936959C1A6C1A1E00B06232 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695991A6C1A1E00B06232 /* MasterViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiperView.swift; path = UI/views/SwiperView.swift; sourceTree = "<group>"; };
 		C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCaseViewController.swift; sourceTree = "<group>"; };
 		C93695981A6C1A1E00B06232 /* TestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
 		C93695991A6C1A1E00B06232 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C90BB4B61A7AE7A600FE8C6B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		C93695961A6C1A1E00B06232 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +247,7 @@
 		C9F3327C1A6AE12F0086DDB4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C90BB4B61A7AE7A600FE8C6B /* views */,
 				C9F677241A6D9C68002630B0 /* cells */,
 				C93695961A6C1A1E00B06232 /* controllers */,
 				C9F3327D1A6AE1330086DDB4 /* Theme */,
@@ -465,6 +476,7 @@
 				C9EDD5491A6BE31E00624B5D /* ErrorHandler.swift in Sources */,
 				C93FAD3A1A71933A0081390E /* CaseTest.swift in Sources */,
 				C9EDD53F1A6BB82200624B5D /* TestCase.swift in Sources */,
+				C90BB4B81A7AE7C300FE8C6B /* SwiperView.swift in Sources */,
 				C93FAD361A7192BB0081390E /* Test.swift in Sources */,
 				C9F3327B1A6AD7A80086DDB4 /* RESTManager.swift in Sources */,
 				C9769F181A71CF9400791A5A /* StepCell.swift in Sources */,
