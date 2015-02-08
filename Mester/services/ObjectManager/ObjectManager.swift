@@ -21,9 +21,10 @@ class ObjectManager: NSObject {
 		dispatch_once(&Token.token, { () -> Void in
 			RESTManager.setupWithConfiguration { () -> XTConfiguration! in
 				return XTConfiguration(pairs: { () -> [AnyObject]! in
-					return [ XTConfigurationPair(type: .Dev, URL: NSURL(string: "http://localhost:8080")) ]
+					return [ XTConfigurationPair(type: .Dev, URL: NSURL(string: "http://localhost:8080")),
+							XTConfigurationPair(type: .Prod, URL: NSURL(string: "http://ec2-54-69-226-55.us-west-2.compute.amazonaws.com:8080")) ]
 					},
-					type: .Dev)
+					type: .Prod)
 			}
 		})
 	}

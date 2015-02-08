@@ -83,6 +83,7 @@ class TestsViewController: UITableViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		self.configureView()
+		self.tableView.separatorStyle = .None
 		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showTestCaseDetails:")
 		self.navigationItem.rightBarButtonItem = addButton
 		self.segmentCtrl = UISegmentedControl(items: [NSLocalizedString("layouts.tests.segment.cases.title", comment: "test cases segment item"), NSLocalizedString("layouts.tests.segment.tests.title", comment: "case test segment item")])
@@ -172,25 +173,27 @@ class TestsViewController: UITableViewController {
 		dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
 		if !self.testsShown {
 			let testCase: TestCase = objects[indexPath.row] as TestCase
-			cell.textLabel!.text = testCase.title
-			cell.detailTextLabel!.text = dateFormatter.stringFromDate(testCase.creationDate)
+			cell.textLbl.text = testCase.title
+			cell.statusLbl.text = dateFormatter.stringFromDate(testCase.creationDate)
 			cell.button.setTitle(NSLocalizedString("layouts.testcase.cell.button.testcase.title", comment: "start test button title"), forState: .Normal)
 			cell.object = testCase
 			cell.callback = { [weak self] object in
 				var testCase = object as TestCase
 				self?.createTest(testCase)
 			}
+			cell.setButtonVisibility(true)
 		} else {
 			var test: Test = objects[indexPath.row] as Test
 			// TODO: localization
-			cell.textLabel!.text = "created: \(dateFormatter.stringFromDate(test.creationDate))"
+			cell.textLbl.text = "created: \(dateFormatter.stringFromDate(test.creationDate))"
 			var detailStr = "status: \(test.status.rawValue)"
 			if test.startDate != nil && test.endDate == nil {
 				detailStr += "; started: \(dateFormatter.stringFromDate(test.startDate!))"
 			} else if test.endDate != nil {
 				detailStr += "; finished: \(dateFormatter.stringFromDate(test.startDate!))"
 			}
-			cell.detailTextLabel!.text = detailStr
+			cell.statusLbl.text = detailStr
+			cell.setButtonVisibility(false)
 		}
 		return cell
 	}
@@ -201,7 +204,7 @@ class TestsViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 		// Return false if you do not want the specified item to be editable.
-		return true
+		return false
 	}
 	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

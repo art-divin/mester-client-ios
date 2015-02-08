@@ -41,6 +41,7 @@ class StepsViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.tableView.separatorStyle = .None
 	}
 	
 	func fetchTestCases() {
