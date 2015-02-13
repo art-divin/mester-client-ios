@@ -11,10 +11,18 @@ import UIKit
 class StepsViewController: UITableViewController {
 	
 	var objects: [AnyObject] = []
+	var test: Test? {
+		didSet {
+			if let test = test {
+				self.setupHeaderView()
+			}
+		}
+	}
 	
 	var testCase: TestCase? {
 		didSet {
 			if let testCase = testCase {
+				self.objects.removeAll(keepCapacity: false)
 				self.objects.extend(testCase.steps as [AnyObject]!)
 				self.configureView()
 				self.tableView.reloadData()
@@ -25,6 +33,7 @@ class StepsViewController: UITableViewController {
 	var caseTest: CaseTest? {
 		didSet {
 			if let caseTest = caseTest {
+				self.objects.removeAll(keepCapacity: false)
 				self.objects.extend(caseTest.stepTests as [AnyObject]!)
 				self.tableView.reloadData()
 			}
@@ -39,14 +48,56 @@ class StepsViewController: UITableViewController {
 		}
 	}
 	
+	func submitTest() {
+		if self.test?.startDate != nil {
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+			ObjectManager.submitTest(self.test) { [weak self] (result, error) in
+				dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					ErrorHandler.handleError(error);
+					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+					self?.refreshControl?.endRefreshing()
+					if error == nil {
+						self?.test = result as Test?
+						self?.fetchCaseTest()
+					}
+				});
+			}
+		}
+	}
+	
+	func setupHeaderView() {
+		var refresh: UIRefreshControl = UIRefreshControl()
+		var titleStr: NSAttributedString? = nil
+		refresh.addTarget(self, action: "submitTest", forControlEvents: .ValueChanged)
+		let str = NSLocalizedString("layouts.casetest.header.button.submit.title", comment: "submit test button title")
+		titleStr = NSAttributedString(string: str, attributes: [ NSForegroundColorAttributeName : ThemeDefault.colorForButtonTitle(.Active) ])
+		refresh.attributedTitle = titleStr
+		refresh.tintColor = ThemeDefault.colorForTint()
+		self.refreshControl = refresh
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.tableView.separatorStyle = .None
 	}
 	
+	func fetchCaseTest() {
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+		ObjectManager.fetchCaseTest(self.caseTest) { [weak self] (result, error) in
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				ErrorHandler.handleError(error);
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+				if error == nil {
+					self?.caseTest = result as? CaseTest
+					self?.test?.updateCaseTest(self?.caseTest)
+				}
+			});
+		}
+	}
+	
 	func fetchTestCases() {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
-		ObjectManager.fetchTestSteps(testCase) { [weak self] (result, error) in
+		ObjectManager.fetchTestSteps(self.testCase) { [weak self] (result, error) in
 			dispatch_async(dispatch_get_main_queue(), { () -> Void in
 				ErrorHandler.handleError(error);
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;

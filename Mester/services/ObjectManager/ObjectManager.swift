@@ -24,7 +24,7 @@ class ObjectManager: NSObject {
 					return [ XTConfigurationPair(type: .Dev, URL: NSURL(string: "http://localhost:8080")),
 							XTConfigurationPair(type: .Prod, URL: NSURL(string: "http://ec2-54-69-226-55.us-west-2.compute.amazonaws.com:8080")) ]
 					},
-					type: .Prod)
+					type: .Dev)
 			}
 		})
 	}
@@ -221,6 +221,20 @@ class ObjectManager: NSObject {
 			newTest.deserialize(testDic)
 			newTest.project?.updateTest(newTest)
 			completionBlock(newTest, error)
+		}
+	}
+	
+	class func fetchCaseTest(caseTest: CaseTest!, completionBlock: ObjectCompletionBlock!) {
+		ObjectManager.setup()
+		var caseTestDic = caseTest.serialize()
+		RESTManager.fetchCaseTest(caseTest.identifier) { result, error in
+			if let err = error {
+				completionBlock(nil, error)
+				return
+			}
+			var caseTestDic = result as [String : AnyObject]
+			caseTest.deserialize(caseTestDic)
+			completionBlock(caseTest, error)
 		}
 	}
 	

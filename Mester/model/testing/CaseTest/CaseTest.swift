@@ -34,6 +34,7 @@ class CaseTest: NSObject, Mapping {
 		}
 		let stepTestArr = dic[kFieldStepTests] as? [Dictionary<String, AnyObject>]
 		if stepTestArr != nil {
+			self.stepTests.removeAll(keepCapacity: false)
 			for stepTestDic in stepTestArr! {
 				var stepTest = StepTest()
 				var testStepID = stepTestDic[kFieldTestStepID] as String?

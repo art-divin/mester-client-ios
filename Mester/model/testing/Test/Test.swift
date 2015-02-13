@@ -73,4 +73,14 @@ class Test: NSObject, Mapping {
 		return [:]
 	}
 	
+	func updateCaseTest(caseTest: CaseTest!) {
+		let oldTestArr = self.caseTests.filter { (oldCaseTest) -> Bool in
+			oldCaseTest.identifier == caseTest.identifier
+		}
+		if oldTestArr.count == 1 {
+			let idx = find(self.caseTests, oldTestArr.first!)
+			self.caseTests[idx!] = caseTest
+		}
+	}
+	
 }
