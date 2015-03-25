@@ -34,7 +34,7 @@ class MasterViewController: UITableViewController {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 				if result != nil {
 					self.objects.removeAll(keepCapacity: false)
-					self.objects.extend(result as [Project])
+					self.objects.extend(result as! [Project])
 					self.tableView.reloadData()
 				}
 			});
@@ -47,7 +47,7 @@ class MasterViewController: UITableViewController {
 	}
 	
 	func showProjectDetails(sender: AnyObject) {
-		var projectVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProjectViewController") as ProjectViewController
+		var projectVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProjectViewController") as! ProjectViewController
 		projectVC.callback = { [unowned self] (project) in
 			self.fetchProjectList()
 		}
@@ -60,7 +60,7 @@ class MasterViewController: UITableViewController {
 		if segue.identifier == "TestsViewController" {
 			if let indexPath = self.tableView.indexPathForSelectedRow() {
 				let project = objects[indexPath.row] as Project
-				(segue.destinationViewController as TestsViewController).project = project
+				(segue.destinationViewController as! TestsViewController).project = project
 				self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 			}
 		}
@@ -77,7 +77,7 @@ class MasterViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as TableViewCell
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
 		
 		let object = objects[indexPath.row] as Project
 		cell.textLabel!.text = object.name

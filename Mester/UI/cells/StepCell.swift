@@ -39,9 +39,9 @@ class StepCell: UITableViewCell {
 		swiperView!.topmostView().addSubview(statusLbl)
 		statusLbl.setTranslatesAutoresizingMaskIntoConstraints(false)
 		textLbl.setTranslatesAutoresizingMaskIntoConstraints(false)
-		var constraints: [NSLayoutConstraint] = NSLayoutConstraint.constraintsWithVisualFormat("V:|[label][statusLbl]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "label" : textLbl, "statusLbl" : statusLbl ]) as [NSLayoutConstraint]
-		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[label]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "label" : textLbl ]) as [NSLayoutConstraint]
-		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[statusLbl]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "statusLbl" : statusLbl ]) as [NSLayoutConstraint]
+		var constraints: [NSLayoutConstraint] = NSLayoutConstraint.constraintsWithVisualFormat("V:|[label][statusLbl]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "label" : textLbl, "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
+		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[label]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "label" : textLbl ]) as! [NSLayoutConstraint]
+		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[statusLbl]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
 		swiperView!.topmostView().addConstraints(constraints)
 		buttonSucceed.setTitleColor(ThemeDefault.colorForButtonTitle(.Success), forState: .Normal)
 		buttonFail.setTitleColor(ThemeDefault.colorForButtonTitle(.Failure), forState: .Normal)

@@ -13,13 +13,13 @@ enum ElementState {
 }
 
 protocol Theme {
-	class func colorForTint() -> UIColor!;
-	class func colorForNavBg() -> UIColor!;
-	class func colorForButtonBg(state: ElementState) -> UIColor!
-	class func colorForButtonTitle(state: ElementState) -> UIColor!
-	class func colorForCellText(state: ElementState) -> UIColor!
-	class func colorForCellBg(state: ElementState) -> UIColor!
-	class func heightForCell() -> CGFloat
+	static func colorForTint() -> UIColor!;
+	static func colorForNavBg() -> UIColor!;
+	static func colorForButtonBg(state: ElementState) -> UIColor!
+	static func colorForButtonTitle(state: ElementState) -> UIColor!
+	static func colorForCellText(state: ElementState) -> UIColor!
+	static func colorForCellBg(state: ElementState) -> UIColor!
+	static func heightForCell() -> CGFloat
 }
 
 class ThemeDefault: Theme {

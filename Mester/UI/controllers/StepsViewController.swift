@@ -57,7 +57,7 @@ class StepsViewController: UITableViewController {
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 					self?.refreshControl?.endRefreshing()
 					if error == nil {
-						self?.test = result as Test?
+						self?.test = result as! Test?
 						self?.fetchCaseTest()
 					}
 				});
@@ -111,7 +111,7 @@ class StepsViewController: UITableViewController {
 	}
 	
 	func showTestStepDetails(sender: AnyObject?) {
-		var stepVC = self.storyboard?.instantiateViewControllerWithIdentifier("TestStepViewController") as TestStepViewController
+		var stepVC = self.storyboard?.instantiateViewControllerWithIdentifier("TestStepViewController") as! TestStepViewController
 		stepVC.testCase = self.testCase
 		stepVC.callback = { [unowned self] testStep in
 			self.fetchTestCases()
@@ -135,15 +135,15 @@ class StepsViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as StepCell
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! StepCell
 		cell.selectionStyle = .None
 		if self.testCase != nil {
-			let object = objects[indexPath.row] as TestStep
+			let object = objects[indexPath.row] as! TestStep
 			cell.textLabel!.text = object.text
 			cell.detailTextLabel!.text = ""
 			cell.setButtonVisibility(false)
 		} else {
-			let object = objects[indexPath.row] as StepTest
+			let object = objects[indexPath.row] as! StepTest
 			cell.textLbl.text = object.testStep?.text
 			cell.statusLbl.text = object.status.rawValue
 			// TODO: localization
@@ -154,11 +154,11 @@ class StepsViewController: UITableViewController {
 			cell.setButtonVisibility(true)
 			cell.object = object
 			cell.succeedCallback = { [weak self] (object) in
-				var stepTest = object as StepTest
+				var stepTest = object as! StepTest
 				stepTest.status = TestStatus.Succeed
 			}
 			cell.failCallback = { [weak self] (object) in
-				var stepTest = object as StepTest
+				var stepTest = object as! StepTest
 				stepTest.status = TestStatus.Failed
 			}
 		}
@@ -178,7 +178,7 @@ class StepsViewController: UITableViewController {
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		if editingStyle == .Delete {
 			if self.testCase != nil {
-				let testStep = objects[indexPath.row] as TestStep
+				let testStep = objects[indexPath.row] as! TestStep
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
 				ObjectManager.deleteTestStep(testStep, completionBlock: { [unowned self] (result, error) -> Void in
 					dispatch_async(dispatch_get_main_queue(), { () -> Void in

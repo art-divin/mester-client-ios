@@ -29,7 +29,7 @@ class CaseTestViewController: UITableViewController {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 				self?.refreshControl?.endRefreshing()
 				if error == nil {
-					self?.test = result as Test?
+					self?.test = result as! Test?
 				}
 			});
 		}
@@ -44,7 +44,7 @@ class CaseTestViewController: UITableViewController {
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 					self?.refreshControl?.endRefreshing()
 					if error == nil {
-						self?.test = result as Test?
+						self?.test = result as! Test?
 					}
 					self?.tableView.reloadData()
 				});
@@ -84,8 +84,8 @@ class CaseTestViewController: UITableViewController {
 		if segue.identifier == "StepsViewController" {
 			if let indexPath = self.tableView.indexPathForSelectedRow() {
 				let caseTest: CaseTest = objects[indexPath.row] as CaseTest
-				(segue.destinationViewController as StepsViewController).caseTest = caseTest
-				(segue.destinationViewController as StepsViewController).test = self.test
+				(segue.destinationViewController as! StepsViewController).caseTest = caseTest
+				(segue.destinationViewController as! StepsViewController).test = self.test
 			}
 		}
 	}
@@ -101,7 +101,7 @@ class CaseTestViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as TableViewCell
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
 		let caseTest = self.objects[indexPath.row]
 		cell.textLabel!.text = caseTest.testCase?.title
 		// TODO: localization

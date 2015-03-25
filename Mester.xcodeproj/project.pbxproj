@@ -18,11 +18,11 @@
 		C93FAD3A1A71933A0081390E /* CaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD391A71933A0081390E /* CaseTest.swift */; };
 		C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3B1A71936F0081390E /* StepTest.swift */; };
 		C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3D1A719A4C0081390E /* TestStatus.swift */; };
-		C94E254B1A6AA4D500C9985A /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94E254A1A6AA4D500C9985A /* Networking.framework */; };
 		C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C962BA071A6C7771003DDE87 /* TestStepViewController.swift */; };
 		C966D7011A76D131009887AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C966D7001A76D131009887AB /* AppDelegate.swift */; };
 		C966D7031A76E0CC009887AB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C966D7021A76E0CC009887AB /* TableViewCell.swift */; };
 		C96F8F961A71AE5C002FAC35 /* CaseTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96F8F951A71AE5C002FAC35 /* CaseTestViewController.swift */; };
+		C96FED461AC33D1500D13318 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96FED451AC33D1500D13318 /* Networking.framework */; };
 		C970E3621A6BF112004EF36D /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970E3611A6BF112004EF36D /* Common.swift */; };
 		C9769F161A71B9D200791A5A /* TestCaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9769F151A71B9D200791A5A /* TestCaseCell.swift */; };
 		C9769F181A71CF9400791A5A /* StepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9769F171A71CF9400791A5A /* StepCell.swift */; };
@@ -62,11 +62,11 @@
 		C93FAD391A71933A0081390E /* CaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaseTest.swift; path = model/testing/CaseTest/CaseTest.swift; sourceTree = "<group>"; };
 		C93FAD3B1A71936F0081390E /* StepTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepTest.swift; path = model/testing/StepTest/StepTest.swift; sourceTree = "<group>"; };
 		C93FAD3D1A719A4C0081390E /* TestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStatus.swift; path = model/testing/TestStatus.swift; sourceTree = "<group>"; };
-		C94E254A1A6AA4D500C9985A /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
 		C962BA071A6C7771003DDE87 /* TestStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStepViewController.swift; sourceTree = "<group>"; };
 		C966D7001A76D131009887AB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C966D7021A76E0CC009887AB /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = UI/cells/TableViewCell.swift; sourceTree = "<group>"; };
 		C96F8F951A71AE5C002FAC35 /* CaseTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseTestViewController.swift; sourceTree = "<group>"; };
+		C96FED451AC33D1500D13318 /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
 		C970E3611A6BF112004EF36D /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = common/Common.swift; sourceTree = "<group>"; };
 		C9769F151A71B9D200791A5A /* TestCaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCaseCell.swift; path = UI/cells/TestCaseCell.swift; sourceTree = "<group>"; };
 		C9769F171A71CF9400791A5A /* StepCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepCell.swift; path = UI/cells/StepCell.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C94E254B1A6AA4D500C9985A /* Networking.framework in Frameworks */,
+				C96FED461AC33D1500D13318 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +337,7 @@
 		C9FCF2671A6A9F1A00896B10 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				C94E254A1A6AA4D500C9985A /* Networking.framework */,
+				C96FED451AC33D1500D13318 /* Networking.framework */,
 			);
 			name = libs;
 			sourceTree = "<group>";
