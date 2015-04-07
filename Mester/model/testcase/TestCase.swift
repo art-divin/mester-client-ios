@@ -23,8 +23,8 @@ class TestCase: NSObject, Mapping {
 	var project: Project?
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.title = dic[kFieldTitle] as String?
-		self.identifier = dic[kFieldIdentifier] as String?
+		self.title = dic[kFieldTitle] as! String?
+		self.identifier = dic[kFieldIdentifier] as! String?
 		if let dateStr = dic[kFieldCreationDate] as? String? {
 			var dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

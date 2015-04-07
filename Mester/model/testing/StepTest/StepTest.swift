@@ -21,8 +21,8 @@ class StepTest: NSObject, Mapping {
 	var creationDate: NSDate = NSDate()
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.identifier = dic[kFieldIdentifier] as String?
-		var status = dic[kFieldStatus] as String?
+		self.identifier = dic[kFieldIdentifier] as! String?
+		var status = dic[kFieldStatus] as! String?
 		self.status = TestStatus.testStatus(status)
 		if let dateStr = dic[kFieldCreationDate] as? String? {
 			var dateFormatter = Common.dateFormatter

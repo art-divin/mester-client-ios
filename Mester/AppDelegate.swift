@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 		XTLogger.setupWithConfiguration(.Dev)
+		self.window?.tintColor = ThemeDefault.colorForTint()
+		self.window?.rootViewController?.navigationController?.navigationBar.barTintColor = ThemeDefault.colorForNavBg()
+		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : ThemeDefault.colorForTint()]
         return true
     }
 

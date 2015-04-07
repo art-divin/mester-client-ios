@@ -62,7 +62,6 @@ class TestsViewController: UITableViewController {
 				if error == nil {
 					self?.segmentCtrl?.selectedSegmentIndex = 1;
 					self?.segmentControlTapped(nil)
-					self?.tableView.reloadData()
 				}
 			});
 		}
@@ -84,6 +83,7 @@ class TestsViewController: UITableViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		self.configureView()
+		self.tableView.separatorStyle = .None
 		let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showTestCaseDetails:")
 		self.navigationItem.rightBarButtonItem = addButton
 		self.segmentCtrl = UISegmentedControl(items: [NSLocalizedString("layouts.tests.segment.cases.title", comment: "test cases segment item"), NSLocalizedString("layouts.tests.segment.tests.title", comment: "case test segment item")])
@@ -112,8 +112,12 @@ class TestsViewController: UITableViewController {
 		}
 	}
 	
+	override func viewWillAppear(animated: Bool) {
+		configureView()
+	}
+	
 	func showTestCaseDetails(sender: AnyObject?) {
-		var testCaseVC = self.storyboard?.instantiateViewControllerWithIdentifier("TestCaseViewController") as TestCaseViewController
+		var testCaseVC = self.storyboard?.instantiateViewControllerWithIdentifier("TestCaseViewController") as! TestCaseViewController
 		testCaseVC.project = self.project
 		testCaseVC.callback = { [unowned self] (testCase) -> Void in
 			self.fetchTestCases()
@@ -131,8 +135,8 @@ class TestsViewController: UITableViewController {
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "StepsViewController" {
 			if let indexPath = self.tableView.indexPathForSelectedRow() {
-				let testCase: TestCase = objects[indexPath.row] as TestCase
-				(segue.destinationViewController as StepsViewController).testCase = testCase
+				let testCase: TestCase = objects[indexPath.row] as! TestCase
+				(segue.destinationViewController as! StepsViewController).testCase = testCase
 			}
 		}
 	}
@@ -141,10 +145,11 @@ class TestsViewController: UITableViewController {
 		if identifier == "StepsViewController" {
 			if self.testsShown {
 				if let indexPath = self.tableView.indexPathForSelectedRow() {
-					let test: Test = objects[indexPath.row] as Test
-					var caseTestVC = self.storyboard?.instantiateViewControllerWithIdentifier("CaseTestViewController") as CaseTestViewController
+					let test: Test = objects[indexPath.row] as! Test
+					var caseTestVC = self.storyboard?.instantiateViewControllerWithIdentifier("CaseTestViewController") as! CaseTestViewController
 					caseTestVC.test = test
 					self.navigationController?.pushViewController(caseTestVC, animated: true)
+					self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 				}
 			}
 			return !self.testsShown as Bool
@@ -163,43 +168,49 @@ class TestsViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as TestCaseCell
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TestCaseCell
 		var dateFormatter = Common.dateFormatter
 		dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
 		if !self.testsShown {
-			let testCase: TestCase = objects[indexPath.row] as TestCase
-			cell.textLabel!.text = testCase.title
-			cell.detailTextLabel!.text = dateFormatter.stringFromDate(testCase.creationDate)
+			let testCase: TestCase = objects[indexPath.row] as! TestCase
+			cell.textLbl.text = testCase.title
+			cell.statusLbl.text = dateFormatter.stringFromDate(testCase.creationDate)
 			cell.button.setTitle(NSLocalizedString("layouts.testcase.cell.button.testcase.title", comment: "start test button title"), forState: .Normal)
 			cell.object = testCase
 			cell.callback = { [weak self] object in
-				var testCase = object as TestCase
+				var testCase = object as! TestCase
 				self?.createTest(testCase)
 			}
+			cell.setButtonVisibility(true)
 		} else {
-			var test: Test = objects[indexPath.row] as Test
+			var test: Test = objects[indexPath.row] as! Test
 			// TODO: localization
-			cell.textLabel!.text = "created: \(dateFormatter.stringFromDate(test.creationDate))"
+			cell.textLbl.text = "created: \(dateFormatter.stringFromDate(test.creationDate))"
 			var detailStr = "status: \(test.status.rawValue)"
 			if test.startDate != nil && test.endDate == nil {
 				detailStr += "; started: \(dateFormatter.stringFromDate(test.startDate!))"
 			} else if test.endDate != nil {
 				detailStr += "; finished: \(dateFormatter.stringFromDate(test.startDate!))"
 			}
-			cell.detailTextLabel!.text = detailStr
+			cell.statusLbl.text = detailStr
+			cell.setButtonVisibility(false)
 		}
 		return cell
 	}
 	
+	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return ThemeDefault.heightForCell()
+	}
+	
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
 		// Return false if you do not want the specified item to be editable.
-		return true
+		return false
 	}
 	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		if editingStyle == .Delete {
 			if !self.testsShown {
-				let testCase = objects[indexPath.row] as TestCase
+				let testCase = objects[indexPath.row] as! TestCase
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
 				ObjectManager.deleteTestCase(testCase, completionBlock: { [unowned self] (result, error) -> Void in
 					dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -212,7 +223,7 @@ class TestsViewController: UITableViewController {
 					});
 				})
 			} else {
-				let test = objects[indexPath.row] as Test
+				let test = objects[indexPath.row] as! Test
 				// TODO:
 			}
 			

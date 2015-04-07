@@ -27,8 +27,9 @@ class CaseTestViewController: UITableViewController {
 			dispatch_async(dispatch_get_main_queue(), { () -> Void in
 				ErrorHandler.handleError(error);
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+				self?.refreshControl?.endRefreshing()
 				if error == nil {
-					self?.test = result as Test?
+					self?.test = result as! Test?
 				}
 			});
 		}
@@ -41,35 +42,31 @@ class CaseTestViewController: UITableViewController {
 				dispatch_async(dispatch_get_main_queue(), { () -> Void in
 					ErrorHandler.handleError(error);
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+					self?.refreshControl?.endRefreshing()
 					if error == nil {
-						self?.test = result as Test?
+						self?.test = result as! Test?
 					}
+					self?.tableView.reloadData()
 				});
 			}
 		}
 	}
 	
 	func setupHeaderView() {
-		var startBtn = UIButton()
-		var submitBtn = UIButton()
-		startBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
-		submitBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
-		startBtn.backgroundColor = UIColor.greenColor()
-		submitBtn.backgroundColor = UIColor.yellowColor()
-		startBtn.addTarget(self, action: "startTest", forControlEvents: .TouchUpInside)
-		submitBtn.addTarget(self, action: "submitTest", forControlEvents: .TouchUpInside)
-		startBtn.setTitle(NSLocalizedString("layouts.casetest.header.button.start.title", comment: "start test button title"), forState: .Normal)
-		submitBtn.setTitle(NSLocalizedString("layouts.casetest.header.button.submit.title", comment: "submit test button title"), forState: .Normal)
-		let screenWidth = CGRectGetWidth(self.view.bounds)
-		var headerView = UIView(frame: CGRectMake(0, 0, screenWidth, 50.0))
-		headerView.addSubview(startBtn)
-		headerView.addSubview(submitBtn)
-		startBtn.setTranslatesAutoresizingMaskIntoConstraints(false)
-		submitBtn.setTranslatesAutoresizingMaskIntoConstraints(false)
-		headerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[startBtn(==100)]-(>=50)-[submitBtn(==100)]-|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "startBtn" : startBtn, "submitBtn" : submitBtn ]))
-		headerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[startBtn(==44)]", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "startBtn" : startBtn ]))
-		headerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[submitBtn(==44)]", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "submitBtn" : submitBtn ]))
-		self.tableView.tableHeaderView = headerView
+		var refresh: UIRefreshControl = UIRefreshControl()
+		var titleStr: NSAttributedString? = nil
+		if self.test?.startDate == nil {
+			refresh.addTarget(self, action: "startTest", forControlEvents: .ValueChanged)
+			let str = NSLocalizedString("layouts.casetest.header.button.start.title", comment: "submit test button title")
+			titleStr = NSAttributedString(string: str, attributes: [ NSForegroundColorAttributeName : ThemeDefault.colorForButtonTitle(.Active) ])
+		} else {
+			refresh.addTarget(self, action: "submitTest", forControlEvents: .ValueChanged)
+			let str = NSLocalizedString("layouts.casetest.header.button.submit.title", comment: "submit test button title")
+			titleStr = NSAttributedString(string: str, attributes: [ NSForegroundColorAttributeName : ThemeDefault.colorForButtonTitle(.Active) ])
+		}
+		refresh.attributedTitle = titleStr
+		refresh.tintColor = ThemeDefault.colorForTint()
+		self.refreshControl = refresh
 	}
 	
 	override func viewDidLoad() {
@@ -87,7 +84,8 @@ class CaseTestViewController: UITableViewController {
 		if segue.identifier == "StepsViewController" {
 			if let indexPath = self.tableView.indexPathForSelectedRow() {
 				let caseTest: CaseTest = objects[indexPath.row] as CaseTest
-				(segue.destinationViewController as StepsViewController).caseTest = caseTest
+				(segue.destinationViewController as! StepsViewController).caseTest = caseTest
+				(segue.destinationViewController as! StepsViewController).test = self.test
 			}
 		}
 	}
@@ -103,12 +101,16 @@ class CaseTestViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
 		let caseTest = self.objects[indexPath.row]
 		cell.textLabel!.text = caseTest.testCase?.title
 		// TODO: localization
 		cell.detailTextLabel!.text = "status: \(caseTest.status.rawValue)"
 		return cell
+	}
+	
+	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return ThemeDefault.heightForCell()
 	}
 	
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

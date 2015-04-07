@@ -27,7 +27,7 @@ class Test: NSObject, Mapping {
 	var project: Project?
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.identifier = dic[kFieldIdentifier] as String?
+		self.identifier = dic[kFieldIdentifier] as! String?
 		var dateFormatter = Common.dateFormatter
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 		if let dateStr = dic[kFieldCreationDate] as? String? {
@@ -43,7 +43,7 @@ class Test: NSObject, Mapping {
 		if caseTestArr != nil {
 			for caseTestDic in caseTestArr! {
 				var caseTest = CaseTest()
-				var testCaseID = caseTestDic[kFieldTestCase] as String?
+				var testCaseID = caseTestDic[kFieldTestCase] as! String?
 				if testCaseID != nil {
 					var foundArr = self.project?.testCases.filter({ (testCase) -> Bool in
 						testCase.identifier == testCaseID
@@ -56,7 +56,7 @@ class Test: NSObject, Mapping {
 				self.caseTests.append(caseTest)
 			}
 		}
-		var status = dic[kFieldStatus] as String?
+		var status = dic[kFieldStatus] as! String?
 		self.status = TestStatus.testStatus(status)
 	}
 
@@ -71,6 +71,16 @@ class Test: NSObject, Mapping {
 		}
 		
 		return [:]
+	}
+	
+	func updateCaseTest(caseTest: CaseTest!) {
+		let oldTestArr = self.caseTests.filter { (oldCaseTest) -> Bool in
+			oldCaseTest.identifier == caseTest.identifier
+		}
+		if oldTestArr.count == 1 {
+			let idx = find(self.caseTests, oldTestArr.first!)
+			self.caseTests[idx!] = caseTest
+		}
 	}
 	
 }
