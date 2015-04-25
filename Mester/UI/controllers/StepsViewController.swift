@@ -49,19 +49,17 @@ class StepsViewController: UITableViewController {
 	}
 	
 	func submitTest() {
-		if self.test?.startDate != nil {
-			UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
-			ObjectManager.submitTest(self.test) { [weak self] (result, error) in
-				dispatch_async(dispatch_get_main_queue(), { () -> Void in
-					ErrorHandler.handleError(error);
-					UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
-					self?.refreshControl?.endRefreshing()
-					if error == nil {
-						self?.test = result as! Test?
-						self?.fetchCaseTest()
-					}
-				});
-			}
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+		ObjectManager.submitTest(self.test) { [weak self] (result, error) in
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				ErrorHandler.handleError(error);
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+				self?.refreshControl?.endRefreshing()
+				if error == nil {
+					self?.test = result as! Test?
+					self?.fetchCaseTest()
+				}
+			});
 		}
 	}
 	
@@ -147,7 +145,7 @@ class StepsViewController: UITableViewController {
 			cell.textLbl.text = object.testStep?.text
 			cell.statusLbl.text = object.status.rawValue
 			// TODO: localization
-//			cell.detailTextLabel!.text = "status: \(object.status.rawValue)"
+			//			cell.detailTextLabel!.text = "status: \(object.status.rawValue)"
 			cell.buttonSucceed.setTitle("succeed", forState: .Normal)
 			cell.buttonFail.setTitle("fail", forState: .Normal)
 			
@@ -190,7 +188,7 @@ class StepsViewController: UITableViewController {
 							self.fetchTestCases()
 						}
 					})
-				})
+					})
 			}
 		} else if editingStyle == .Insert {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
