@@ -192,22 +192,6 @@ class ObjectManager: NSObject {
 		}
 	}
 	
-	class func startTest(test: Test!, completionBlock: ObjectCompletionBlock!) {
-		ObjectManager.setup()
-		ObjectManager.manager?.startTest(test.identifier) { result, error in
-			if let err = error {
-				completionBlock(nil, error)
-				return
-			}
-			var testDic = result as! [String : AnyObject]
-			var newTest = Test()
-			newTest.project = test.project
-			newTest.deserialize(testDic)
-			newTest.project?.updateTest(newTest)
-			completionBlock(newTest, error)
-		}
-	}
-	
 	class func submitTest(test: Test!, completionBlock: ObjectCompletionBlock!) {
 		ObjectManager.setup()
 		var testDic = test.serialize()
