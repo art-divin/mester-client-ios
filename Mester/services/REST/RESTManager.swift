@@ -21,7 +21,7 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			var result: AnyObject? = responseObj?["result"]
+			let result: AnyObject? = responseObj?["result"]
 			if !(result is NSArray) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)
@@ -46,7 +46,7 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			var result: AnyObject? = responseObj?["result"]
+			let result: AnyObject? = responseObj?["result"]
 			if !(result is NSArray) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)
@@ -179,7 +179,7 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			var result: AnyObject? = responseObj?["result"]
+			let result: AnyObject? = responseObj?["result"]
 			if !(result is NSArray) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)
@@ -204,7 +204,7 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			var result: AnyObject? = responseObj?["result"]
+			let result: AnyObject? = responseObj?["result"]
 			if !(result is NSArray) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)
@@ -229,7 +229,7 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			var result: AnyObject? = responseObj?["result"]
+			let result: AnyObject? = responseObj?["result"]
 			if !(result is NSDictionary) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)
@@ -254,7 +254,7 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			var result: AnyObject? = responseObj?["result"]
+			let result: AnyObject? = responseObj?["result"]
 			if !(result is NSDictionary) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)
@@ -279,7 +279,7 @@ class RESTManager: XTOperationManager {
 			if let err = responseError {
 				error = XTResponseError(code: err.code, message: err.localizedDescription)
 			}
-			var result: AnyObject? = responseObj?["result"]
+			let result: AnyObject? = responseObj?["result"]
 			if !(result is NSDictionary) {
 				error = XTResponseError(errorCode: .InvalidResponseFormat, message: "Invalid response")
 				completionBlock(nil, error)

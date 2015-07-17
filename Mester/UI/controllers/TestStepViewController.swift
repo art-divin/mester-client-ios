@@ -28,7 +28,7 @@ class TestStepViewController: UIViewController {
 		super.viewDidLoad()
 		self.navigationItem.title = NSLocalizedString("layouts.teststep.add.title", comment: "add teststep view title")
 		
-		var doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
+		let doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
 		self.navigationItem.rightBarButtonItem = doneBtn
 		
 		self.textHintLbl.text = NSLocalizedString("layouts.teststep.add.text.hint", comment: "teststep text hint lable title")
@@ -45,7 +45,7 @@ class TestStepViewController: UIViewController {
 	}
 	
 	func done(sender: AnyObject?) {
-		if !self.textField.text.isEmpty {
+		if !self.textField.text!.isEmpty {
 			self.testStep.text = self.textField.text
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 			ObjectManager.createTestStep(testStep, completionBlock: { [unowned self] (result, error) -> Void in

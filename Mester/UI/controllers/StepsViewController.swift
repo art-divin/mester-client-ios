@@ -13,7 +13,7 @@ class StepsViewController: UITableViewController {
 	var objects: [AnyObject] = []
 	var test: Test? {
 		didSet {
-			if let test = test {
+			if test != nil {
 				self.setupHeaderView()
 			}
 		}
@@ -64,7 +64,7 @@ class StepsViewController: UITableViewController {
 	}
 	
 	func setupHeaderView() {
-		var refresh: UIRefreshControl = UIRefreshControl()
+		let refresh: UIRefreshControl = UIRefreshControl()
 		var titleStr: NSAttributedString? = nil
 		refresh.addTarget(self, action: "submitTest", forControlEvents: .ValueChanged)
 		let str = NSLocalizedString("layouts.casetest.header.button.submit.title", comment: "submit test button title")
@@ -109,7 +109,7 @@ class StepsViewController: UITableViewController {
 	}
 	
 	func showTestStepDetails(sender: AnyObject?) {
-		var stepVC = self.storyboard?.instantiateViewControllerWithIdentifier("TestStepViewController") as! TestStepViewController
+		let stepVC = self.storyboard?.instantiateViewControllerWithIdentifier("TestStepViewController") as! TestStepViewController
 		stepVC.testCase = self.testCase
 		stepVC.callback = { [unowned self] testStep in
 			self.fetchTestCases()
@@ -151,12 +151,12 @@ class StepsViewController: UITableViewController {
 			
 			cell.setButtonVisibility(true)
 			cell.object = object
-			cell.succeedCallback = { [weak self] (object) in
-				var stepTest = object as! StepTest
+			cell.succeedCallback = { (object) in
+				let stepTest = object as! StepTest
 				stepTest.status = TestStatus.Succeed
 			}
-			cell.failCallback = { [weak self] (object) in
-				var stepTest = object as! StepTest
+			cell.failCallback = { (object) in
+				let stepTest = object as! StepTest
 				stepTest.status = TestStatus.Failed
 			}
 		}

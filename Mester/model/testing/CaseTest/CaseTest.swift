@@ -25,10 +25,10 @@ class CaseTest: NSObject, Mapping {
 	
 	func deserialize(dic: [String : AnyObject?]) {
 		self.identifier = dic[kFieldIdentifier] as! String?
-		var status = dic[kFieldStatus] as! String?
+		let status = dic[kFieldStatus] as! String?
 		self.status = TestStatus.testStatus(status)
 		if let dateStr = dic[kFieldCreationDate] as? String? {
-			var dateFormatter = Common.dateFormatter
+			let dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}
@@ -36,13 +36,13 @@ class CaseTest: NSObject, Mapping {
 		if stepTestArr != nil {
 			self.stepTests.removeAll(keepCapacity: false)
 			for stepTestDic in stepTestArr! {
-				var stepTest = StepTest()
-				var testStepID = stepTestDic[kFieldTestStepID] as! String?
+				let stepTest = StepTest()
+				let testStepID = stepTestDic[kFieldTestStepID] as! String?
 				if testStepID != nil {
 					var foundArr = self.testCase?.steps.filter({ (testStep) -> Bool in
 						testStep.identifier == testStepID
 					})
-					var testStep = foundArr?.first
+					let testStep = foundArr?.first
 					stepTest.testStep = testStep
 				}
 				stepTest.caseTest = self
@@ -56,7 +56,7 @@ class CaseTest: NSObject, Mapping {
 		if self.identifier != nil {
 			var steps: [[String : AnyObject]] = []
 			for step in self.stepTests {
-				var stepDic = step.serialize()
+				let stepDic = step.serialize()
 				steps.append(stepDic)
 			}
 			return [ kFieldIdentifier : self.identifier!, kFieldStepTests : steps ]

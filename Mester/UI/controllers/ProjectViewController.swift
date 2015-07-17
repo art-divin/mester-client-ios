@@ -19,7 +19,7 @@ class ProjectViewController: UIViewController {
 		super.viewDidLoad()
 		self.navigationItem.title = NSLocalizedString("layouts.project.add.title", comment: "add project view title")
 		
-		var doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
+		let doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
 		self.navigationItem.rightBarButtonItem = doneBtn
 		
 		self.nameHintLbl.text = NSLocalizedString("layouts.project.add.name.hint", comment: "project name hint lable title")
@@ -27,8 +27,8 @@ class ProjectViewController: UIViewController {
 	}
 	
 	func done(sender: AnyObject?) {
-		if !self.nameField.text.isEmpty {
-			var project = Project()
+		if !self.nameField.text!.isEmpty {
+			let project = Project()
 			project.name = self.nameField.text;
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
 			ObjectManager.createProject(project, completionBlock: { [unowned self] (result, error) -> Void in

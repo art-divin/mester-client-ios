@@ -26,14 +26,14 @@ class TestCase: NSObject, Mapping {
 		self.title = dic[kFieldTitle] as! String?
 		self.identifier = dic[kFieldIdentifier] as! String?
 		if let dateStr = dic[kFieldCreationDate] as? String? {
-			var dateFormatter = Common.dateFormatter
+			let dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}
 		let stepArr = dic[kFieldSteps] as? [Dictionary<String, AnyObject>]
 		if stepArr != nil {
 			for stepDic in stepArr! {
-				var step = TestStep()
+				let step = TestStep()
 				step.testCase = self
 				step.deserialize(stepDic)
 				self.steps.append(step)
