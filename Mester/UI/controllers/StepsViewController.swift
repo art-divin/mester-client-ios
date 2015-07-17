@@ -13,7 +13,7 @@ class StepsViewController: UITableViewController {
 	var objects: [AnyObject] = []
 	var test: Test? {
 		didSet {
-			if let test = test {
+			if test != nil {
 				self.setupHeaderView()
 			}
 		}
@@ -151,11 +151,11 @@ class StepsViewController: UITableViewController {
 			
 			cell.setButtonVisibility(true)
 			cell.object = object
-			cell.succeedCallback = { [weak self] (object) in
+			cell.succeedCallback = { (object) in
 				let stepTest = object as! StepTest
 				stepTest.status = TestStatus.Succeed
 			}
-			cell.failCallback = { [weak self] (object) in
+			cell.failCallback = { (object) in
 				let stepTest = object as! StepTest
 				stepTest.status = TestStatus.Failed
 			}

@@ -45,7 +45,7 @@ class TestStepViewController: UIViewController {
 	}
 	
 	func done(sender: AnyObject?) {
-		if !self.textField.text.isEmpty {
+		if !self.textField.text!.isEmpty {
 			self.testStep.text = self.textField.text
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 			ObjectManager.createTestStep(testStep, completionBlock: { [unowned self] (result, error) -> Void in

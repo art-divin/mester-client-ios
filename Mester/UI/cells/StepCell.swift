@@ -22,7 +22,7 @@ class StepCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 		swiperView = SwiperView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), leftInset: -95, rightInset: -95)
-		var separatorView = UIView()
+		let separatorView = UIView()
 		separatorView.backgroundColor = ThemeDefault.colorForTint()
 		self.contentView.addSubview(separatorView)
 		self.contentView.addSubview(swiperView!)
@@ -39,9 +39,9 @@ class StepCell: UITableViewCell {
 		swiperView!.topmostView().addSubview(statusLbl)
 		statusLbl.translatesAutoresizingMaskIntoConstraints = false
 		textLbl.translatesAutoresizingMaskIntoConstraints = false
-		var constraints: [NSLayoutConstraint] = NSLayoutConstraint.constraintsWithVisualFormat("V:|[label][statusLbl]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "label" : textLbl, "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
-		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[label]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "label" : textLbl ]) as! [NSLayoutConstraint]
-		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[statusLbl]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
+		var constraints: [NSLayoutConstraint] = NSLayoutConstraint.constraintsWithVisualFormat("V:|[label][statusLbl]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "label" : textLbl, "statusLbl" : statusLbl ]) as [NSLayoutConstraint]
+		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[label]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "label" : textLbl ]) as [NSLayoutConstraint]
+		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[statusLbl]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "statusLbl" : statusLbl ]) as [NSLayoutConstraint]
 		swiperView!.topmostView().addConstraints(constraints)
 		buttonSucceed.setTitleColor(ThemeDefault.colorForButtonTitle(.Success), forState: .Normal)
 		buttonFail.setTitleColor(ThemeDefault.colorForButtonTitle(.Failure), forState: .Normal)

@@ -28,8 +28,8 @@ class TestCaseViewController: UIViewController {
     }
 	
 	func done(sender: AnyObject?) {
-		if !self.titleField.text.isEmpty {
-			var testCase = TestCase()
+		if !self.titleField.text!.isEmpty {
+			let testCase = TestCase()
 			testCase.title = self.titleField.text
 			testCase.project = self.project
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = true

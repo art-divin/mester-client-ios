@@ -33,7 +33,7 @@ class ObjectManager: NSObject {
 		ObjectManager.setup()
 		ObjectManager.manager?.fetchProjects({ result, error in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			var projectArr: [Project] = []
@@ -51,7 +51,7 @@ class ObjectManager: NSObject {
 		ObjectManager.setup()
 		ObjectManager.manager?.fetchTestCases(project.identifier) { result, error in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			var testCaseArr: [TestCase] = []
@@ -72,7 +72,7 @@ class ObjectManager: NSObject {
 		let projectDic = project.serialize()
 		ObjectManager.manager?.createProject(project: projectDic) { (result, error) -> () in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			completionBlock(result as! [AnyObject]?, error)
@@ -83,7 +83,7 @@ class ObjectManager: NSObject {
 		ObjectManager.setup()
 		ObjectManager.manager?.deleteProject(project.identifier) { (result, error) -> () in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			completionBlock(result as! [AnyObject]?, error)
@@ -95,7 +95,7 @@ class ObjectManager: NSObject {
 		let testCaseDic = testCase.serialize()
 		ObjectManager.manager?.createTestCase(testCase: testCaseDic) { (result, error) -> () in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			completionBlock(result as! [AnyObject]?, error)
@@ -106,7 +106,7 @@ class ObjectManager: NSObject {
 		ObjectManager.setup()
 		ObjectManager.manager?.deleteTestCase(testCase.identifier, completionBlock: { (result, error) -> () in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			// TODO: proper error handling
@@ -119,7 +119,7 @@ class ObjectManager: NSObject {
 		let testStepDic = testStep.serialize()
 		ObjectManager.manager?.createTestStep(testStep: testStepDic) { (result, error) -> () in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			completionBlock(result as! [AnyObject]?, error)
@@ -128,10 +128,9 @@ class ObjectManager: NSObject {
 	
 	class func deleteTestStep(testStep: TestStep!, completionBlock: ArrayCompletionBlock!) {
 		ObjectManager.setup()
-		var testStepDic = testStep.serialize()
 		ObjectManager.manager?.deleteTestStep(testStep.identifier, completionBlock: { (result, error) -> () in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			// TODO: proper error handling
@@ -143,7 +142,7 @@ class ObjectManager: NSObject {
 		ObjectManager.setup()
 		ObjectManager.manager?.fetchTestSteps(testCase.identifier) { result, error in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			var testStepArr: [TestStep] = []
@@ -163,7 +162,7 @@ class ObjectManager: NSObject {
 		ObjectManager.setup()
 		ObjectManager.manager?.fetchTests(project.identifier) { result, error in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			var testArr: [Test] = []
@@ -183,7 +182,7 @@ class ObjectManager: NSObject {
 		ObjectManager.setup()
 		ObjectManager.manager?.createTest(project.identifier) { result, error in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			var testArr: [Test] = []
@@ -197,7 +196,7 @@ class ObjectManager: NSObject {
 		let testDic = test.serialize()
 		ObjectManager.manager?.submitTest(test: testDic, testID: test.identifier) { result, error in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			let testDic = result as! [String : AnyObject]
@@ -211,10 +210,9 @@ class ObjectManager: NSObject {
 	
 	class func fetchCaseTest(caseTest: CaseTest!, completionBlock: ObjectCompletionBlock!) {
 		ObjectManager.setup()
-		var caseTestDic = caseTest.serialize()
 		ObjectManager.manager?.fetchCaseTest(caseTest.identifier) { result, error in
 			if let err = error {
-				completionBlock(nil, error)
+				completionBlock(nil, err)
 				return
 			}
 			let caseTestDic = result as! [String : AnyObject]

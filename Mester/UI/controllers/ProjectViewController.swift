@@ -27,8 +27,8 @@ class ProjectViewController: UIViewController {
 	}
 	
 	func done(sender: AnyObject?) {
-		if !self.nameField.text.isEmpty {
-			var project = Project()
+		if !self.nameField.text!.isEmpty {
+			let project = Project()
 			project.name = self.nameField.text;
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
 			ObjectManager.createProject(project, completionBlock: { [unowned self] (result, error) -> Void in
