@@ -78,7 +78,7 @@ class Test: NSObject, Mapping {
 			oldCaseTest.identifier == caseTest.identifier
 		}
 		if oldTestArr.count == 1 {
-			let idx = self.caseTests.indexOf(oldTestArr.first!)
+			let idx = find(oldTestArr, oldTestArr.first!)
 			self.caseTests[idx!] = caseTest
 		}
 	}

@@ -25,7 +25,7 @@ class Project: NSObject, Mapping {
 			test.identifier == oldTest.identifier
 		}
 		if oldTestArr.count == 1 {
-			let idx = self.tests.indexOf(oldTestArr.first!)
+			let idx = find(oldTestArr, oldTestArr.first!)
 			self.tests[idx!] = test
 		}
 	}

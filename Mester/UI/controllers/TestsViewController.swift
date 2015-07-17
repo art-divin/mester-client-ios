@@ -134,17 +134,17 @@ class TestsViewController: UITableViewController {
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "StepsViewController" {
-			if let indexPath = self.tableView.indexPathForSelectedRow {
+			if let indexPath = self.tableView.indexPathForSelectedRow() {
 				let testCase: TestCase = objects[indexPath.row] as! TestCase
 				(segue.destinationViewController as! StepsViewController).testCase = testCase
 			}
 		}
 	}
 	
-	override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
 		if identifier == "StepsViewController" {
 			if self.testsShown {
-				if let indexPath = self.tableView.indexPathForSelectedRow {
+				if let indexPath = self.tableView.indexPathForSelectedRow() {
 					let test: Test = objects[indexPath.row] as! Test
 					let caseTestVC = self.storyboard?.instantiateViewControllerWithIdentifier("CaseTestViewController") as! CaseTestViewController
 					caseTestVC.test = test

@@ -24,8 +24,8 @@ class TestCaseCell: UITableViewCell {
 		separatorView.backgroundColor = ThemeDefault.colorForTint()
 		self.contentView.addSubview(separatorView)
 		self.contentView.addSubview(swiperView!)
-		separatorView.translatesAutoresizingMaskIntoConstraints = false
-		swiperView!.translatesAutoresizingMaskIntoConstraints = false
+		separatorView.setTranslatesAutoresizingMaskIntoConstraints(false)
+		swiperView!.setTranslatesAutoresizingMaskIntoConstraints(false)
 		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[swiper]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "swiper" : swiperView! ]))
 		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[swiper][sepView(==1)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "swiper" : swiperView!, "sepView" : separatorView ]))
 		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[sepView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "sepView" : separatorView ]))
@@ -34,8 +34,8 @@ class TestCaseCell: UITableViewCell {
 		textLbl.lineBreakMode = .ByWordWrapping
 		swiperView!.topmostView().addSubview(statusLbl)
 		swiperView!.topmostView().addSubview(textLbl)
-		statusLbl.translatesAutoresizingMaskIntoConstraints = false
-		textLbl.translatesAutoresizingMaskIntoConstraints = false
+		statusLbl.setTranslatesAutoresizingMaskIntoConstraints(false)
+		textLbl.setTranslatesAutoresizingMaskIntoConstraints(false)
 		var constraints: [NSLayoutConstraint] = NSLayoutConstraint.constraintsWithVisualFormat("V:|[label][statusLbl]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "label" : textLbl, "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
 		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[label]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "label" : textLbl ]) as! [NSLayoutConstraint]
 		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[statusLbl]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
@@ -45,7 +45,7 @@ class TestCaseCell: UITableViewCell {
 		button.setTitleColor(ThemeDefault.colorForButtonTitle(.Inactive), forState: .Disabled)
 		button.backgroundColor = ThemeDefault.colorForButtonBg(.Success)
 		swiperView?.addSubview(button)
-		button.translatesAutoresizingMaskIntoConstraints = false
+		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		swiperView?.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[button(>=100)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "button" : button ]))
 		swiperView?.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[button]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "button" : button ]))
 		swiperView?.rightCallback = { [weak self] in
