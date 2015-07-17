@@ -37,7 +37,7 @@ class CaseTestViewController: UITableViewController {
 	}
 	
 	func setupHeaderView() {
-		var refresh: UIRefreshControl = UIRefreshControl()
+		let refresh: UIRefreshControl = UIRefreshControl()
 		var titleStr: NSAttributedString? = nil
 		refresh.addTarget(self, action: "submitTest", forControlEvents: .ValueChanged)
 		let str = NSLocalizedString("layouts.casetest.header.button.submit.title", comment: "submit test button title")
@@ -60,7 +60,7 @@ class CaseTestViewController: UITableViewController {
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "StepsViewController" {
-			if let indexPath = self.tableView.indexPathForSelectedRow() {
+			if let indexPath = self.tableView.indexPathForSelectedRow {
 				let caseTest: CaseTest = objects[indexPath.row] as CaseTest
 				(segue.destinationViewController as! StepsViewController).caseTest = caseTest
 				(segue.destinationViewController as! StepsViewController).test = self.test

@@ -20,7 +20,7 @@ class TestCaseViewController: UIViewController {
         super.viewDidLoad()
 		self.navigationItem.title = NSLocalizedString("layouts.testcase.add.title", comment: "add testcase view title")
 		
-		var doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
+		let doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
 		self.navigationItem.rightBarButtonItem = doneBtn
 		
 		self.titleHintLbl.text = NSLocalizedString("layouts.testcase.add.name.hint", comment: "testcase name hint lable title")

@@ -26,22 +26,22 @@ class StepCell: UITableViewCell {
 		separatorView.backgroundColor = ThemeDefault.colorForTint()
 		self.contentView.addSubview(separatorView)
 		self.contentView.addSubview(swiperView!)
-		separatorView.setTranslatesAutoresizingMaskIntoConstraints(false)
-		swiperView!.setTranslatesAutoresizingMaskIntoConstraints(false)
-		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[swiper]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "swiper" : swiperView! ]))
-		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[swiper][sepView(==1)]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "swiper" : swiperView!, "sepView" : separatorView ]))
-		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[sepView]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "sepView" : separatorView ]))
+		separatorView.translatesAutoresizingMaskIntoConstraints = false
+		swiperView!.translatesAutoresizingMaskIntoConstraints = false
+		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[swiper]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "swiper" : swiperView! ]))
+		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[swiper][sepView(==1)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "swiper" : swiperView!, "sepView" : separatorView ]))
+		self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[sepView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "sepView" : separatorView ]))
 		self.contentView.bringSubviewToFront(swiperView!)
 		textLbl.numberOfLines = 0;
 		textLbl.lineBreakMode = .ByWordWrapping
-		textLbl.setTranslatesAutoresizingMaskIntoConstraints(false)
+		textLbl.translatesAutoresizingMaskIntoConstraints = false
 		swiperView!.topmostView().addSubview(textLbl)
 		swiperView!.topmostView().addSubview(statusLbl)
-		statusLbl.setTranslatesAutoresizingMaskIntoConstraints(false)
-		textLbl.setTranslatesAutoresizingMaskIntoConstraints(false)
-		var constraints: [NSLayoutConstraint] = NSLayoutConstraint.constraintsWithVisualFormat("V:|[label][statusLbl]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "label" : textLbl, "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
-		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[label]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "label" : textLbl ]) as! [NSLayoutConstraint]
-		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[statusLbl]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
+		statusLbl.translatesAutoresizingMaskIntoConstraints = false
+		textLbl.translatesAutoresizingMaskIntoConstraints = false
+		var constraints: [NSLayoutConstraint] = NSLayoutConstraint.constraintsWithVisualFormat("V:|[label][statusLbl]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "label" : textLbl, "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
+		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[label]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "label" : textLbl ]) as! [NSLayoutConstraint]
+		constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-[statusLbl]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "statusLbl" : statusLbl ]) as! [NSLayoutConstraint]
 		swiperView!.topmostView().addConstraints(constraints)
 		buttonSucceed.setTitleColor(ThemeDefault.colorForButtonTitle(.Success), forState: .Normal)
 		buttonFail.setTitleColor(ThemeDefault.colorForButtonTitle(.Failure), forState: .Normal)
@@ -49,12 +49,12 @@ class StepCell: UITableViewCell {
 		buttonFail.backgroundColor = ThemeDefault.colorForButtonBg(.Failure)
 		swiperView!.addSubview(buttonSucceed);
 		swiperView!.addSubview(buttonFail);
-		buttonSucceed.setTranslatesAutoresizingMaskIntoConstraints(false)
-		buttonFail.setTranslatesAutoresizingMaskIntoConstraints(false)
-		swiperView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[succ(>=100)]", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "succ" : buttonSucceed ]))
-		swiperView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[fail(>=100)]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "fail" : buttonFail ]))
-		swiperView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[button]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "button" : buttonFail ]))
-		swiperView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[button]|", options: NSLayoutFormatOptions(0), metrics: nil, views: [ "button" : buttonSucceed ]))
+		buttonSucceed.translatesAutoresizingMaskIntoConstraints = false
+		buttonFail.translatesAutoresizingMaskIntoConstraints = false
+		swiperView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[succ(>=100)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "succ" : buttonSucceed ]))
+		swiperView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[fail(>=100)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "fail" : buttonFail ]))
+		swiperView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[button]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "button" : buttonFail ]))
+		swiperView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[button]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: [ "button" : buttonSucceed ]))
 		swiperView?.leftCallback = { [weak self] in
 			if let callback = self?.succeedCallback {
 				if let object: AnyObject = self?.object {

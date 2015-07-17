@@ -19,7 +19,7 @@ class ProjectViewController: UIViewController {
 		super.viewDidLoad()
 		self.navigationItem.title = NSLocalizedString("layouts.project.add.title", comment: "add project view title")
 		
-		var doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
+		let doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
 		self.navigationItem.rightBarButtonItem = doneBtn
 		
 		self.nameHintLbl.text = NSLocalizedString("layouts.project.add.name.hint", comment: "project name hint lable title")

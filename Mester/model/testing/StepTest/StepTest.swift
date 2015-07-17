@@ -22,10 +22,10 @@ class StepTest: NSObject, Mapping {
 	
 	func deserialize(dic: [String : AnyObject?]) {
 		self.identifier = dic[kFieldIdentifier] as! String?
-		var status = dic[kFieldStatus] as! String?
+		let status = dic[kFieldStatus] as! String?
 		self.status = TestStatus.testStatus(status)
 		if let dateStr = dic[kFieldCreationDate] as? String? {
-			var dateFormatter = Common.dateFormatter
+			let dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}

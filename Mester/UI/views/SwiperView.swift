@@ -40,7 +40,7 @@ class SwiperView: UIView, UICollisionBehaviorDelegate {
 				let vibrancyEffect = UIVibrancyEffect(forBlurEffect: contentView.effect as! UIBlurEffect)
 				let vibrantView = UIVisualEffectView(effect: vibrancyEffect)
 				vibrantView.frame = contentView.bounds
-				vibrantView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+				vibrantView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 				contentView.contentView.addSubview(vibrantView)
 				self.addSubview(contentView)
 				animator = UIDynamicAnimator(referenceView: self)
@@ -92,7 +92,7 @@ class SwiperView: UIView, UICollisionBehaviorDelegate {
 	
 	// :MARK: UICollisionBehaviorDelegate
 	
-	func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying, atPoint p: CGPoint) {
+	func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, atPoint p: CGPoint) {
 		if let gesture = panGesture {
 			if gesture.state != .Possible {
 				if p.x > 0 {

@@ -69,7 +69,7 @@ class ObjectManager: NSObject {
 	
 	class func createProject(project: Project!, completionBlock: ArrayCompletionBlock!) {
 		ObjectManager.setup()
-		var projectDic = project.serialize()
+		let projectDic = project.serialize()
 		ObjectManager.manager?.createProject(project: projectDic) { (result, error) -> () in
 			if let err = error {
 				completionBlock(nil, error)
@@ -92,7 +92,7 @@ class ObjectManager: NSObject {
 	
 	class func createTestCase(testCase: TestCase!, completionBlock: ArrayCompletionBlock!) {
 		ObjectManager.setup()
-		var testCaseDic = testCase.serialize()
+		let testCaseDic = testCase.serialize()
 		ObjectManager.manager?.createTestCase(testCase: testCaseDic) { (result, error) -> () in
 			if let err = error {
 				completionBlock(nil, error)
@@ -116,7 +116,7 @@ class ObjectManager: NSObject {
 	
 	class func createTestStep(testStep: TestStep!, completionBlock: ArrayCompletionBlock!) {
 		ObjectManager.setup()
-		var testStepDic = testStep.serialize()
+		let testStepDic = testStep.serialize()
 		ObjectManager.manager?.createTestStep(testStep: testStepDic) { (result, error) -> () in
 			if let err = error {
 				completionBlock(nil, error)
@@ -194,14 +194,14 @@ class ObjectManager: NSObject {
 	
 	class func submitTest(test: Test!, completionBlock: ObjectCompletionBlock!) {
 		ObjectManager.setup()
-		var testDic = test.serialize()
+		let testDic = test.serialize()
 		ObjectManager.manager?.submitTest(test: testDic, testID: test.identifier) { result, error in
 			if let err = error {
 				completionBlock(nil, error)
 				return
 			}
-			var testDic = result as! [String : AnyObject]
-			var newTest = Test()
+			let testDic = result as! [String : AnyObject]
+			let newTest = Test()
 			newTest.project = test.project
 			newTest.deserialize(testDic)
 			newTest.project?.updateTest(newTest)
@@ -217,7 +217,7 @@ class ObjectManager: NSObject {
 				completionBlock(nil, error)
 				return
 			}
-			var caseTestDic = result as! [String : AnyObject]
+			let caseTestDic = result as! [String : AnyObject]
 			caseTest.deserialize(caseTestDic)
 			completionBlock(caseTest, error)
 		}
