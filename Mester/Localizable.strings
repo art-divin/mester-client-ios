@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  Mester
+
+  Created by Ruslan Alikhamov on 18/01/15.
+  Copyright (c) 2015 Ruslan Alikhamov. All rights reserved.
+*/
+
+"layouts.main.title" = "Projects";
+
+"layouts.project.add.title" = "Add Project";
+"layouts.project.add.name.hint" = "Name of the project:";
+"layouts.project.add.name.field.placeholder" = "Insert project name";
+
+"layouts.testcase.add.title" = "Add Test Case";
+"layouts.testcase.add.name.hint" = "Title of the test case:";
+"layouts.testcase.add.name.field.placeholder" = "Insert test case title";
+"layouts.testcase.cell.button.testcase.title" = "Start";
+
+"layouts.casetest.header.button.start.title" = "Start Test";
+"layouts.casetest.header.button.submit.title" = "Submit Test";
+
+"layouts.tests.segment.cases.title" = "Test Cases";
+"layouts.tests.segment.tests.title" = "Tests";
+
+"layouts.teststep.list.title" = "Test Steps";
+
+"layouts.teststep.add.title" = "Add Test Step";
+"layouts.teststep.add.text.hint" = "Text of the test step:";
+"layouts.teststep.add.text.field.placeholder" = "Insert text";
+"layouts.teststep.add.number.hint" = "Number of step:";
