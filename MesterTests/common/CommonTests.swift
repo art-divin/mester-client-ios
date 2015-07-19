@@ -8,7 +8,8 @@
 
 import UIKit
 import XCTest
-import Mester
+
+@testable import Mester
 
 class CommonTests: XCTestCase {
 

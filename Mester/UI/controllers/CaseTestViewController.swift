@@ -60,7 +60,7 @@ class CaseTestViewController: UITableViewController {
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "StepsViewController" {
-			if let indexPath = self.tableView.indexPathForSelectedRow() {
+			if let indexPath = self.tableView.indexPathForSelectedRow {
 				let caseTest: CaseTest = objects[indexPath.row] as CaseTest
 				(segue.destinationViewController as! StepsViewController).caseTest = caseTest
 				(segue.destinationViewController as! StepsViewController).test = self.test
