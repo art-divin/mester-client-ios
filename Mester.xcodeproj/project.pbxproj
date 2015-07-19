@@ -19,6 +19,7 @@
 		C93FAD3A1A71933A0081390E /* CaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD391A71933A0081390E /* CaseTest.swift */; };
 		C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3B1A71936F0081390E /* StepTest.swift */; };
 		C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3D1A719A4C0081390E /* TestStatus.swift */; };
+		C95182861B5C484B004F930D /* project.failure in Resources */ = {isa = PBXBuildFile; fileRef = C95182851B5C484B004F930D /* project.failure */; };
 		C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C962BA071A6C7771003DDE87 /* TestStepViewController.swift */; };
 		C9652ED51ADE7BF5001610FD /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9652ED41ADE7BF5001610FD /* Networking.framework */; };
 		C966D7011A76D131009887AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C966D7001A76D131009887AB /* AppDelegate.swift */; };
@@ -28,7 +29,7 @@
 		C9769F161A71B9D200791A5A /* TestCaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9769F151A71B9D200791A5A /* TestCaseCell.swift */; };
 		C9769F181A71CF9400791A5A /* StepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9769F171A71CF9400791A5A /* StepCell.swift */; };
 		C977B43C1B5AE01800C0FCA0 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977B43B1B5AE01800C0FCA0 /* ProjectTests.swift */; };
-		C99EB4341B5C25A800CD9F05 /* project.json in Resources */ = {isa = PBXBuildFile; fileRef = C99EB4331B5C25A800CD9F05 /* project.json */; };
+		C99EB4341B5C25A800CD9F05 /* project.success in Resources */ = {isa = PBXBuildFile; fileRef = C99EB4331B5C25A800CD9F05 /* project.success */; };
 		C9EDD53C1A6BB80E00624B5D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53B1A6BB80E00624B5D /* Project.swift */; };
 		C9EDD53F1A6BB82200624B5D /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53E1A6BB82200624B5D /* TestCase.swift */; };
 		C9EDD5411A6BB83400624B5D /* TestStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5401A6BB83400624B5D /* TestStep.swift */; };
@@ -69,6 +70,7 @@
 		C93FAD391A71933A0081390E /* CaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaseTest.swift; path = model/testing/CaseTest/CaseTest.swift; sourceTree = "<group>"; };
 		C93FAD3B1A71936F0081390E /* StepTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepTest.swift; path = model/testing/StepTest/StepTest.swift; sourceTree = "<group>"; };
 		C93FAD3D1A719A4C0081390E /* TestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStatus.swift; path = model/testing/TestStatus.swift; sourceTree = "<group>"; };
+		C95182851B5C484B004F930D /* project.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = project.failure; path = mock/project.failure; sourceTree = "<group>"; };
 		C962BA071A6C7771003DDE87 /* TestStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStepViewController.swift; sourceTree = "<group>"; };
 		C9652ED41ADE7BF5001610FD /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
 		C966D7001A76D131009887AB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		C9769F151A71B9D200791A5A /* TestCaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCaseCell.swift; path = UI/cells/TestCaseCell.swift; sourceTree = "<group>"; };
 		C9769F171A71CF9400791A5A /* StepCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepCell.swift; path = UI/cells/StepCell.swift; sourceTree = "<group>"; };
 		C977B43B1B5AE01800C0FCA0 /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
-		C99EB4331B5C25A800CD9F05 /* project.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = project.json; path = mock/project.json; sourceTree = "<group>"; };
+		C99EB4331B5C25A800CD9F05 /* project.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = project.success; path = mock/project.success; sourceTree = "<group>"; };
 		C9EDD53B1A6BB80E00624B5D /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = model/project/Project.swift; sourceTree = "<group>"; };
 		C9EDD53E1A6BB82200624B5D /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCase.swift; path = model/testcase/TestCase.swift; sourceTree = "<group>"; };
 		C9EDD5401A6BB83400624B5D /* TestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStep.swift; path = model/testcase/TestStep.swift; sourceTree = "<group>"; };
@@ -204,7 +206,8 @@
 		C99EB4321B5C258D00CD9F05 /* mock */ = {
 			isa = PBXGroup;
 			children = (
-				C99EB4331B5C25A800CD9F05 /* project.json */,
+				C95182851B5C484B004F930D /* project.failure */,
+				C99EB4331B5C25A800CD9F05 /* project.success */,
 			);
 			name = mock;
 			sourceTree = "<group>";
@@ -520,7 +523,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C99EB4341B5C25A800CD9F05 /* project.json in Resources */,
+				C95182861B5C484B004F930D /* project.failure in Resources */,
+				C99EB4341B5C25A800CD9F05 /* project.success in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
