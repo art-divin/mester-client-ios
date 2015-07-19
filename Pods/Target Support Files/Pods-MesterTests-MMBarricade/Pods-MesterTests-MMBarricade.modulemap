@@ -1,0 +1,6 @@
+framework module MMBarricade {
+  umbrella header "Pods-MesterTests-MMBarricade-umbrella.h"
+
+  export *
+  module * { export * }
+}
