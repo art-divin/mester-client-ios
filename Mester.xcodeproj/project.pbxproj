@@ -20,6 +20,7 @@
 		C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3B1A71936F0081390E /* StepTest.swift */; };
 		C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3D1A719A4C0081390E /* TestStatus.swift */; };
 		C95182861B5C484B004F930D /* project.failure in Resources */ = {isa = PBXBuildFile; fileRef = C95182851B5C484B004F930D /* project.failure */; };
+		C95182881B5C5137004F930D /* Dictionary+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95182871B5C5137004F930D /* Dictionary+Equatable.swift */; };
 		C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C962BA071A6C7771003DDE87 /* TestStepViewController.swift */; };
 		C9652ED51ADE7BF5001610FD /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9652ED41ADE7BF5001610FD /* Networking.framework */; };
 		C966D7011A76D131009887AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C966D7001A76D131009887AB /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 		C93FAD3B1A71936F0081390E /* StepTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepTest.swift; path = model/testing/StepTest/StepTest.swift; sourceTree = "<group>"; };
 		C93FAD3D1A719A4C0081390E /* TestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStatus.swift; path = model/testing/TestStatus.swift; sourceTree = "<group>"; };
 		C95182851B5C484B004F930D /* project.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = project.failure; path = mock/project.failure; sourceTree = "<group>"; };
+		C95182871B5C5137004F930D /* Dictionary+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Equatable.swift"; path = "common/Dictionary+Equatable.swift"; sourceTree = "<group>"; };
 		C962BA071A6C7771003DDE87 /* TestStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStepViewController.swift; sourceTree = "<group>"; };
 		C9652ED41ADE7BF5001610FD /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
 		C966D7001A76D131009887AB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				C970E3611A6BF112004EF36D /* Common.swift */,
+				C95182871B5C5137004F930D /* Dictionary+Equatable.swift */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */,
 				C9EDD5431A6BC1AD00624B5D /* Mapping.swift in Sources */,
 				C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */,
+				C95182881B5C5137004F930D /* Dictionary+Equatable.swift in Sources */,
 				C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */,
 				C9F332811A6AE15F0086DDB4 /* Theme.swift in Sources */,
 				C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */,

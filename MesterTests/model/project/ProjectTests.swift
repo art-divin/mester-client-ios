@@ -22,14 +22,19 @@ class ProjectTests: XCTestCase {
 		
         super.tearDown()
     }
-
-	func testProjectDeserializeSuccess() {
+	
+	func loadData(filename: String!, ext: String!) -> NSData? {
 		let bundle = NSBundle(forClass: self.dynamicType)
 		XCTAssertNotNil(bundle, "invalid bundle provided")
-		let url = bundle.URLForResource("project", withExtension: "success")
+		let url = bundle.URLForResource(filename, withExtension: ext)
 		XCTAssertNotNil(url, "invalid url provided")
 		let data = NSData(contentsOfURL: url!)
 		XCTAssertNotNil(data, "could not load json file")
+		return data
+	}
+
+	func testProjectDeserializeSuccess() {
+		let data = loadData("project", ext: "success")
 		do {
 			let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
 			let dic = json as! Dictionary<String, AnyObject>
@@ -42,17 +47,14 @@ class ProjectTests: XCTestCase {
 				XCTAssertNotNil(project.name, "invalid deserialization result: name")
 			}
 		} catch let error as NSError {
-			XCTAssertNil(error, "error while parsing json file at URL: \(url)")
+			if let data = data {
+				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")
+			}
 		}
 	}
 
 	func testProjectDeserializeFailure() {
-		let bundle = NSBundle(forClass: self.dynamicType)
-		XCTAssertNotNil(bundle, "invalid bundle provided")
-		let url = bundle.URLForResource("project", withExtension: "failure")
-		XCTAssertNotNil(url, "invalid url provided")
-		let data = NSData(contentsOfURL: url!)
-		XCTAssertNotNil(data, "could not load json file")
+		let data = loadData("project", ext: "failure")
 		do {
 			let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
 			let dic = json as! Dictionary<String, AnyObject>
@@ -65,8 +67,30 @@ class ProjectTests: XCTestCase {
 				XCTAssertNotNil(project.name, "invalid deserialization result: name")
 			}
 		} catch let error as NSError {
-			XCTAssertNil(error, "error while parsing json file at URL: \(url)")
+			if let data = data {
+				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")
+			}
 		}
+	}
+	
+	func testProjectSerializeSuccess() {
+		let project = Project()
+		project.name = "Project 1"
+		project.identifier = "1"
+		let dic = project.serialize()
+		let testDic = [ "name" : "Project 1" ]
+		XCTAssertEqual(dic as! [String : String], testDic as [String : String], "incorrect deseralization implementation")
+	}
+	
+	func testProjectSerializeFailure() {
+		let project = Project()
+		project.name = "Project 1"
+		project.identifier = "1"
+		let dic = project.serialize()
+		let testDic = [
+			"name" : "Project 2",
+			"id" : "1" ]
+		XCTAssertNotEqual(dic as! [String : String], testDic as [String : String], "incorrect deseralization implementation")
 	}
 	
 }
