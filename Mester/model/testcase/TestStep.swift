@@ -28,7 +28,7 @@ class TestStep: NSObject, Mapping {
 		self.text = dic[kFieldText] as! String?
 		if let dateStr = dic[kFieldCreationDate] as? String? {
 			let dateFormatter = Common.dateFormatter
-			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+			dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
 			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}
 	}

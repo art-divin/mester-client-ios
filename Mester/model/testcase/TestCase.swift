@@ -23,11 +23,11 @@ class TestCase: NSObject, Mapping {
 	var project: Project?
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.title = dic[kFieldTitle] as! String?
-		self.identifier = dic[kFieldIdentifier] as! String?
+		self.title = (dic[kFieldTitle] is String) ? dic[kFieldTitle] as! String? : nil
+		self.identifier = (dic[kFieldIdentifier] is String) ? dic[kFieldIdentifier] as! String? : nil
 		if let dateStr = dic[kFieldCreationDate] as? String? {
 			let dateFormatter = Common.dateFormatter
-			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+			dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
 			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}
 		let stepArr = dic[kFieldSteps] as? [Dictionary<String, AnyObject>]
