@@ -19,7 +19,6 @@
 		C93FAD3A1A71933A0081390E /* CaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD391A71933A0081390E /* CaseTest.swift */; };
 		C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3B1A71936F0081390E /* StepTest.swift */; };
 		C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3D1A719A4C0081390E /* TestStatus.swift */; };
-		C95182861B5C484B004F930D /* project.failure in Resources */ = {isa = PBXBuildFile; fileRef = C95182851B5C484B004F930D /* project.failure */; };
 		C95182881B5C5137004F930D /* Dictionary+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95182871B5C5137004F930D /* Dictionary+Equatable.swift */; };
 		C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C962BA071A6C7771003DDE87 /* TestStepViewController.swift */; };
 		C9652ED51ADE7BF5001610FD /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9652ED41ADE7BF5001610FD /* Networking.framework */; };
@@ -30,7 +29,11 @@
 		C9769F161A71B9D200791A5A /* TestCaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9769F151A71B9D200791A5A /* TestCaseCell.swift */; };
 		C9769F181A71CF9400791A5A /* StepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9769F171A71CF9400791A5A /* StepCell.swift */; };
 		C977B43C1B5AE01800C0FCA0 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977B43B1B5AE01800C0FCA0 /* ProjectTests.swift */; };
-		C99EB4341B5C25A800CD9F05 /* project.success in Resources */ = {isa = PBXBuildFile; fileRef = C99EB4331B5C25A800CD9F05 /* project.success */; };
+		C9D061281B5CCE7A00B0DCC9 /* TestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D061271B5CCE7A00B0DCC9 /* TestCaseTests.swift */; };
+		C9D061301B5CCF4B00B0DCC9 /* project.failure in Resources */ = {isa = PBXBuildFile; fileRef = C9D0612B1B5CCF4B00B0DCC9 /* project.failure */; };
+		C9D061311B5CCF4B00B0DCC9 /* project.success in Resources */ = {isa = PBXBuildFile; fileRef = C9D0612C1B5CCF4B00B0DCC9 /* project.success */; };
+		C9D061321B5CCF4B00B0DCC9 /* testcase.failure in Resources */ = {isa = PBXBuildFile; fileRef = C9D0612E1B5CCF4B00B0DCC9 /* testcase.failure */; };
+		C9D061331B5CCF4B00B0DCC9 /* testcase.success in Resources */ = {isa = PBXBuildFile; fileRef = C9D0612F1B5CCF4B00B0DCC9 /* testcase.success */; };
 		C9EDD53C1A6BB80E00624B5D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53B1A6BB80E00624B5D /* Project.swift */; };
 		C9EDD53F1A6BB82200624B5D /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53E1A6BB82200624B5D /* TestCase.swift */; };
 		C9EDD5411A6BB83400624B5D /* TestStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5401A6BB83400624B5D /* TestStep.swift */; };
@@ -71,7 +74,6 @@
 		C93FAD391A71933A0081390E /* CaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaseTest.swift; path = model/testing/CaseTest/CaseTest.swift; sourceTree = "<group>"; };
 		C93FAD3B1A71936F0081390E /* StepTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepTest.swift; path = model/testing/StepTest/StepTest.swift; sourceTree = "<group>"; };
 		C93FAD3D1A719A4C0081390E /* TestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStatus.swift; path = model/testing/TestStatus.swift; sourceTree = "<group>"; };
-		C95182851B5C484B004F930D /* project.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = project.failure; path = mock/project.failure; sourceTree = "<group>"; };
 		C95182871B5C5137004F930D /* Dictionary+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Equatable.swift"; path = "common/Dictionary+Equatable.swift"; sourceTree = "<group>"; };
 		C962BA071A6C7771003DDE87 /* TestStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStepViewController.swift; sourceTree = "<group>"; };
 		C9652ED41ADE7BF5001610FD /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
@@ -82,7 +84,11 @@
 		C9769F151A71B9D200791A5A /* TestCaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCaseCell.swift; path = UI/cells/TestCaseCell.swift; sourceTree = "<group>"; };
 		C9769F171A71CF9400791A5A /* StepCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepCell.swift; path = UI/cells/StepCell.swift; sourceTree = "<group>"; };
 		C977B43B1B5AE01800C0FCA0 /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
-		C99EB4331B5C25A800CD9F05 /* project.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = project.success; path = mock/project.success; sourceTree = "<group>"; };
+		C9D061271B5CCE7A00B0DCC9 /* TestCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCaseTests.swift; sourceTree = "<group>"; };
+		C9D0612B1B5CCF4B00B0DCC9 /* project.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project.failure; sourceTree = "<group>"; };
+		C9D0612C1B5CCF4B00B0DCC9 /* project.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project.success; sourceTree = "<group>"; };
+		C9D0612E1B5CCF4B00B0DCC9 /* testcase.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testcase.failure; sourceTree = "<group>"; };
+		C9D0612F1B5CCF4B00B0DCC9 /* testcase.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testcase.success; sourceTree = "<group>"; };
 		C9EDD53B1A6BB80E00624B5D /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = model/project/Project.swift; sourceTree = "<group>"; };
 		C9EDD53E1A6BB82200624B5D /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCase.swift; path = model/testcase/TestCase.swift; sourceTree = "<group>"; };
 		C9EDD5401A6BB83400624B5D /* TestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStep.swift; path = model/testcase/TestStep.swift; sourceTree = "<group>"; };
@@ -206,13 +212,31 @@
 			name = common;
 			sourceTree = "<group>";
 		};
-		C99EB4321B5C258D00CD9F05 /* mock */ = {
+		C9D061291B5CCF4B00B0DCC9 /* mock */ = {
 			isa = PBXGroup;
 			children = (
-				C95182851B5C484B004F930D /* project.failure */,
-				C99EB4331B5C25A800CD9F05 /* project.success */,
+				C9D0612A1B5CCF4B00B0DCC9 /* project */,
+				C9D0612D1B5CCF4B00B0DCC9 /* testcase */,
 			);
-			name = mock;
+			path = mock;
+			sourceTree = "<group>";
+		};
+		C9D0612A1B5CCF4B00B0DCC9 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				C9D0612B1B5CCF4B00B0DCC9 /* project.failure */,
+				C9D0612C1B5CCF4B00B0DCC9 /* project.success */,
+			);
+			path = project;
+			sourceTree = "<group>";
+		};
+		C9D0612D1B5CCF4B00B0DCC9 /* testcase */ = {
+			isa = PBXGroup;
+			children = (
+				C9D0612E1B5CCF4B00B0DCC9 /* testcase.failure */,
+				C9D0612F1B5CCF4B00B0DCC9 /* testcase.success */,
+			);
+			path = testcase;
 			sourceTree = "<group>";
 		};
 		C9EDD5391A6BB7EC00624B5D /* model */ = {
@@ -335,6 +359,7 @@
 		C9F856B31B5A41500054375B /* testcase */ = {
 			isa = PBXGroup;
 			children = (
+				C9D061271B5CCE7A00B0DCC9 /* TestCaseTests.swift */,
 			);
 			path = testcase;
 			sourceTree = "<group>";
@@ -395,7 +420,7 @@
 		C9FCF25A1A6A9EDE00896B10 /* MesterTests */ = {
 			isa = PBXGroup;
 			children = (
-				C99EB4321B5C258D00CD9F05 /* mock */,
+				C9D061291B5CCF4B00B0DCC9 /* mock */,
 				C9F856AF1B5A41500054375B /* common */,
 				C9F856B11B5A41500054375B /* model */,
 				C9FCF25D1A6A9EDE00896B10 /* MesterTests.swift */,
@@ -526,8 +551,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C95182861B5C484B004F930D /* project.failure in Resources */,
-				C99EB4341B5C25A800CD9F05 /* project.success in Resources */,
+				C9D061321B5CCF4B00B0DCC9 /* testcase.failure in Resources */,
+				C9D061301B5CCF4B00B0DCC9 /* project.failure in Resources */,
+				C9D061311B5CCF4B00B0DCC9 /* project.success in Resources */,
+				C9D061331B5CCF4B00B0DCC9 /* testcase.success in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +661,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9F856B51B5A41500054375B /* CommonTests.swift in Sources */,
+				C9D061281B5CCE7A00B0DCC9 /* TestCaseTests.swift in Sources */,
 				C9FCF25E1A6A9EDE00896B10 /* MesterTests.swift in Sources */,
 				C977B43C1B5AE01800C0FCA0 /* ProjectTests.swift in Sources */,
 			);

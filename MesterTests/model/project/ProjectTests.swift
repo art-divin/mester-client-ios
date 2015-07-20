@@ -19,7 +19,6 @@ class ProjectTests: XCTestCase {
     }
     
     override func tearDown() {
-		
         super.tearDown()
     }
 	
@@ -33,7 +32,7 @@ class ProjectTests: XCTestCase {
 		return data
 	}
 
-	func testProjectDeserializeSuccess() {
+	func testDeserializeSuccess() {
 		let data = loadData("project", ext: "success")
 		do {
 			let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
@@ -53,7 +52,7 @@ class ProjectTests: XCTestCase {
 		}
 	}
 
-	func testProjectDeserializeFailure() {
+	func testDeserializeFailure() {
 		let data = loadData("project", ext: "failure")
 		do {
 			let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
@@ -73,7 +72,7 @@ class ProjectTests: XCTestCase {
 		}
 	}
 	
-	func testProjectSerializeSuccess() {
+	func testSerializeSuccess() {
 		let project = Project()
 		project.name = "Project 1"
 		project.identifier = "1"
@@ -82,7 +81,7 @@ class ProjectTests: XCTestCase {
 		XCTAssertEqual(dic as! [String : String], testDic as [String : String], "incorrect deseralization implementation")
 	}
 	
-	func testProjectSerializeFailure() {
+	func testSerializeFailure() {
 		let project = Project()
 		project.name = "Project 1"
 		project.identifier = "1"
