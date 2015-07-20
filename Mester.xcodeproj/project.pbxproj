@@ -10,6 +10,7 @@
 		0439B635982D97A9BC8B9EA4 /* Pods_MesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC8EE1EC73D3E63D12296EE /* Pods_MesterTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C90BB4B81A7AE7C300FE8C6B /* SwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */; };
 		C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */; };
+		C9341AE61B5D348800FEAA7C /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9652ED41ADE7BF5001610FD /* Networking.framework */; };
 		C936959B1A6C1A1E00B06232 /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695981A6C1A1E00B06232 /* TestsViewController.swift */; };
 		C936959C1A6C1A1E00B06232 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695991A6C1A1E00B06232 /* MasterViewController.swift */; };
 		C936959E1A6C1A4500B06232 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C936959D1A6C1A4500B06232 /* ProjectViewController.swift */; };
@@ -121,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9341AE61B5D348800FEAA7C /* Networking.framework in Frameworks */,
 				0439B635982D97A9BC8B9EA4 /* Pods_MesterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
