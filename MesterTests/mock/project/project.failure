@@ -1,9 +1,3 @@
 {
-	"result":
-	[
-	 {
-	 "name": "Project 1",
-	 }
-  ],
-	"status": "ok"
+"name": "Project 1",
 }

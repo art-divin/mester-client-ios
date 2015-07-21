@@ -37,14 +37,11 @@ class ProjectTests: XCTestCase {
 		do {
 			let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
 			let dic = json as! Dictionary<String, AnyObject>
-			let result = dic["result"] as! [AnyObject]
-			for projectDic in result {
-				let project = Project()
-				project.deserialize(projectDic as! Dictionary<String, AnyObject>)
-				XCTAssertNotNil(project.identifier, "invalid deserialization result: identifier")
-				XCTAssertNotNil(project.creationDate, "invalid deserialization result: creationDate")
-				XCTAssertNotNil(project.name, "invalid deserialization result: name")
-			}
+			let project = Project()
+			project.deserialize(dic)
+			XCTAssertNotNil(project.identifier, "invalid deserialization result: identifier")
+			XCTAssertNotNil(project.creationDate, "invalid deserialization result: creationDate")
+			XCTAssertNotNil(project.name, "invalid deserialization result: name")
 		} catch let error as NSError {
 			if let data = data {
 				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")
@@ -57,14 +54,11 @@ class ProjectTests: XCTestCase {
 		do {
 			let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
 			let dic = json as! Dictionary<String, AnyObject>
-			let result = dic["result"] as! [AnyObject]
-			for projectDic in result {
-				let project = Project()
-				project.deserialize(projectDic as! Dictionary<String, AnyObject>)
-				XCTAssertNil(project.identifier, "invalid deserialization result: identifier")
-				XCTAssertNotNil(project.creationDate, "invalid deserialization result: creationDate")
-				XCTAssertNotNil(project.name, "invalid deserialization result: name")
-			}
+			let project = Project()
+			project.deserialize(dic)
+			XCTAssertNil(project.identifier, "invalid deserialization result: identifier")
+			XCTAssertNotNil(project.creationDate, "invalid deserialization result: creationDate")
+			XCTAssertNotNil(project.name, "invalid deserialization result: name")
 		} catch let error as NSError {
 			if let data = data {
 				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")

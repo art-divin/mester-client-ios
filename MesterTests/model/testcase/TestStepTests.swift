@@ -1,8 +1,8 @@
 //
-//  TestCaseTests.swift
+//  TestStepTests.swift
 //  Mester
 //
-//  Created by Ruslan Alikhamov on 20/07/15.
+//  Created by Ruslan Alikhamov on 21/07/15.
 //  Copyright © 2015 Ruslan Alikhamov. All rights reserved.
 //
 
@@ -10,18 +10,18 @@ import XCTest
 
 @testable import Mester
 
-class TestCaseTests: XCTestCase {
-	
-	override func setUp() {
-		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-	}
-	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-	
+class TestStepTests: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
 	func loadData(filename: String!, ext: String!) -> NSData? {
 		let bundle = NSBundle(forClass: self.dynamicType)
 		XCTAssertNotNil(bundle, "invalid bundle provided")
@@ -33,13 +33,13 @@ class TestCaseTests: XCTestCase {
 	}
 	
 	func testDeserializeSuccess() {
-		let data = loadData("testcase", ext: "success")
+		let data = loadData("teststep", ext: "success")
 		do {
 			let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
 			let dic = json as! Dictionary<String, AnyObject>
-			let testCase = TestCase()
-			testCase.deserialize(dic)
-			XCTAssertNotNil(testCase.identifier, "invalid deserialization result: identifier")
+			let testStep = TestStep()
+			testStep.deserialize(dic)
+			XCTAssertNotNil(testStep.identifier, "invalid deserialization result: identifier")
 		} catch let error as NSError {
 			if let data = data {
 				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")
@@ -48,14 +48,13 @@ class TestCaseTests: XCTestCase {
 	}
 	
 	func testDeserializeFailure() {
-		let data = loadData("testcase", ext: "failure")
+		let data = loadData("teststep", ext: "failure")
 		do {
 			let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
 			let dic = json as! Dictionary<String, AnyObject>
-			let testCase = TestCase()
-			testCase.deserialize(dic)
-			XCTAssertNil(testCase.identifier, "invalid deserialization result: identifier")
-			XCTAssertNil(testCase.project, "invalid deserialization result: project")
+			let testStep = TestStep()
+			testStep.deserialize(dic)
+			XCTAssertNil(testStep.identifier, "invalid deserialization result: identifier")
 		} catch let error as NSError {
 			if let data = data {
 				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")
@@ -69,24 +68,36 @@ class TestCaseTests: XCTestCase {
 		let testCase = TestCase()
 		testCase.project = project
 		testCase.title = "title"
-		let dic = testCase.serialize()
+		testCase.identifier = "1"
+		let testStep = TestStep()
+		testStep.testCase = testCase
+		testStep.text = "text"
+		testStep.number = 1
+		let dic = testStep.serialize()
 		let testDic = [
-			"projectId" : "1",
-			"title" : "title" ]
-		XCTAssertEqual(dic as! [String : String], testDic as [String : String], "incorrect serialization implementation")
+			"testCaseId" : "1",
+			"text" : "text",
+			"number" : Int(1) ]
+		XCTAssertEqual(dic, testDic, "incorrect serialization implementation")
 	}
 	
 	func testSerializeFailure() {
 		let project = Project()
-		project.identifier = "2"
+		project.identifier = "1"
 		let testCase = TestCase()
 		testCase.project = project
-		testCase.title = "name"
-		let dic = testCase.serialize()
+		testCase.title = "title"
+		testCase.identifier = "3"
+		let testStep = TestStep()
+		testStep.testCase = testCase
+		testStep.text = "text"
+		testStep.number = 1
+		let dic = testStep.serialize()
 		let testDic = [
-			"projectId" : "1",
-			"title" : "title" ]
-		XCTAssertNotEqual(dic as! [String : String], testDic as [String : String], "incorrect serialization implementation")
+			"testCaseId" : "1",
+			"text" : "text",
+			"number" : Int(2) ]
+		XCTAssertNotEqual(dic, testDic, "incorrect serialization implementation")
 	}
 	
 }

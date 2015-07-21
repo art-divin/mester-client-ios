@@ -1,7 +1,4 @@
 {
-"result":
-[
-{
 "title": "Test Case 1",
 "steps":
 [
@@ -10,7 +7,4 @@
 "text": "text for the first step"
 }
 ]
-}
-],
-"status": "ok"
 }
