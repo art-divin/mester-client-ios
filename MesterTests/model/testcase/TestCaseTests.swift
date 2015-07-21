@@ -52,13 +52,47 @@ class TestCaseTests: XCTestCase {
 	
 	func testDeserializeFailure() {
 		let data = loadData("testcase", ext: "failure")
-		
+		do {
+			let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
+			let dic = json as! Dictionary<String, AnyObject>
+			let result = dic["result"] as! [AnyObject]
+			let testCase = TestCase()
+			for testCaseDic in result {
+				testCase.deserialize(testCaseDic as! Dictionary<String, AnyObject>)
+				XCTAssertNil(testCase.identifier, "invalid deserialization result: identifier")
+				XCTAssertNil(testCase.project, "invalid deserialization result: project")
+			}
+		} catch let error as NSError {
+			if let data = data {
+				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")
+			}
+		}
 	}
 	
 	func testSerializeSuccess() {
+		let project = Project()
+		project.identifier = "1"
+		let testCase = TestCase()
+		testCase.project = project
+		testCase.title = "title"
+		let dic = testCase.serialize()
+		let testDic = [
+			"projectId" : "1",
+			"title" : "title" ]
+		XCTAssertEqual(dic as! [String : String], testDic as [String : String], "incorrect serialization implementation")
 	}
 	
 	func testSerializeFailure() {
+		let project = Project()
+		project.identifier = "2"
+		let testCase = TestCase()
+		testCase.project = project
+		testCase.title = "name"
+		let dic = testCase.serialize()
+		let testDic = [
+			"projectId" : "1",
+			"title" : "title" ]
+		XCTAssertNotEqual(dic as! [String : String], testDic as [String : String], "incorrect serialization implementation")
 	}
 	
 }

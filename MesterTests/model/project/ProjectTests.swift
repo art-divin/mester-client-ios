@@ -78,7 +78,7 @@ class ProjectTests: XCTestCase {
 		project.identifier = "1"
 		let dic = project.serialize()
 		let testDic = [ "name" : "Project 1" ]
-		XCTAssertEqual(dic as! [String : String], testDic as [String : String], "incorrect deseralization implementation")
+		XCTAssertEqual(dic as! [String : String], testDic as [String : String], "incorrect serialization implementation")
 	}
 	
 	func testSerializeFailure() {
@@ -89,7 +89,7 @@ class ProjectTests: XCTestCase {
 		let testDic = [
 			"name" : "Project 2",
 			"id" : "1" ]
-		XCTAssertNotEqual(dic as! [String : String], testDic as [String : String], "incorrect deseralization implementation")
+		XCTAssertNotEqual(dic as! [String : String], testDic as [String : String], "incorrect serialization implementation")
 	}
 	
 }

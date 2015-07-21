@@ -31,12 +31,12 @@ class Project: NSObject, Mapping {
 	}
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.name = (dic[kFieldName] is String) ? (dic[kFieldName] as! String) : nil
-		self.identifier = (dic[kFieldIdentifier] is String) ? (dic[kFieldIdentifier] as! String) : nil
-		if let dateStr = dic[kFieldDate] as? String? {
+		self.name = dic[kFieldName] as? String
+		self.identifier = dic[kFieldIdentifier] as? String
+		if let dateStr = dic[kFieldDate] as? String {
 			let dateFormatter = Common.dateFormatter
 			dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
-			self.creationDate = dateFormatter.dateFromString(dateStr!)!
+			self.creationDate = dateFormatter.dateFromString(dateStr)!
 		}
 	}
 	
