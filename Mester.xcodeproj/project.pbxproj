@@ -602,7 +602,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests-frameworks.sh\"\n";
+			shellScript = "#\"${SRCROOT}/Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C9A151BB1A73E3DA00D5280B /* TODO markup */ = {
