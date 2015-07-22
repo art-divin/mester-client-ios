@@ -846,7 +846,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/Mester/libs/",
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -874,7 +873,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/Mester/libs/",
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				INFOPLIST_FILE = MesterTests/Info.plist;
