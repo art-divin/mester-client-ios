@@ -29,7 +29,7 @@ class Test: NSObject, Mapping {
 	func deserialize(dic: [String : AnyObject?]) {
 		self.identifier = dic[kFieldIdentifier] as! String?
 		let dateFormatter = Common.dateFormatter
-		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
 		if let dateStr = dic[kFieldCreationDate] as? String? {
 			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}

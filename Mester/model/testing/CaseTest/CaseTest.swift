@@ -29,7 +29,7 @@ class CaseTest: NSObject, Mapping {
 		self.status = TestStatus.testStatus(status)
 		if let dateStr = dic[kFieldCreationDate] as? String? {
 			let dateFormatter = Common.dateFormatter
-			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+			dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
 			self.creationDate = dateFormatter.dateFromString(dateStr!)!
 		}
 		let stepTestArr = dic[kFieldStepTests] as? [Dictionary<String, AnyObject>]
