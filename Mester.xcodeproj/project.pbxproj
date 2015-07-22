@@ -783,17 +783,14 @@
 			baseConfigurationReference = 66D890ECBE1EB6A758952292 /* Pods-MesterTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Mester/libs/",
-					"${BUILD_ROOT}",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Mester/libs/";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MesterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PODS_FRAMEWORK_BUILD_PATH = "$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)/Pods-MesterTests";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mester.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -929,16 +926,14 @@
 			baseConfigurationReference = 66D890ECBE1EB6A758952292 /* Pods-MesterTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Mester/libs/",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Mester/libs/";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MesterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mester.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYMROOT = build;
@@ -951,13 +946,10 @@
 			baseConfigurationReference = 8AC3A702290DCE905DFA6AAB /* Pods-MesterTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Mester/libs/",
-					"${BUILD_ROOT}",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Mester/libs/";
 				INFOPLIST_FILE = MesterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mester.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYMROOT = build;
