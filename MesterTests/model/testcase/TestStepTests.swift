@@ -11,17 +11,17 @@ import XCTest
 @testable import Mester
 
 class TestStepTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
+	
+	override func setUp() {
+		super.setUp()
+		// Put setup code here. This method is called before the invocation of each test method in the class.
+	}
+	
+	override func tearDown() {
+		// Put teardown code here. This method is called after the invocation of each test method in the class.
+		super.tearDown()
+	}
+	
 	func loadData(filename: String!, ext: String!) -> NSData? {
 		let bundle = NSBundle(forClass: self.dynamicType)
 		XCTAssertNotNil(bundle, "invalid bundle provided")
@@ -55,6 +55,9 @@ class TestStepTests: XCTestCase {
 			let testStep = TestStep()
 			testStep.deserialize(dic)
 			XCTAssertNil(testStep.identifier, "invalid deserialization result: identifier")
+			XCTAssertNil(testStep.testCase, "invalid deserialization result: testCase")
+			XCTAssertNil(testStep.number, "invalid deserialization result: number")
+			XCTAssertNil(testStep.text, "invalid deserialization result: text")
 		} catch let error as NSError {
 			if let data = data {
 				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")

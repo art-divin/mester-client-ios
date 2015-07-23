@@ -12,15 +12,15 @@ import XCTest
 @testable import Mester
 
 class ProjectTests: XCTestCase {
-
-    override func setUp() {
-        super.setUp()
+	
+	override func setUp() {
+		super.setUp()
 		
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
+	}
+	
+	override func tearDown() {
+		super.tearDown()
+	}
 	
 	func loadData(filename: String!, ext: String!) -> NSData? {
 		let bundle = NSBundle(forClass: self.dynamicType)
@@ -31,7 +31,7 @@ class ProjectTests: XCTestCase {
 		XCTAssertNotNil(data, "could not load json file")
 		return data
 	}
-
+	
 	func testDeserializeSuccess() {
 		let data = loadData("project", ext: "success")
 		do {
@@ -48,7 +48,7 @@ class ProjectTests: XCTestCase {
 			}
 		}
 	}
-
+	
 	func testDeserializeFailure() {
 		let data = loadData("project", ext: "failure")
 		do {
@@ -58,7 +58,9 @@ class ProjectTests: XCTestCase {
 			project.deserialize(dic)
 			XCTAssertNil(project.identifier, "invalid deserialization result: identifier")
 			XCTAssertNotNil(project.creationDate, "invalid deserialization result: creationDate")
-			XCTAssertNotNil(project.name, "invalid deserialization result: name")
+			XCTAssertNil(project.name, "invalid deserialization result: name")
+			XCTAssertEqual(project.tests.count, 0, "invalid deserialization result: tests")
+			XCTAssertEqual(project.testCases.count, 0, "invalid deserialization result: testCases")
 		} catch let error as NSError {
 			if let data = data {
 				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")

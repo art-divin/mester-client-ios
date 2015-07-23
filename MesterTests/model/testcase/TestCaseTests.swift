@@ -56,6 +56,8 @@ class TestCaseTests: XCTestCase {
 			testCase.deserialize(dic)
 			XCTAssertNil(testCase.identifier, "invalid deserialization result: identifier")
 			XCTAssertNil(testCase.project, "invalid deserialization result: project")
+			XCTAssertEqual(testCase.steps.count, 0, "invalid deserialization result: steps")
+			XCTAssertNil(testCase.title, "invalid deserialization result: title")
 		} catch let error as NSError {
 			if let data = data {
 				XCTAssertNil(error, "error while parsing json file: \(NSString(data: data, encoding: NSUTF8StringEncoding))")

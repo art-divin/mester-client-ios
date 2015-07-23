@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9050D411B6175E1004121D5 /* TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9050D401B6175E1004121D5 /* TestTests.swift */; };
 		C90BB4B81A7AE7C300FE8C6B /* SwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */; };
 		C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */; };
 		C9341AE61B5D348800FEAA7C /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9652ED41ADE7BF5001610FD /* Networking.framework */; };
@@ -66,6 +67,7 @@
 		66D890ECBE1EB6A758952292 /* Pods-MesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MesterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8AC3A702290DCE905DFA6AAB /* Pods-MesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MesterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAC8EE1EC73D3E63D12296EE /* Pods_MesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9050D401B6175E1004121D5 /* TestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestTests.swift; path = test/TestTests.swift; sourceTree = "<group>"; };
 		C9085A871B603C8A00C616C5 /* Pods_MesterTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_MesterTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_MesterTests.framework"; sourceTree = "<group>"; };
 		C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiperView.swift; path = UI/views/SwiperView.swift; sourceTree = "<group>"; };
 		C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCaseViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 				AAC8EE1EC73D3E63D12296EE /* Pods_MesterTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9050D3F1B6175D1004121D5 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				C9050D401B6175E1004121D5 /* TestTests.swift */,
+			);
+			name = test;
 			sourceTree = "<group>";
 		};
 		C90BB4B61A7AE7A600FE8C6B /* views */ = {
@@ -380,6 +390,7 @@
 		C9F856B41B5A41500054375B /* testing */ = {
 			isa = PBXGroup;
 			children = (
+				C9050D3F1B6175D1004121D5 /* test */,
 			);
 			path = testing;
 			sourceTree = "<group>";
@@ -677,6 +688,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9E8D78D1B5ED7BA0092EA16 /* TestStepTests.swift in Sources */,
+				C9050D411B6175E1004121D5 /* TestTests.swift in Sources */,
 				C9F856B51B5A41500054375B /* CommonTests.swift in Sources */,
 				C9D061281B5CCE7A00B0DCC9 /* TestCaseTests.swift in Sources */,
 				C9FCF25E1A6A9EDE00896B10 /* MesterTests.swift in Sources */,
@@ -841,10 +853,7 @@
 			baseConfigurationReference = 66D890ECBE1EB6A758952292 /* Pods-MesterTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/Mester/libs/",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Mester/libs/";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -865,10 +874,7 @@
 			baseConfigurationReference = 8AC3A702290DCE905DFA6AAB /* Pods-MesterTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/Mester/libs/",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Mester/libs/";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				INFOPLIST_FILE = MesterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
