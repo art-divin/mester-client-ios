@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C9050D411B6175E1004121D5 /* TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9050D401B6175E1004121D5 /* TestTests.swift */; };
+		C9050D451B61776D004121D5 /* test.failure in Resources */ = {isa = PBXBuildFile; fileRef = C9050D431B61776D004121D5 /* test.failure */; };
+		C9050D461B61776D004121D5 /* test.success in Resources */ = {isa = PBXBuildFile; fileRef = C9050D441B61776D004121D5 /* test.success */; };
 		C90BB4B81A7AE7C300FE8C6B /* SwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */; };
 		C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */; };
 		C9341AE61B5D348800FEAA7C /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9652ED41ADE7BF5001610FD /* Networking.framework */; };
@@ -68,6 +70,8 @@
 		8AC3A702290DCE905DFA6AAB /* Pods-MesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MesterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAC8EE1EC73D3E63D12296EE /* Pods_MesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9050D401B6175E1004121D5 /* TestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestTests.swift; path = test/TestTests.swift; sourceTree = "<group>"; };
+		C9050D431B61776D004121D5 /* test.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.failure; sourceTree = "<group>"; };
+		C9050D441B61776D004121D5 /* test.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.success; sourceTree = "<group>"; };
 		C9085A871B603C8A00C616C5 /* Pods_MesterTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_MesterTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_MesterTests.framework"; sourceTree = "<group>"; };
 		C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiperView.swift; path = UI/views/SwiperView.swift; sourceTree = "<group>"; };
 		C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCaseViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +160,15 @@
 			name = test;
 			sourceTree = "<group>";
 		};
+		C9050D421B61776D004121D5 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				C9050D431B61776D004121D5 /* test.failure */,
+				C9050D441B61776D004121D5 /* test.success */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
 		C90BB4B61A7AE7A600FE8C6B /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +248,7 @@
 		C9D061291B5CCF4B00B0DCC9 /* mock */ = {
 			isa = PBXGroup;
 			children = (
+				C9050D421B61776D004121D5 /* test */,
 				C9D0612A1B5CCF4B00B0DCC9 /* project */,
 				C9D0612D1B5CCF4B00B0DCC9 /* testcase */,
 			);
@@ -579,6 +593,8 @@
 				C9D061321B5CCF4B00B0DCC9 /* testcase.failure in Resources */,
 				C9D061301B5CCF4B00B0DCC9 /* project.failure in Resources */,
 				C9E8D7911B5EDBA20092EA16 /* teststep.failure in Resources */,
+				C9050D461B61776D004121D5 /* test.success in Resources */,
+				C9050D451B61776D004121D5 /* test.failure in Resources */,
 				C9D061311B5CCF4B00B0DCC9 /* project.success in Resources */,
 				C9D061331B5CCF4B00B0DCC9 /* testcase.success in Resources */,
 				C9E8D7921B5EDBA20092EA16 /* teststep.success in Resources */,

@@ -13,7 +13,7 @@ class Test: NSObject, Mapping {
 	let kFieldIdentifier = "id"
 	let kFieldCreationDate = "creationDate"
 	let kFieldStartDate = "startDate"
-	let kFieldEndDate = "endDate";
+	let kFieldEndDate = "endDate"
 	let kFieldCaseTests = "caseTests"
 	let kFieldStatus = "status"
 	let kFieldTestCase = "testCaseId"
@@ -56,8 +56,9 @@ class Test: NSObject, Mapping {
 				self.caseTests.append(caseTest)
 			}
 		}
-		let status = dic[kFieldStatus] as? String
-		self.status = TestStatus.testStatus(status)
+		if let status = dic[kFieldStatus] as? String {
+			self.status = TestStatus.testStatus(status)
+		}
 	}
 
 	func serialize() -> [String : AnyObject] {

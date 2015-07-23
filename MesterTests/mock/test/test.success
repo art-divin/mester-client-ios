@@ -1,0 +1,59 @@
+{
+"id": "1",
+"status": "default",
+"creationDate": "2015-07-23 21:25:53 +0200",
+"startDate": "2015-07-23 21:25:53 +0200",
+"endDate": "2015-07-23 21:25:53 +0200",
+"projectId": "1",
+"caseTests":
+[
+{
+"id": "1",
+"status": "default",
+"creationDate": "2015-07-23 21:25:53 +0200",
+"stepTests":
+[
+{
+"id": "1",
+"status": "default",
+"creationDate": "2015-07-23 21:25:53 +0200",
+"testStepId": "4",
+"caseTestId": "1"
+},
+{
+"id": "2",
+"status": "default",
+"creationDate": "2015-07-23 21:25:53 +0200",
+"testStepId": "3",
+"caseTestId": "1"
+}
+],
+"testId": "1",
+"testCaseId": "2"
+},
+{
+"id": "2",
+"status": "default",
+"creationDate": "2015-07-23 21:25:53 +0200",
+"stepTests":
+[
+{
+"id": "3",
+"status": "default",
+"creationDate": "2015-07-23 21:25:53 +0200",
+"testStepId": "2",
+"caseTestId": "2"
+},
+{
+"id": "4",
+"status": "default",
+"creationDate": "2015-07-23 21:25:53 +0200",
+"testStepId": "1",
+"caseTestId": "2"
+}
+],
+"testId": "1",
+"testCaseId": "1"
+}
+]
+}
