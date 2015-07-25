@@ -25,18 +25,18 @@ class Project: NSObject, Mapping {
 			test.identifier == oldTest.identifier
 		}
 		if oldTestArr.count == 1 {
-			let idx = find(self.tests, oldTestArr.first!)
+			let idx = oldTestArr.indexOf(oldTestArr.first!)
 			self.tests[idx!] = test
 		}
 	}
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.name = dic[kFieldName] as! String?
-		self.identifier = dic[kFieldIdentifier] as! String?
-		if let dateStr = dic[kFieldDate] as? String? {
-			var dateFormatter = Common.dateFormatter
-			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-			self.creationDate = dateFormatter.dateFromString(dateStr!)!
+		self.name = dic[kFieldName] as? String
+		self.identifier = dic[kFieldIdentifier] as? String
+		if let dateStr = dic[kFieldDate] as? String {
+			let dateFormatter = Common.dateFormatter
+			dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
+			self.creationDate = dateFormatter.dateFromString(dateStr)!
 		}
 	}
 	

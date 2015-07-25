@@ -40,7 +40,7 @@ class SwiperView: UIView, UICollisionBehaviorDelegate {
 				let vibrancyEffect = UIVibrancyEffect(forBlurEffect: contentView.effect as! UIBlurEffect)
 				let vibrantView = UIVisualEffectView(effect: vibrancyEffect)
 				vibrantView.frame = contentView.bounds
-				vibrantView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+				vibrantView.autoresizingMask = [ .FlexibleWidth, .FlexibleHeight ]
 				contentView.contentView.addSubview(vibrantView)
 				self.addSubview(contentView)
 				animator = UIDynamicAnimator(referenceView: self)
@@ -50,14 +50,14 @@ class SwiperView: UIView, UICollisionBehaviorDelegate {
 				panGesture = UIPanGestureRecognizer(target: self, action: "contentViewDragged:")
 				contentView.addGestureRecognizer(panGesture!)
 				snapBehaviour = UISnapBehavior(item: contentView, snapToPoint: CGPoint(x: CGRectGetMidX(frame), y: CGRectGetMidY(frame)))
-				animator?.addBehavior(snapBehaviour)
+				animator?.addBehavior(snapBehaviour!)
 				collisionBehaviour = UICollisionBehavior(items: [contentView])
 				collisionBehaviour?.collisionDelegate = self
 				if let inset = self.collisionInset {
 					collisionBehaviour?.setTranslatesReferenceBoundsIntoBoundaryWithInsets(inset)
 				}
 				collisionBehaviour?.collisionMode = .Boundaries
-				animator?.addBehavior(collisionBehaviour)
+				animator?.addBehavior(collisionBehaviour!)
 				animator?.updateItemUsingCurrentState(contentView)
 			}
 		}
@@ -73,14 +73,14 @@ class SwiperView: UIView, UICollisionBehaviorDelegate {
 		switch pan.state {
 		case .Began:
 			attachmentBehaviour = UIAttachmentBehavior(item: contentView!, offsetFromCenter: UIOffsetZero, attachedToAnchor: center)
-			animator?.addBehavior(attachmentBehaviour)
-			animator?.removeBehavior(snapBehaviour)
+			animator?.addBehavior(attachmentBehaviour!)
+			animator?.removeBehavior(snapBehaviour!)
 		case .Changed:
 			center.y = CGRectGetMidY(self.bounds)
 			attachmentBehaviour?.anchorPoint = center
 		case .Ended, .Cancelled:
-			animator?.removeBehavior(attachmentBehaviour)
-			animator?.addBehavior(snapBehaviour)
+			animator?.removeBehavior(attachmentBehaviour!)
+			animator?.addBehavior(snapBehaviour!)
 			attachmentBehaviour = nil
 		default: break
 		}
@@ -92,7 +92,7 @@ class SwiperView: UIView, UICollisionBehaviorDelegate {
 	
 	// :MARK: UICollisionBehaviorDelegate
 	
-	func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying, atPoint p: CGPoint) {
+	func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, atPoint p: CGPoint) {
 		if let gesture = panGesture {
 			if gesture.state != .Possible {
 				if p.x > 0 {

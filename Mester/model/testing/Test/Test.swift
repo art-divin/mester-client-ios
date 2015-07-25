@@ -13,7 +13,7 @@ class Test: NSObject, Mapping {
 	let kFieldIdentifier = "id"
 	let kFieldCreationDate = "creationDate"
 	let kFieldStartDate = "startDate"
-	let kFieldEndDate = "endDate";
+	let kFieldEndDate = "endDate"
 	let kFieldCaseTests = "caseTests"
 	let kFieldStatus = "status"
 	let kFieldTestCase = "testCaseId"
@@ -27,28 +27,28 @@ class Test: NSObject, Mapping {
 	var project: Project?
 	
 	func deserialize(dic: [String : AnyObject?]) {
-		self.identifier = dic[kFieldIdentifier] as! String?
-		var dateFormatter = Common.dateFormatter
-		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-		if let dateStr = dic[kFieldCreationDate] as? String? {
-			self.creationDate = dateFormatter.dateFromString(dateStr!)!
+		self.identifier = dic[kFieldIdentifier] as? String
+		let dateFormatter = Common.dateFormatter
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
+		if let dateStr = dic[kFieldCreationDate] as? String {
+			self.creationDate = dateFormatter.dateFromString(dateStr)!
 		}
-		if let startDateStr = dic[kFieldStartDate] as? String? {
-			self.startDate = dateFormatter.dateFromString(startDateStr!)!
+		if let startDateStr = dic[kFieldStartDate] as? String {
+			self.startDate = dateFormatter.dateFromString(startDateStr)!
 		}
-		if let endDateStr = dic[kFieldEndDate] as? String? {
-			self.endDate = dateFormatter.dateFromString(endDateStr!)!
+		if let endDateStr = dic[kFieldEndDate] as? String {
+			self.endDate = dateFormatter.dateFromString(endDateStr)!
 		}
 		let caseTestArr = dic[kFieldCaseTests] as? [Dictionary<String, AnyObject>]
 		if caseTestArr != nil {
 			for caseTestDic in caseTestArr! {
-				var caseTest = CaseTest()
-				var testCaseID = caseTestDic[kFieldTestCase] as! String?
+				let caseTest = CaseTest()
+				let testCaseID = caseTestDic[kFieldTestCase] as? String
 				if testCaseID != nil {
 					var foundArr = self.project?.testCases.filter({ (testCase) -> Bool in
 						testCase.identifier == testCaseID
 					})
-					var testCase = foundArr?.first
+					let testCase = foundArr?.first
 					caseTest.testCase = testCase
 				}
 				caseTest.test = self
@@ -56,15 +56,16 @@ class Test: NSObject, Mapping {
 				self.caseTests.append(caseTest)
 			}
 		}
-		var status = dic[kFieldStatus] as! String?
-		self.status = TestStatus.testStatus(status)
+		if let status = dic[kFieldStatus] as? String {
+			self.status = TestStatus.testStatus(status)
+		}
 	}
 
 	func serialize() -> [String : AnyObject] {
 		if self.identifier != nil {
 			var cases: [[String : AnyObject]] = []
 			for caseTest in self.caseTests {
-				var caseDic = caseTest.serialize()
+				let caseDic = caseTest.serialize()
 				cases.append(caseDic)
 			}
 			return [ kFieldCaseTests : cases ]
@@ -78,7 +79,7 @@ class Test: NSObject, Mapping {
 			oldCaseTest.identifier == caseTest.identifier
 		}
 		if oldTestArr.count == 1 {
-			let idx = find(self.caseTests, oldTestArr.first!)
+			let idx = oldTestArr.indexOf(oldTestArr.first!)
 			self.caseTests[idx!] = caseTest
 		}
 	}

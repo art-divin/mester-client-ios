@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9050D411B6175E1004121D5 /* TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9050D401B6175E1004121D5 /* TestTests.swift */; };
+		C9050D451B61776D004121D5 /* test.failure in Resources */ = {isa = PBXBuildFile; fileRef = C9050D431B61776D004121D5 /* test.failure */; };
+		C9050D461B61776D004121D5 /* test.success in Resources */ = {isa = PBXBuildFile; fileRef = C9050D441B61776D004121D5 /* test.success */; };
 		C90BB4B81A7AE7C300FE8C6B /* SwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */; };
 		C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */; };
+		C9341AE61B5D348800FEAA7C /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9652ED41ADE7BF5001610FD /* Networking.framework */; };
 		C936959B1A6C1A1E00B06232 /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695981A6C1A1E00B06232 /* TestsViewController.swift */; };
 		C936959C1A6C1A1E00B06232 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695991A6C1A1E00B06232 /* MasterViewController.swift */; };
 		C936959E1A6C1A4500B06232 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C936959D1A6C1A4500B06232 /* ProjectViewController.swift */; };
@@ -18,6 +22,7 @@
 		C93FAD3A1A71933A0081390E /* CaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD391A71933A0081390E /* CaseTest.swift */; };
 		C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3B1A71936F0081390E /* StepTest.swift */; };
 		C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FAD3D1A719A4C0081390E /* TestStatus.swift */; };
+		C95182881B5C5137004F930D /* Dictionary+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95182871B5C5137004F930D /* Dictionary+Equatable.swift */; };
 		C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C962BA071A6C7771003DDE87 /* TestStepViewController.swift */; };
 		C9652ED51ADE7BF5001610FD /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9652ED41ADE7BF5001610FD /* Networking.framework */; };
 		C966D7011A76D131009887AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C966D7001A76D131009887AB /* AppDelegate.swift */; };
@@ -26,6 +31,15 @@
 		C970E3621A6BF112004EF36D /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970E3611A6BF112004EF36D /* Common.swift */; };
 		C9769F161A71B9D200791A5A /* TestCaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9769F151A71B9D200791A5A /* TestCaseCell.swift */; };
 		C9769F181A71CF9400791A5A /* StepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9769F171A71CF9400791A5A /* StepCell.swift */; };
+		C977B43C1B5AE01800C0FCA0 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C977B43B1B5AE01800C0FCA0 /* ProjectTests.swift */; };
+		C9D061281B5CCE7A00B0DCC9 /* TestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D061271B5CCE7A00B0DCC9 /* TestCaseTests.swift */; };
+		C9D061301B5CCF4B00B0DCC9 /* project.failure in Resources */ = {isa = PBXBuildFile; fileRef = C9D0612B1B5CCF4B00B0DCC9 /* project.failure */; };
+		C9D061311B5CCF4B00B0DCC9 /* project.success in Resources */ = {isa = PBXBuildFile; fileRef = C9D0612C1B5CCF4B00B0DCC9 /* project.success */; };
+		C9D061321B5CCF4B00B0DCC9 /* testcase.failure in Resources */ = {isa = PBXBuildFile; fileRef = C9D0612E1B5CCF4B00B0DCC9 /* testcase.failure */; };
+		C9D061331B5CCF4B00B0DCC9 /* testcase.success in Resources */ = {isa = PBXBuildFile; fileRef = C9D0612F1B5CCF4B00B0DCC9 /* testcase.success */; };
+		C9E8D78D1B5ED7BA0092EA16 /* TestStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E8D78C1B5ED7BA0092EA16 /* TestStepTests.swift */; };
+		C9E8D7911B5EDBA20092EA16 /* teststep.failure in Resources */ = {isa = PBXBuildFile; fileRef = C9E8D78F1B5EDBA20092EA16 /* teststep.failure */; };
+		C9E8D7921B5EDBA20092EA16 /* teststep.success in Resources */ = {isa = PBXBuildFile; fileRef = C9E8D7901B5EDBA20092EA16 /* teststep.success */; };
 		C9EDD53C1A6BB80E00624B5D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53B1A6BB80E00624B5D /* Project.swift */; };
 		C9EDD53F1A6BB82200624B5D /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD53E1A6BB82200624B5D /* TestCase.swift */; };
 		C9EDD5411A6BB83400624B5D /* TestStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5401A6BB83400624B5D /* TestStep.swift */; };
@@ -34,6 +48,7 @@
 		C9EDD5491A6BE31E00624B5D /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDD5481A6BE31E00624B5D /* ErrorHandler.swift */; };
 		C9F3327B1A6AD7A80086DDB4 /* RESTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3327A1A6AD7A80086DDB4 /* RESTManager.swift */; };
 		C9F332811A6AE15F0086DDB4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F332801A6AE15F0086DDB4 /* Theme.swift */; };
+		C9F856B51B5A41500054375B /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F856B01B5A41500054375B /* CommonTests.swift */; };
 		C9FCF24D1A6A9EDE00896B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FCF24B1A6A9EDE00896B10 /* Main.storyboard */; };
 		C9FCF24F1A6A9EDE00896B10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9FCF24E1A6A9EDE00896B10 /* Images.xcassets */; };
 		C9FCF2521A6A9EDE00896B10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FCF2501A6A9EDE00896B10 /* LaunchScreen.xib */; };
@@ -51,6 +66,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66D890ECBE1EB6A758952292 /* Pods-MesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MesterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8AC3A702290DCE905DFA6AAB /* Pods-MesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MesterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests.release.xcconfig"; sourceTree = "<group>"; };
+		AAC8EE1EC73D3E63D12296EE /* Pods_MesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9050D401B6175E1004121D5 /* TestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestTests.swift; path = test/TestTests.swift; sourceTree = "<group>"; };
+		C9050D431B61776D004121D5 /* test.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.failure; sourceTree = "<group>"; };
+		C9050D441B61776D004121D5 /* test.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.success; sourceTree = "<group>"; };
+		C9085A871B603C8A00C616C5 /* Pods_MesterTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_MesterTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_MesterTests.framework"; sourceTree = "<group>"; };
 		C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiperView.swift; path = UI/views/SwiperView.swift; sourceTree = "<group>"; };
 		C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCaseViewController.swift; sourceTree = "<group>"; };
 		C93695981A6C1A1E00B06232 /* TestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +84,8 @@
 		C93FAD391A71933A0081390E /* CaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaseTest.swift; path = model/testing/CaseTest/CaseTest.swift; sourceTree = "<group>"; };
 		C93FAD3B1A71936F0081390E /* StepTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepTest.swift; path = model/testing/StepTest/StepTest.swift; sourceTree = "<group>"; };
 		C93FAD3D1A719A4C0081390E /* TestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStatus.swift; path = model/testing/TestStatus.swift; sourceTree = "<group>"; };
+		C944DCDF1B602FFB00E2156A /* Pods_MesterTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_MesterTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_MesterTests.framework"; sourceTree = "<group>"; };
+		C95182871B5C5137004F930D /* Dictionary+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Equatable.swift"; path = "common/Dictionary+Equatable.swift"; sourceTree = "<group>"; };
 		C962BA071A6C7771003DDE87 /* TestStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStepViewController.swift; sourceTree = "<group>"; };
 		C9652ED41ADE7BF5001610FD /* Networking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Networking.framework; path = libs/Networking.framework; sourceTree = "<group>"; };
 		C966D7001A76D131009887AB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +94,15 @@
 		C970E3611A6BF112004EF36D /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = common/Common.swift; sourceTree = "<group>"; };
 		C9769F151A71B9D200791A5A /* TestCaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCaseCell.swift; path = UI/cells/TestCaseCell.swift; sourceTree = "<group>"; };
 		C9769F171A71CF9400791A5A /* StepCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepCell.swift; path = UI/cells/StepCell.swift; sourceTree = "<group>"; };
+		C977B43B1B5AE01800C0FCA0 /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
+		C9D061271B5CCE7A00B0DCC9 /* TestCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCaseTests.swift; sourceTree = "<group>"; };
+		C9D0612B1B5CCF4B00B0DCC9 /* project.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project.failure; sourceTree = "<group>"; };
+		C9D0612C1B5CCF4B00B0DCC9 /* project.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project.success; sourceTree = "<group>"; };
+		C9D0612E1B5CCF4B00B0DCC9 /* testcase.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testcase.failure; sourceTree = "<group>"; };
+		C9D0612F1B5CCF4B00B0DCC9 /* testcase.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testcase.success; sourceTree = "<group>"; };
+		C9E8D78C1B5ED7BA0092EA16 /* TestStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStepTests.swift; sourceTree = "<group>"; };
+		C9E8D78F1B5EDBA20092EA16 /* teststep.failure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teststep.failure; sourceTree = "<group>"; };
+		C9E8D7901B5EDBA20092EA16 /* teststep.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teststep.success; sourceTree = "<group>"; };
 		C9EDD53B1A6BB80E00624B5D /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = model/project/Project.swift; sourceTree = "<group>"; };
 		C9EDD53E1A6BB82200624B5D /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCase.swift; path = model/testcase/TestCase.swift; sourceTree = "<group>"; };
 		C9EDD5401A6BB83400624B5D /* TestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestStep.swift; path = model/testcase/TestStep.swift; sourceTree = "<group>"; };
@@ -78,6 +111,7 @@
 		C9EDD5481A6BE31E00624B5D /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandler.swift; path = services/ErrorHandler/ErrorHandler.swift; sourceTree = "<group>"; };
 		C9F3327A1A6AD7A80086DDB4 /* RESTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RESTManager.swift; path = services/REST/RESTManager.swift; sourceTree = "<group>"; };
 		C9F332801A6AE15F0086DDB4 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = UI/UIManager/Theme.swift; sourceTree = "<group>"; };
+		C9F856B01B5A41500054375B /* CommonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
 		C9FCF2401A6A9EDD00896B10 /* Mester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FCF2441A6A9EDE00896B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9FCF24C1A6A9EDE00896B10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,12 +135,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9341AE61B5D348800FEAA7C /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DE9DDEF4D18B9D4E38CB87A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9085A871B603C8A00C616C5 /* Pods_MesterTests.framework */,
+				C944DCDF1B602FFB00E2156A /* Pods_MesterTests.framework */,
+				AAC8EE1EC73D3E63D12296EE /* Pods_MesterTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9050D3F1B6175D1004121D5 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				C9050D401B6175E1004121D5 /* TestTests.swift */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		C9050D421B61776D004121D5 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				C9050D431B61776D004121D5 /* test.failure */,
+				C9050D441B61776D004121D5 /* test.success */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
 		C90BB4B61A7AE7A600FE8C6B /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,8 +240,39 @@
 			isa = PBXGroup;
 			children = (
 				C970E3611A6BF112004EF36D /* Common.swift */,
+				C95182871B5C5137004F930D /* Dictionary+Equatable.swift */,
 			);
 			name = common;
+			sourceTree = "<group>";
+		};
+		C9D061291B5CCF4B00B0DCC9 /* mock */ = {
+			isa = PBXGroup;
+			children = (
+				C9050D421B61776D004121D5 /* test */,
+				C9D0612A1B5CCF4B00B0DCC9 /* project */,
+				C9D0612D1B5CCF4B00B0DCC9 /* testcase */,
+			);
+			path = mock;
+			sourceTree = "<group>";
+		};
+		C9D0612A1B5CCF4B00B0DCC9 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				C9D0612B1B5CCF4B00B0DCC9 /* project.failure */,
+				C9D0612C1B5CCF4B00B0DCC9 /* project.success */,
+			);
+			path = project;
+			sourceTree = "<group>";
+		};
+		C9D0612D1B5CCF4B00B0DCC9 /* testcase */ = {
+			isa = PBXGroup;
+			children = (
+				C9E8D78F1B5EDBA20092EA16 /* teststep.failure */,
+				C9E8D7901B5EDBA20092EA16 /* teststep.success */,
+				C9D0612E1B5CCF4B00B0DCC9 /* testcase.failure */,
+				C9D0612F1B5CCF4B00B0DCC9 /* testcase.success */,
+			);
+			path = testcase;
 			sourceTree = "<group>";
 		};
 		C9EDD5391A6BB7EC00624B5D /* model */ = {
@@ -273,12 +366,57 @@
 			name = cells;
 			sourceTree = "<group>";
 		};
+		C9F856AF1B5A41500054375B /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C9F856B01B5A41500054375B /* CommonTests.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		C9F856B11B5A41500054375B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C9F856B21B5A41500054375B /* project */,
+				C9F856B31B5A41500054375B /* testcase */,
+				C9F856B41B5A41500054375B /* testing */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C9F856B21B5A41500054375B /* project */ = {
+			isa = PBXGroup;
+			children = (
+				C977B43B1B5AE01800C0FCA0 /* ProjectTests.swift */,
+			);
+			path = project;
+			sourceTree = "<group>";
+		};
+		C9F856B31B5A41500054375B /* testcase */ = {
+			isa = PBXGroup;
+			children = (
+				C9D061271B5CCE7A00B0DCC9 /* TestCaseTests.swift */,
+				C9E8D78C1B5ED7BA0092EA16 /* TestStepTests.swift */,
+			);
+			path = testcase;
+			sourceTree = "<group>";
+		};
+		C9F856B41B5A41500054375B /* testing */ = {
+			isa = PBXGroup;
+			children = (
+				C9050D3F1B6175D1004121D5 /* test */,
+			);
+			path = testing;
+			sourceTree = "<group>";
+		};
 		C9FCF2371A6A9EDD00896B10 = {
 			isa = PBXGroup;
 			children = (
 				C9FCF2421A6A9EDD00896B10 /* Mester */,
 				C9FCF25A1A6A9EDE00896B10 /* MesterTests */,
 				C9FCF2411A6A9EDD00896B10 /* Products */,
+				FA5FE8A6D3C72C80B810C024 /* Pods */,
+				0DE9DDEF4D18B9D4E38CB87A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,6 +458,9 @@
 		C9FCF25A1A6A9EDE00896B10 /* MesterTests */ = {
 			isa = PBXGroup;
 			children = (
+				C9D061291B5CCF4B00B0DCC9 /* mock */,
+				C9F856AF1B5A41500054375B /* common */,
+				C9F856B11B5A41500054375B /* model */,
 				C9FCF25D1A6A9EDE00896B10 /* MesterTests.swift */,
 				C9FCF25B1A6A9EDE00896B10 /* Supporting Files */,
 			);
@@ -340,6 +481,15 @@
 				C9652ED41ADE7BF5001610FD /* Networking.framework */,
 			);
 			name = libs;
+			sourceTree = "<group>";
+		};
+		FA5FE8A6D3C72C80B810C024 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				66D890ECBE1EB6A758952292 /* Pods-MesterTests.debug.xcconfig */,
+				8AC3A702290DCE905DFA6AAB /* Pods-MesterTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,9 +517,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9FCF2641A6A9EDE00896B10 /* Build configuration list for PBXNativeTarget "MesterTests" */;
 			buildPhases = (
+				FB2DA1EE82502643F019E08C /* Check Pods Manifest.lock */,
 				C9FCF2531A6A9EDE00896B10 /* Sources */,
 				C9FCF2541A6A9EDE00896B10 /* Frameworks */,
 				C9FCF2551A6A9EDE00896B10 /* Resources */,
+				59AD7016C58186BA8BA2E767 /* Embed Pods Frameworks */,
+				1CF0BFDA12EE442D92D02AF8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,11 +540,14 @@
 		C9FCF2381A6A9EDD00896B10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Ruslan Alikhamov";
 				TargetAttributes = {
 					C9FCF23F1A6A9EDD00896B10 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 73VGTR5M5Z;
 					};
 					C9FCF2561A6A9EDE00896B10 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -434,12 +590,50 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D061321B5CCF4B00B0DCC9 /* testcase.failure in Resources */,
+				C9D061301B5CCF4B00B0DCC9 /* project.failure in Resources */,
+				C9E8D7911B5EDBA20092EA16 /* teststep.failure in Resources */,
+				C9050D461B61776D004121D5 /* test.success in Resources */,
+				C9050D451B61776D004121D5 /* test.failure in Resources */,
+				C9D061311B5CCF4B00B0DCC9 /* project.success in Resources */,
+				C9D061331B5CCF4B00B0DCC9 /* testcase.success in Resources */,
+				C9E8D7921B5EDBA20092EA16 /* teststep.success in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1CF0BFDA12EE442D92D02AF8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59AD7016C58186BA8BA2E767 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${SRCROOT}/Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C9A151BB1A73E3DA00D5280B /* TODO markup */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,6 +648,21 @@
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TODO|FIXME|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
 		};
+		FB2DA1EE82502643F019E08C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -465,6 +674,7 @@
 				C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */,
 				C9EDD5431A6BC1AD00624B5D /* Mapping.swift in Sources */,
 				C962BA081A6C7771003DDE87 /* TestStepViewController.swift in Sources */,
+				C95182881B5C5137004F930D /* Dictionary+Equatable.swift in Sources */,
 				C93FAD3E1A719A4C0081390E /* TestStatus.swift in Sources */,
 				C9F332811A6AE15F0086DDB4 /* Theme.swift in Sources */,
 				C93FAD3C1A71936F0081390E /* StepTest.swift in Sources */,
@@ -493,7 +703,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E8D78D1B5ED7BA0092EA16 /* TestStepTests.swift in Sources */,
+				C9050D411B6175E1004121D5 /* TestTests.swift in Sources */,
+				C9F856B51B5A41500054375B /* CommonTests.swift in Sources */,
+				C9D061281B5CCE7A00B0DCC9 /* TestCaseTests.swift in Sources */,
 				C9FCF25E1A6A9EDE00896B10 /* MesterTests.swift in Sources */,
+				C977B43C1B5AE01800C0FCA0 /* ProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,8 +762,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -591,6 +808,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -608,6 +826,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -616,7 +836,9 @@
 				INFOPLIST_FILE = Mester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mester.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -625,6 +847,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -633,41 +857,47 @@
 				INFOPLIST_FILE = Mester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mester.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		C9FCF2651A6A9EDE00896B10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66D890ECBE1EB6A758952292 /* Pods-MesterTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Mester/libs/";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MesterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mester.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = build;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mester.app/Mester";
 			};
 			name = Debug;
 		};
 		C9FCF2661A6A9EDE00896B10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AC3A702290DCE905DFA6AAB /* Pods-MesterTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Mester/libs/";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				INFOPLIST_FILE = MesterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mester.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = build;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mester.app/Mester";
 			};
 			name = Release;

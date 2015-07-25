@@ -47,7 +47,7 @@ class MasterViewController: UITableViewController {
 	}
 	
 	func showProjectDetails(sender: AnyObject) {
-		var projectVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProjectViewController") as! ProjectViewController
+		let projectVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProjectViewController") as! ProjectViewController
 		projectVC.callback = { [unowned self] (project) in
 			self.fetchProjectList()
 		}
@@ -58,7 +58,7 @@ class MasterViewController: UITableViewController {
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "TestsViewController" {
-			if let indexPath = self.tableView.indexPathForSelectedRow() {
+			if let indexPath = self.tableView.indexPathForSelectedRow {
 				let project = objects[indexPath.row] as Project
 				(segue.destinationViewController as! TestsViewController).project = project
 				self.tableView.deselectRowAtIndexPath(indexPath, animated: true)

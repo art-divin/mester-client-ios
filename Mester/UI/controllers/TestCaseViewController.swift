@@ -20,7 +20,7 @@ class TestCaseViewController: UIViewController {
         super.viewDidLoad()
 		self.navigationItem.title = NSLocalizedString("layouts.testcase.add.title", comment: "add testcase view title")
 		
-		var doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
+		let doneBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
 		self.navigationItem.rightBarButtonItem = doneBtn
 		
 		self.titleHintLbl.text = NSLocalizedString("layouts.testcase.add.name.hint", comment: "testcase name hint lable title")
@@ -28,8 +28,8 @@ class TestCaseViewController: UIViewController {
     }
 	
 	func done(sender: AnyObject?) {
-		if !self.titleField.text.isEmpty {
-			var testCase = TestCase()
+		if !self.titleField.text!.isEmpty {
+			let testCase = TestCase()
 			testCase.title = self.titleField.text
 			testCase.project = self.project
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = true
