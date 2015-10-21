@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02C4AB3143369A03EC59349A /* Pods_MesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC8EE1EC73D3E63D12296EE /* Pods_MesterTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C9050D411B6175E1004121D5 /* TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9050D401B6175E1004121D5 /* TestTests.swift */; };
 		C9050D451B61776D004121D5 /* test.failure in Resources */ = {isa = PBXBuildFile; fileRef = C9050D431B61776D004121D5 /* test.failure */; };
 		C9050D461B61776D004121D5 /* test.success in Resources */ = {isa = PBXBuildFile; fileRef = C9050D441B61776D004121D5 /* test.success */; };
 		C90BB4B81A7AE7C300FE8C6B /* SwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */; };
+		C91BA8E31BD831BC00F02667 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C91BA8E21BD831BC00F02667 /* Default-568h@2x.png */; };
 		C92F79EF1A6C5A2E00F2DF2E /* TestCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */; };
 		C9341AE61B5D348800FEAA7C /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9652ED41ADE7BF5001610FD /* Networking.framework */; };
 		C936959B1A6C1A1E00B06232 /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93695981A6C1A1E00B06232 /* TestsViewController.swift */; };
@@ -74,6 +76,7 @@
 		C9050D441B61776D004121D5 /* test.success */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.success; sourceTree = "<group>"; };
 		C9085A871B603C8A00C616C5 /* Pods_MesterTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_MesterTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_MesterTests.framework"; sourceTree = "<group>"; };
 		C90BB4B71A7AE7C300FE8C6B /* SwiperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiperView.swift; path = UI/views/SwiperView.swift; sourceTree = "<group>"; };
+		C91BA8E21BD831BC00F02667 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		C92F79EE1A6C5A2E00F2DF2E /* TestCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCaseViewController.swift; sourceTree = "<group>"; };
 		C93695981A6C1A1E00B06232 /* TestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
 		C93695991A6C1A1E00B06232 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9341AE61B5D348800FEAA7C /* Networking.framework in Frameworks */,
+				02C4AB3143369A03EC59349A /* Pods_MesterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +453,7 @@
 		C9FCF2431A6A9EDE00896B10 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C91BA8E21BD831BC00F02667 /* Default-568h@2x.png */,
 				C936959F1A6C1CDA00B06232 /* localization */,
 				C9FCF2441A6A9EDE00896B10 /* Info.plist */,
 			);
@@ -582,6 +587,7 @@
 				C9FCF24D1A6A9EDE00896B10 /* Main.storyboard in Resources */,
 				C93695A11A6C1CFC00B06232 /* Localizable.strings in Resources */,
 				C9FCF2521A6A9EDE00896B10 /* LaunchScreen.xib in Resources */,
+				C91BA8E31BD831BC00F02667 /* Default-568h@2x.png in Resources */,
 				C9FCF24F1A6A9EDE00896B10 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,7 +637,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${SRCROOT}/Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MesterTests/Pods-MesterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C9A151BB1A73E3DA00D5280B /* TODO markup */ = {

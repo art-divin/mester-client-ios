@@ -34,7 +34,7 @@ class MasterViewController: UITableViewController {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 				if result != nil {
 					self.objects.removeAll(keepCapacity: false)
-					self.objects.extend(result as! [Project])
+					self.objects.appendContentsOf(result as! [Project])
 					self.tableView.reloadData()
 				}
 			});

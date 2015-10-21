@@ -23,7 +23,7 @@ class StepsViewController: UITableViewController {
 		didSet {
 			if let testCase = testCase {
 				self.objects.removeAll(keepCapacity: false)
-				self.objects.extend(testCase.steps as [AnyObject]!)
+				self.objects.appendContentsOf(testCase.steps as [AnyObject]!)
 				self.configureView()
 				self.tableView.reloadData()
 			}
@@ -34,7 +34,7 @@ class StepsViewController: UITableViewController {
 		didSet {
 			if let caseTest = caseTest {
 				self.objects.removeAll(keepCapacity: false)
-				self.objects.extend(caseTest.stepTests as [AnyObject]!)
+				self.objects.appendContentsOf(caseTest.stepTests as [AnyObject]!)
 				self.tableView.reloadData()
 			}
 		}
@@ -101,7 +101,7 @@ class StepsViewController: UITableViewController {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 				if error == nil {
 					self?.objects.removeAll(keepCapacity: false)
-					self?.objects.extend(result as [AnyObject]!)
+					self?.objects.appendContentsOf(result as [AnyObject]!)
 					self?.tableView.reloadData()
 				}
 			});
