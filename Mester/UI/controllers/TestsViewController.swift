@@ -29,7 +29,7 @@ class TestsViewController: UITableViewController {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 				if error == nil {
 					self?.objects.removeAll(keepCapacity: false)
-					self?.objects.extend(result as [AnyObject]!)
+					self?.objects.appendContentsOf(result as [AnyObject]!)
 					self?.testsShown = true
 					self?.tableView.reloadData()
 				}
@@ -45,7 +45,7 @@ class TestsViewController: UITableViewController {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
 				if error == nil {
 					self?.objects.removeAll(keepCapacity: false)
-					self?.objects.extend(result as [AnyObject]!)
+					self?.objects.appendContentsOf(result as [AnyObject]!)
 					self?.testsShown = false
 					self?.tableView.reloadData()
 				}
@@ -223,7 +223,7 @@ class TestsViewController: UITableViewController {
 					});
 				})
 			} else {
-				let test = objects[indexPath.row] as! Test
+				_ = objects[indexPath.row] as! Test
 				// TODO:
 			}
 			
