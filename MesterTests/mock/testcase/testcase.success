@@ -1,0 +1,23 @@
+{
+"id": "1",
+"title": "Test Case 1",
+"creationDate": "2015-07-20 08:38:23 +0200",
+"projectId": "1",
+"steps":
+[
+{
+"id": "1",
+"number": 1,
+"text": "text for the first step",
+"creationDate": "2015-07-20 08:38:23 +0200",
+"testCaseId": "1"
+},
+{
+"id": "2",
+"number": 2,
+"text": "text for the second step",
+"creationDate": "2015-07-20 08:38:23 +0200",
+"testCaseId": "1"
+}
+]
+}

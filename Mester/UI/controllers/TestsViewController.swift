@@ -141,7 +141,7 @@ class TestsViewController: UITableViewController {
 		}
 	}
 	
-	override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
 		if identifier == "StepsViewController" {
 			if self.testsShown {
 				if let indexPath = self.tableView.indexPathForSelectedRow {
